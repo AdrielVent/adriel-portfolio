@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -24,8 +25,10 @@
         <span>Adriel Ventura</span>
       </a>
       <nav aria-label="Portfolio navigation">
+        <a href="#simulation">Simulation</a>
         <a href="#projects">Projects</a>
         <a href="#competencies">Competencies</a>
+        <a href="#build">Build Log</a>
         <a href="#proof">Proof</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -44,7 +47,8 @@
             Mechanical Engineering student building VR digital twins, Poka-Yoke assembly logic, FEA-validated structures, and rapid prototypes for manufacturing-focused hardware teams.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#projects">Review Work</a>
+            <a class="button primary" href="#simulation">Run Simulation</a>
+            <a class="button secondary" href="#projects">Review Work</a>
             <a class="button secondary" href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
           </div>
         </div>
@@ -90,12 +94,103 @@
           <p>students supported through CSTEP</p>
         </div>
         <div class="metric">
-          <span data-count="45">00</span>
-          <p>kN C-frame load case</p>
+          <span>45 kN</span>
+          <p>C-frame operational load</p>
         </div>
         <div class="metric">
           <span data-count="20">00</span>
           <p>percent cycle-time opportunity identified</p>
+        </div>
+      </section>
+
+      <section class="section active-project" aria-labelledby="active-project-title">
+        <div class="active-project-grid">
+          <div>
+            <p class="eyebrow">Active Project</p>
+            <h2 id="active-project-title">Heat sink thermal validation</h2>
+            <p>
+              Project B is constrained by a 100 W heat load, 25 C ambient air, 85 C maximum operating temperature, and a 50.8 mm x 50.8 mm square footprint. The validation target is a thermal resistance at or below 0.60 C/W, derived from the 60 C allowable temperature rise over 100 W.
+            </p>
+            <div class="thermal-specs" aria-label="Heat sink boundary conditions">
+              <div><span>q</span><strong>100 W</strong></div>
+              <div><span>T ambient</span><strong>25 C</strong></div>
+              <div><span>T max</span><strong>85 C</strong></div>
+              <div><span>Footprint</span><strong>50.8 mm square</strong></div>
+            </div>
+          </div>
+          <div class="model-viewer-panel">
+            <model-viewer
+              src="assets/models/heatsink.glb"
+              poster="assets/mechanical-hud-backdrop.png"
+              alt="Interactive placeholder for heat sink GLB thermal validation model"
+              auto-rotate
+              camera-controls
+              touch-action="pan-y"
+              interaction-prompt="auto"
+              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
+              exposure="0.9"
+              shadow-intensity="0.65"
+            >
+              <div class="model-placeholder" slot="poster">
+                <span>heatsink.glb</span>
+                <strong>Awaiting CAD Export</strong>
+              </div>
+            </model-viewer>
+          </div>
+        </div>
+      </section>
+
+      <section class="section simulation" id="simulation" aria-labelledby="simulation-title">
+        <div class="section-heading">
+          <p class="eyebrow">Live Digital Twin</p>
+          <h2 id="simulation-title">Poka-Yoke assembly verifier</h2>
+          <p class="section-deck">
+            Interactive demo inspired by my Unity/C# VR assembly project: rotate the assembly, run the installation sequence, and watch the validation state change in real time.
+          </p>
+        </div>
+
+        <div class="simulation-console">
+          <div class="model-stage" aria-label="Interactive centrifugal pump assembly model">
+            <div class="axis-label x-axis">X</div>
+            <div class="axis-label y-axis">Y</div>
+            <div class="axis-label z-axis">Z</div>
+            <model-viewer
+              id="digitalTwin"
+              src="assets/models/c-frame.glb"
+              poster="assets/google-sites/shaft-collar-fea.jpg"
+              alt="Interactive placeholder for C-frame GLB model"
+              auto-rotate
+              camera-controls
+              touch-action="pan-y"
+              interaction-prompt="auto"
+              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
+              exposure="0.95"
+              shadow-intensity="0.7"
+            >
+              <div class="model-placeholder" slot="poster">
+                <span>c-frame.glb</span>
+                <strong>Upload GLB to Activate Model</strong>
+              </div>
+            </model-viewer>
+          </div>
+
+          <div class="validation-panel">
+            <div class="panel-topline">
+              <span>Assembly Logic</span>
+              <strong id="sequenceStatus">Awaiting Input</strong>
+            </div>
+            <ol class="sequence-steps" aria-label="Poka-Yoke sequence">
+              <li data-step="impeller"><button type="button">Install Impeller</button><span>Pending</span></li>
+              <li data-step="cover"><button type="button">Install Cover</button><span>Locked</span></li>
+              <li data-step="fasteners"><button type="button">Torque Fasteners</button><span>Locked</span></li>
+            </ol>
+            <div class="telemetry-readout" aria-label="Simulation telemetry">
+              <div><span>FEA Load</span><strong>45 kN</strong></div>
+              <div><span>FoS</span><strong>1.41</strong></div>
+              <div><span>Peak Deflection</span><strong>1.6 mm</strong></div>
+            </div>
+            <button class="button secondary reset-sequence" type="button">Reset Logic</button>
+          </div>
         </div>
       </section>
 
@@ -111,7 +206,7 @@
           <span>Hardware-focused</span>
         </div>
         <div class="project-grid">
-          <article class="project-card featured">
+          <article class="project-card">
             <figure class="project-media">
               <img src="assets/google-sites/prototype-links.jpg" alt="Physical prototype linkage assembly" />
             </figure>
@@ -243,6 +338,27 @@
         </div>
       </section>
 
+      <section class="section build-log" id="build" aria-labelledby="build-title">
+        <div class="section-heading">
+          <p class="eyebrow">Build Breakdown</p>
+          <h2 id="build-title">How this portfolio was engineered</h2>
+        </div>
+        <div class="command-console">
+          <article>
+            <span>[Input]</span>
+            <p>"Create a mechanical engineering portfolio with a restrained cyber-mechanical HUD aesthetic, real project proof, and Poka-Yoke validation logic."</p>
+          </article>
+          <article>
+            <span>[Logic]</span>
+            <p>Codex converted the Google Sites export into a static GitHub Pages repo, then bridged the portfolio story into a live assembly verifier with browser-native interaction.</p>
+          </article>
+          <article>
+            <span>[Output]</span>
+            <p>A public, QR-ready portfolio that behaves like a compact digital twin: rotating hardware, telemetry, validation state, and engineering proof in one page.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section proof" id="proof" aria-labelledby="proof-title">
         <div class="section-heading">
           <p class="eyebrow">Proof Points</p>
@@ -284,6 +400,11 @@
         </div>
       </section>
     </main>
+
+    <aside class="status-widget" aria-label="Live portfolio status">
+      <span>System Status</span>
+      <strong id="statusMetric">ME '27</strong>
+    </aside>
 
     <footer>
       <span>AV-PORTFOLIO // Mechanical Engineering</span>
