@@ -3,6 +3,7 @@ const tiltCards = document.querySelectorAll(".project-card, .competency-grid art
 const statusMetric = document.querySelector("#statusMetric");
 const startupOverlay = document.querySelector("#startupOverlay");
 const startupSkip = document.querySelector("#startupSkip");
+const copyEmailButton = document.querySelector("#copyEmailButton");
 
 const completeStartup = () => {
   if (!startupOverlay || startupOverlay.classList.contains("is-complete")) {
@@ -24,6 +25,50 @@ if (startupOverlay) {
     window.setTimeout(completeStartup, 2100);
     startupSkip?.addEventListener("click", completeStartup);
   }
+}
+
+const fallbackCopyText = (text) => {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.setAttribute("readonly", "");
+  textArea.style.position = "absolute";
+  textArea.style.left = "-9999px";
+  document.body.appendChild(textArea);
+  textArea.select();
+
+  try {
+    return document.execCommand("copy");
+  } finally {
+    textArea.remove();
+  }
+};
+
+if (copyEmailButton) {
+  const defaultLabel = copyEmailButton.textContent;
+  const email = copyEmailButton.dataset.email || "";
+
+  copyEmailButton.addEventListener("click", async () => {
+    let copied = false;
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+        copied = true;
+      }
+    } catch {
+      copied = false;
+    }
+
+    if (!copied) {
+      copied = fallbackCopyText(email);
+    }
+
+    copyEmailButton.textContent = copied ? "Copied Email" : "Copy Failed";
+
+    window.setTimeout(() => {
+      copyEmailButton.textContent = defaultLabel;
+    }, 1600);
+  });
 }
 
 const runCounter = (entry) => {

@@ -102,20 +102,22 @@ a {
 .startup-panel {
   position: relative;
   z-index: 1;
-  width: min(28rem, calc(100% - 2rem));
+  width: min(72rem, calc(100% - 2rem));
   display: grid;
   justify-items: center;
-  gap: 0.85rem;
-  padding: 2rem 1.4rem 1.5rem;
+  gap: 1.15rem;
+  padding: 2.8rem clamp(1.4rem, 3vw, 3rem) 2rem;
   border: 1px solid rgba(57, 239, 255, 0.26);
-  border-radius: 8px;
+  border-radius: 1.7rem;
   background:
+    radial-gradient(circle at 50% 18%, rgba(57, 239, 255, 0.08), transparent 34rem),
     linear-gradient(145deg, rgba(57, 239, 255, 0.12), transparent 42%),
-    rgba(3, 11, 16, 0.88);
+    rgba(3, 11, 16, 0.9);
   box-shadow:
     inset 0 0 42px rgba(57, 239, 255, 0.08),
     0 0 40px rgba(57, 239, 255, 0.12);
   animation: startup-rise 500ms ease both;
+  text-align: center;
 }
 
 .startup-panel::before,
@@ -126,24 +128,30 @@ a {
 }
 
 .startup-panel::before {
-  inset: 0.9rem;
+  inset: 2.8rem;
   border: 1px solid rgba(57, 239, 255, 0.14);
 }
 
 .startup-panel::after {
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%);
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%),
+    radial-gradient(circle at 50% 38%, rgba(57, 239, 255, 0.05), transparent 28rem);
 }
 
 .startup-logo {
-  width: min(14rem, 65vw);
-  aspect-ratio: 1;
+  position: relative;
+  z-index: 1;
+  width: min(60rem, 86vw);
+  aspect-ratio: 16 / 7;
   object-fit: contain;
-  mix-blend-mode: screen;
+  margin-top: 0.15rem;
   filter:
-    saturate(1.1)
-    drop-shadow(0 0 14px rgba(255, 86, 86, 0.45))
-    drop-shadow(0 0 34px rgba(255, 86, 86, 0.24));
+    brightness(1.08)
+    saturate(1.08)
+    drop-shadow(0 0 16px rgba(57, 239, 255, 0.38))
+    drop-shadow(0 0 36px rgba(57, 239, 255, 0.18));
   animation: startup-pulse 1400ms ease-in-out infinite;
 }
 
@@ -163,27 +171,30 @@ a {
 
 .startup-kicker {
   color: var(--cyan);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 16px rgba(57, 239, 255, 0.35);
 }
 
 .startup-title {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  font-size: clamp(3rem, 8vw, 5.8rem);
   text-align: center;
-  text-shadow: 0 0 18px rgba(57, 239, 255, 0.24);
+  text-shadow: 0 0 22px rgba(57, 239, 255, 0.28);
 }
 
 .startup-copy {
-  max-width: 22rem;
+  max-width: 38rem;
   color: #c8e8ef;
   text-align: center;
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  line-height: 1.45;
 }
 
 .startup-progress {
-  width: min(18rem, 100%);
-  height: 0.48rem;
+  width: min(30rem, 100%);
+  height: 0.52rem;
   overflow: hidden;
   border: 1px solid rgba(57, 239, 255, 0.26);
   background: rgba(57, 239, 255, 0.08);
@@ -199,14 +210,14 @@ a {
 }
 
 .startup-readout {
-  width: min(18rem, 100%);
+  width: min(30rem, 100%);
   display: grid;
   gap: 0.35rem;
 }
 
 .startup-readout span {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   opacity: 0;
 }
@@ -612,32 +623,6 @@ footer {
   margin: 1rem 0 0;
   color: #bfdde5;
   font-size: 1.1rem;
-}
-
-.interface-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  margin: -0.3rem 0 1rem;
-  border: 1px solid rgba(57, 239, 255, 0.16);
-  background: rgba(57, 239, 255, 0.12);
-}
-
-.interface-strip span {
-  min-height: 2.4rem;
-  display: grid;
-  place-items: center;
-  padding: 0.5rem;
-  color: var(--muted);
-  background: rgba(3, 11, 16, 0.78);
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.62rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.interface-strip span:first-child {
-  color: var(--cyan);
 }
 
 .summary {
@@ -1245,8 +1230,18 @@ footer {
   }
 
   .startup-panel {
-    width: min(24rem, calc(100% - 1.2rem));
-    padding: 1.5rem 1rem 1.2rem;
+    width: min(100% - 1rem, 32rem);
+    gap: 0.85rem;
+    padding: 1.5rem 0.95rem 1.15rem;
+    border-radius: 1.1rem;
+  }
+
+  .startup-panel::before {
+    inset: 1.15rem;
+  }
+
+  .startup-logo {
+    width: min(26rem, 92vw);
   }
 
   h1 {
@@ -1271,10 +1266,6 @@ footer {
 
   .metrics {
     grid-template-columns: 1fr;
-  }
-
-  .interface-strip {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .status-widget {
