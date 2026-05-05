@@ -612,6 +612,39 @@ footer {
   filter: saturate(0.9) contrast(1.05);
 }
 
+.project-schematic {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(57, 239, 255, 0.18), transparent 9rem),
+    linear-gradient(rgba(57, 239, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 239, 255, 0.07) 1px, transparent 1px),
+    rgba(3, 11, 16, 0.72);
+  background-size: auto, 32px 32px, 32px 32px, auto;
+}
+
+.project-schematic span,
+.project-schematic strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.project-schematic span {
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+.project-schematic strong {
+  color: var(--cyan);
+  font-size: 0.96rem;
+}
+
 .project-card h3 {
   margin-top: 2rem;
 }
@@ -711,20 +744,8 @@ footer {
   font-size: 0.82rem;
 }
 
-.simulation {
-  padding-top: clamp(3rem, 7vw, 5.5rem);
-}
-
-.simulation-console {
-  display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
-  gap: 1rem;
-  align-items: stretch;
-}
-
-.model-stage,
-.validation-panel,
-.command-console article {
+.command-console article,
+.model-viewer-panel {
   border: 1px solid rgba(57, 239, 255, 0.24);
   border-radius: 6px;
   background:
@@ -733,60 +754,6 @@ footer {
   box-shadow: inset 0 0 32px rgba(57, 239, 255, 0.05);
 }
 
-.model-stage {
-  position: relative;
-  min-height: 30rem;
-  overflow: hidden;
-  perspective: 900px;
-}
-
-.model-stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 52% 45%, rgba(57, 239, 255, 0.16), transparent 11rem),
-    conic-gradient(from 120deg at 50% 50%, rgba(100, 185, 255, 0.18), transparent 24%, rgba(57, 239, 255, 0.14), transparent 58%);
-  opacity: 0.8;
-}
-
-.model-stage::after {
-  content: "";
-  position: absolute;
-  inset: 1rem;
-  border: 1px solid rgba(57, 239, 255, 0.14);
-  background:
-    linear-gradient(90deg, transparent calc(50% - 1px), rgba(57, 239, 255, 0.16) 50%, transparent calc(50% + 1px)),
-    linear-gradient(0deg, transparent calc(50% - 1px), rgba(57, 239, 255, 0.12) 50%, transparent calc(50% + 1px));
-  background-size: 9rem 9rem;
-  pointer-events: none;
-}
-
-.axis-label {
-  position: absolute;
-  z-index: 2;
-  color: var(--cyan);
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.72rem;
-  text-shadow: 0 0 14px rgba(57, 239, 255, 0.62);
-}
-
-.x-axis {
-  right: 1.5rem;
-  bottom: 2rem;
-}
-
-.y-axis {
-  left: 1.5rem;
-  top: 1.5rem;
-}
-
-.z-axis {
-  left: 50%;
-  top: 1.5rem;
-}
-
-.model-stage model-viewer,
 .model-viewer-panel model-viewer {
   position: relative;
   z-index: 2;
@@ -801,8 +768,6 @@ footer {
 .model-viewer-panel {
   min-height: 24rem;
   overflow: hidden;
-  border: 1px solid rgba(57, 239, 255, 0.24);
-  border-radius: 6px;
   background:
     radial-gradient(circle at 50% 45%, rgba(57, 239, 255, 0.12), transparent 12rem),
     rgba(3, 11, 16, 0.82);
@@ -836,121 +801,14 @@ footer {
   font-size: 1rem;
 }
 
-.validation-panel {
-  padding: 1.1rem;
-}
-
-.panel-topline {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-family: "Orbitron", sans-serif;
-  text-transform: uppercase;
-}
-
-.panel-topline span {
-  color: var(--muted);
-  font-size: 0.68rem;
-}
-
-.panel-topline strong {
-  color: var(--accent);
-  font-size: 0.75rem;
-}
-
-.sequence-steps {
-  display: grid;
-  gap: 0.7rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sequence-steps li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.65rem;
-  align-items: center;
-  padding: 0.65rem;
-  border: 1px solid rgba(57, 239, 255, 0.16);
-  background: rgba(3, 11, 16, 0.58);
-}
-
-.sequence-steps button {
-  min-height: 2.4rem;
-  border: 1px solid rgba(57, 239, 255, 0.3);
-  color: var(--ink);
-  background: rgba(57, 239, 255, 0.06);
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.sequence-steps button:hover,
-.sequence-steps button:focus-visible {
-  border-color: var(--cyan);
-  box-shadow: 0 0 16px rgba(57, 239, 255, 0.18);
-}
-
-.sequence-steps span {
-  min-width: 4.8rem;
-  color: var(--muted);
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.62rem;
-  text-align: right;
-  text-transform: uppercase;
-}
-
-.sequence-steps li.complete span {
-  color: var(--cyan);
-}
-
-.sequence-steps li.ready span {
-  color: var(--accent);
-}
-
-.sequence-steps li.locked {
-  opacity: 0.6;
-}
-
-.telemetry-readout {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin: 1rem 0;
-  border: 1px solid rgba(57, 239, 255, 0.16);
-  background: rgba(57, 239, 255, 0.1);
-}
-
-.telemetry-readout div {
-  padding: 0.75rem;
-  background: rgba(3, 11, 16, 0.78);
-}
-
-.telemetry-readout span,
-.telemetry-readout strong,
+.thermal-specs span,
+.thermal-specs strong,
 .command-console span,
 .status-widget span,
 .status-widget strong {
   display: block;
   font-family: "Orbitron", sans-serif;
   text-transform: uppercase;
-}
-
-.telemetry-readout span {
-  color: var(--muted);
-  font-size: 0.56rem;
-}
-
-.telemetry-readout strong {
-  color: var(--cyan);
-  font-size: 0.88rem;
-}
-
-.reset-sequence {
-  width: 100%;
 }
 
 .build-log {
@@ -1098,16 +956,6 @@ footer {
   }
 }
 
-@keyframes model-orbit {
-  from {
-    transform: rotateX(var(--tilt-x, -18deg)) rotateY(0deg);
-  }
-
-  to {
-    transform: rotateX(var(--tilt-x, -18deg)) rotateY(360deg);
-  }
-}
-
 @keyframes scan-drift {
   to {
     background-position: 0 32px, 0 32px, 32px 0, 0 0, 0 0;
@@ -1118,7 +966,7 @@ footer {
   .hero,
   .summary,
   .contact-panel,
-  .simulation-console {
+  .active-project-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1150,10 +998,6 @@ footer {
   .profile-frame {
     justify-self: start;
     width: min(100%, 11rem);
-  }
-
-  .model-stage {
-    min-height: 24rem;
   }
 }
 
@@ -1205,10 +1049,6 @@ footer {
   }
 
   .metrics {
-    grid-template-columns: 1fr;
-  }
-
-  .telemetry-readout {
     grid-template-columns: 1fr;
   }
 

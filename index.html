@@ -25,7 +25,6 @@
         <span>Adriel Ventura</span>
       </a>
       <nav aria-label="Portfolio navigation">
-        <a href="#simulation">Simulation</a>
         <a href="#projects">Projects</a>
         <a href="#competencies">Competencies</a>
         <a href="#build">Build Log</a>
@@ -47,8 +46,8 @@
             Mechanical Engineering student building VR digital twins, Poka-Yoke assembly logic, FEA-validated structures, and rapid prototypes for manufacturing-focused hardware teams.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#simulation">Run Simulation</a>
-            <a class="button secondary" href="#projects">Review Work</a>
+            <a class="button primary" href="#projects">Review Work</a>
+            <a class="button secondary" href="#active-project-title">Active Project</a>
             <a class="button secondary" href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
           </div>
         </div>
@@ -84,7 +83,7 @@
           <h2 id="summary-title">Compact engineering signal</h2>
         </div>
         <p>
-          I bridge digital design and physical hardware through SolidWorks, Siemens NX, AutoCAD, Unity, C# simulations, FEA, GD&T, and additive manufacturing. I am a Rainbow Honors College student, Provost Scholar, Hofstra CSTEP President, and ASME Recruitment Chair.
+          I bridge digital design and physical hardware through SolidWorks, Siemens NX, AutoCAD, Unity, C# simulations, FEA, GD&T, and additive manufacturing. I am a Rainbow Honors College student, Provost Scholar, Hofstra CSTEP President, ASME Recruitment Chair, and Member of the Society of Hispanic Professional Engineers (SHPE). I am actively targeting a graduate degree in Mechanical Engineering at Syracuse University.
         </p>
       </section>
 
@@ -136,60 +135,6 @@
                 <strong>Awaiting CAD Export</strong>
               </div>
             </model-viewer>
-          </div>
-        </div>
-      </section>
-
-      <section class="section simulation" id="simulation" aria-labelledby="simulation-title">
-        <div class="section-heading">
-          <p class="eyebrow">Live Digital Twin</p>
-          <h2 id="simulation-title">Poka-Yoke assembly verifier</h2>
-          <p class="section-deck">
-            Interactive demo inspired by my Unity/C# VR assembly project: rotate the assembly, run the installation sequence, and watch the validation state change in real time.
-          </p>
-        </div>
-
-        <div class="simulation-console">
-          <div class="model-stage" aria-label="Interactive centrifugal pump assembly model">
-            <div class="axis-label x-axis">X</div>
-            <div class="axis-label y-axis">Y</div>
-            <div class="axis-label z-axis">Z</div>
-            <model-viewer
-              id="digitalTwin"
-              src="assets/models/c-frame.glb"
-              poster="assets/google-sites/shaft-collar-fea.jpg"
-              alt="Interactive placeholder for C-frame GLB model"
-              auto-rotate
-              camera-controls
-              touch-action="pan-y"
-              interaction-prompt="auto"
-              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
-              exposure="0.95"
-              shadow-intensity="0.7"
-            >
-              <div class="model-placeholder" slot="poster">
-                <span>c-frame.glb</span>
-                <strong>Upload GLB to Activate Model</strong>
-              </div>
-            </model-viewer>
-          </div>
-
-          <div class="validation-panel">
-            <div class="panel-topline">
-              <span>Assembly Logic</span>
-              <strong id="sequenceStatus">Awaiting Input</strong>
-            </div>
-            <ol class="sequence-steps" aria-label="Poka-Yoke sequence">
-              <li data-step="impeller"><button type="button">Install Impeller</button><span>Pending</span></li>
-              <li data-step="cover"><button type="button">Install Cover</button><span>Locked</span></li>
-              <li data-step="fasteners"><button type="button">Torque Fasteners</button><span>Locked</span></li>
-            </ol>
-            <div class="telemetry-readout" aria-label="Simulation telemetry">
-              <div><span>FEA Load</span><strong>45 kN</strong></div>
-              <div><span>FoS</span><strong>1.41</strong></div>
-              <div><span>Peak Deflection</span><strong>1.6 mm</strong></div>
-            </div>
-            <button class="button secondary reset-sequence" type="button">Reset Logic</button>
           </div>
         </div>
       </section>
@@ -264,6 +209,10 @@
           </article>
 
           <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>Rail Assembly</span>
+              <strong>Process Flow Audit</strong>
+            </figure>
             <div class="project-topline">
               <span>04</span>
               <small>Process Engineering</small>
@@ -280,34 +229,42 @@
           </article>
 
           <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>Azure IoT</span>
+              <strong>Telemetry + Python</strong>
+            </figure>
             <div class="project-topline">
               <span>05</span>
-              <small>Siemens NX Design</small>
+              <small>Industrial IoT</small>
             </div>
-            <h3>Parametric Name Plate Assembly</h3>
+            <h3>Industrial IoT Telemetry System</h3>
             <p>
-              Designed a robust mechanical assembly using top-down master model methodology.
+              Built a remote condition monitoring system to track motor thermal performance using Microsoft Azure. Scripted Python sensor simulations to transmit payloads to an Azure IoT Hub for live dashboard visualization.
             </p>
             <ul>
-              <li>Built a global expression table to drive base and hole geometry.</li>
-              <li>Used WAVE Geometry Linker for inter-part references.</li>
-              <li>Maintained alignment without manual constraints.</li>
+              <li>Simulated temperature and equipment-health payloads in Python.</li>
+              <li>Sent device telemetry to Azure IoT Hub for remote monitoring.</li>
+              <li>Focused on readable dashboard signals for operational decision-making.</li>
             </ul>
           </article>
 
           <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>Black Hawk</span>
+              <strong>Maintenance Workflow</strong>
+            </figure>
             <div class="project-topline">
               <span>06</span>
-              <small>Rapid Prototyping</small>
+              <small>Defense Sector</small>
             </div>
-            <h3>3D Printing & Hardware Iteration</h3>
+            <h3>Defense Logistics Simulation</h3>
             <p>
-              Operate and maintain a personal 3D printer fleet, including Ender 3 Pro and resin systems.
+              Completed the National Guard Connecticut 1109th TASMG Black Hawk Maintenance Job Simulation via Forage. Analyzed aerospace logistics and operational maintenance workflows.
             </p>
             <ul>
-              <li>FDM/SLA design for manufacture and fast fit checks.</li>
-              <li>Functional prototype development with material selection.</li>
-              <li>Haptic interface project with an NYIT electrical engineering student.</li>
+              <li>Mapped operational maintenance flow and readiness constraints.</li>
+              <li>Studied aerospace support logistics in a mission-critical context.</li>
+              <li>Framed maintenance execution as a systems and workflow problem.</li>
             </ul>
           </article>
         </div>
@@ -321,11 +278,11 @@
         <div class="competency-grid">
           <article>
             <span>Design & Analysis</span>
-            <p>Siemens NX, SolidWorks, AutoCAD, parametric modeling, assemblies, surfacing, structural FEA, static stress analysis, and tolerance stack-up.</p>
+            <p>Siemens NX, SolidWorks, AutoCAD, Python, parametric modeling, assemblies, surfacing, structural FEA, static stress analysis, and tolerance stack-up.</p>
           </article>
           <article>
             <span>Fabrication & Standards</span>
-            <p>FDM and resin SLA printing, DFM, ASME Y14.5 GD&T, metrology, Lean Six Sigma, precision tolerance verification, and assembly repair.</p>
+            <p>FDM and resin SLA printing, DFM, ASME Y14.5 GD&T, metrology, Lean Six Sigma, Microsoft Azure IoT, precision tolerance verification, and assembly repair.</p>
           </article>
           <article>
             <span>Digital Twins</span>
