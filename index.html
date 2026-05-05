@@ -6,199 +6,358 @@
     <title>Adriel Ventura | Mechanical Engineering Portfolio</title>
     <meta
       name="description"
-      content="Mechanical engineering portfolio for Adriel Ventura featuring VR digital twins, FEA analysis, GD&T documentation, process engineering, Industrial IoT telemetry, and defense logistics simulation."
+      content="Mechanical engineering portfolio for Adriel Ventura, Hofstra University Class of 2027, focused on digital twins, Poka-Yoke systems, FEA, GD&T, additive manufacturing, and leadership."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="site-brand" href="#top">Adriel Ventura</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#competencies">Competencies</a>
-          <a href="#contact">Contact</a>
-        </nav>
+  <body class="booting">
+    <div class="startup-overlay" id="startupOverlay">
+      <div class="startup-grid" aria-hidden="true"></div>
+      <div class="startup-panel" role="status" aria-live="polite">
+        <img class="startup-logo" src="assets/vnua-industries.png" alt="Vnua Industries logo" />
+        <p class="startup-kicker">SYSTEM BOOT</p>
+        <h2 class="startup-title">VNUA INDUSTRIES</h2>
+        <p class="startup-copy">Initializing portfolio interface, project telemetry, and CAD archive.</p>
+        <div class="startup-progress" aria-hidden="true">
+          <span></span>
+        </div>
+        <div class="startup-readout" aria-hidden="true">
+          <span>Loading design archive</span>
+          <span>Syncing validation layer</span>
+          <span>Opening engineering portfolio</span>
+        </div>
+        <button class="startup-skip" id="startupSkip" type="button">Skip Intro</button>
       </div>
+    </div>
+    <div class="scanline" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Adriel Ventura home">
+        <span class="brand-mark">AV</span>
+        <span>Adriel Ventura</span>
+      </a>
+      <nav aria-label="Portfolio navigation">
+        <a href="#projects">Projects</a>
+        <a href="#competencies">Competencies</a>
+        <a href="#proof">Proof</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
     <main id="top">
-      <section class="hero-section" aria-labelledby="hero-title">
-        <div class="section-shell hero-layout">
-          <article class="hero-copy-block">
-            <p class="section-kicker">Mechanical Engineering Portfolio</p>
-            <h1 id="hero-title">Adriel Ventura</h1>
-            <p class="hero-summary">
-              Mechanical Engineering student building VR digital twins, FEA-validated structures, and rapid prototypes.
-            </p>
-            <div class="hero-actions">
-              <a class="primary-link" href="#projects">View Projects</a>
-              <a class="secondary-link" href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/mechanical-hud-backdrop.png" alt="" />
+        </div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Hofstra University ME '27 // Digital Design to Physical Hardware</p>
+          <h1 id="hero-title">Adriel Ventura</h1>
+          <p class="hero-copy">
+            Mechanical Engineering student building VR digital twins, Poka-Yoke assembly logic, FEA-validated structures, and rapid prototypes for manufacturing-focused hardware teams.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#projects">Review Work</a>
+            <a class="button secondary" href="#active-project-title">Active Project</a>
+            <a class="button secondary" href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
+          </div>
+        </div>
+        <div class="glass-console" aria-label="Engineering snapshot">
+          <figure class="profile-frame">
+            <img src="assets/google-sites/adriel-headshot.jpg" alt="Adriel Ventura portrait" />
+          </figure>
+          <div class="console-core">
+            <span class="reticle" aria-hidden="true"></span>
+            <p>Primary Signal</p>
+            <strong>CAD + FEA + XR + Hardware</strong>
+          </div>
+          <aside class="quick-read" aria-label="Portfolio quick read">
+            <div>
+              <span>UPCOMING ROLE</span>
+              <strong>Mechanical Engineering Co-op at Stellant Systems (Summer–Fall 2026)</strong>
             </div>
-          </article>
-
-          <aside class="hero-panel" aria-label="Quick portfolio summary">
-            <p class="panel-label">Focus Areas</p>
-            <ul class="hero-signal-list">
-              <li>VR assembly verification</li>
-              <li>Structural FEA and design optimization</li>
-              <li>Rapid prototyping and hardware validation</li>
-            </ul>
+            <div>
+              <span>Best Fit</span>
+              <strong>Manufacturing, Hardware, Defense</strong>
+            </div>
+            <div>
+              <span>Leadership</span>
+              <strong>Hofstra CSTEP VP / Co-President</strong>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="about-section" id="about" aria-labelledby="about-title">
-        <div class="section-shell">
-          <div class="section-heading">
-            <p class="section-kicker">About</p>
-            <h2 id="about-title">Engineering signal, kept compact</h2>
-          </div>
+      <section class="section summary" aria-labelledby="summary-title">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 id="summary-title">Compact engineering signal</h2>
+        </div>
+        <p>
+          I bridge digital design and physical hardware through SolidWorks, Siemens NX, AutoCAD, Unity, C# simulations, FEA, GD&T, and additive manufacturing. I am a Rainbow Honors College student, Provost Scholar, Hofstra CSTEP Vice President and Co-President, ASME Recruitment Chair, and Member of the Society of Hispanic Professional Engineers (SHPE). I am actively targeting a graduate degree in Mechanical Engineering at Syracuse University.
+        </p>
+      </section>
 
-          <div class="metric-grid" aria-label="About metrics">
-            <article class="metric-card">
-              <strong>50 Students Supported</strong>
-            </article>
-            <article class="metric-card">
-              <strong>45 kN Operational Load</strong>
-            </article>
-            <article class="metric-card">
-              <strong>20% Cycle-Time Improvement</strong>
-            </article>
-          </div>
+      <section class="section metrics" aria-label="Engineering highlights">
+        <div class="metric">
+          <span>300+</span>
+          <p>students supported through CSTEP</p>
+        </div>
+        <div class="metric">
+          <span>45 kN</span>
+          <p>C-frame operational load</p>
+        </div>
+        <div class="metric">
+          <span>4+</span>
+          <p>ACTIVE HARDWARE PROTOTYPES</p>
+        </div>
+      </section>
 
-          <article class="about-card">
+      <section class="section active-project" aria-labelledby="active-project-title">
+        <div class="active-project-grid">
+          <div>
+            <p class="eyebrow">Active Project</p>
+            <h2 id="active-project-title">Heat sink thermal validation</h2>
             <p>
-              Mechanical Engineering student at Hofstra University focused on connecting digital design,
-              validation, and manufacturing execution. Member of SHPE and actively targeting a graduate
-              degree in Mechanical Engineering at Syracuse University.
+              Project B is constrained by a 100 W heat load, 25 C ambient air, 85 C maximum operating temperature, and a 50.8 mm x 50.8 mm square footprint. The validation target is a thermal resistance at or below 0.60 C/W, derived from the 60 C allowable temperature rise over 100 W.
             </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="projects-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-shell">
-          <div class="section-heading">
-            <p class="section-kicker">Select Projects</p>
-            <h2 id="projects-title">Project proof built for a quick technical read</h2>
+            <div class="thermal-specs" aria-label="Heat sink boundary conditions">
+              <div><span>q</span><strong>100 W</strong></div>
+              <div><span>T ambient</span><strong>25 C</strong></div>
+              <div><span>T max</span><strong>85 C</strong></div>
+              <div><span>Footprint</span><strong>50.8 mm square</strong></div>
+            </div>
           </div>
-
-          <div class="project-grid">
-            <article class="project-card">
-              <p class="project-index">01</p>
-              <h3>Advanced Digital Twins</h3>
-              <p class="project-subtitle">VR Assembly Verification</p>
-              <p>
-                Built immersive validation environments to test assembly logic before physical build,
-                using VR workflows to make manufacturing sequence issues visible earlier.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <p class="project-index">02</p>
-              <h3>FEA Optimization</h3>
-              <p class="project-subtitle">C-Frame Structural Analysis</p>
-              <p>
-                Performed structural analysis on a C-frame assembly and refined geometry to manage
-                stress concentration, deflection, and manufacturability under load.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <p class="project-index">03</p>
-              <h3>GD&amp;T Documentation</h3>
-              <p class="project-subtitle">Drawings &amp; Tolerance Control</p>
-              <p>
-                Produced engineering drawings and tolerance documentation that connect CAD intent to
-                inspection clarity, fit, and repeatable manufacturing outcomes.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <p class="project-index">04</p>
-              <h3>Process Engineering</h3>
-              <p class="project-subtitle">Siemens Mobility Simulation</p>
-              <p>
-                Evaluated production flow data to identify bottlenecks, quantify cycle-time waste, and
-                recommend layout and handling improvements for assembly operations.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <p class="project-index">05</p>
-              <h3>Industrial IoT Telemetry System</h3>
-              <p class="project-subtitle">Azure &amp; Python condition monitoring</p>
-              <p>
-                Built a remote condition monitoring workflow using Python simulations and Azure IoT to
-                transmit thermal telemetry for live dashboard visibility.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <p class="project-index">06</p>
-              <h3>Defense Logistics Simulation</h3>
-              <p class="project-subtitle">Forage: 1109th TASMG Black Hawk</p>
-              <p>
-                Completed a defense maintenance simulation centered on aerospace logistics, workflow
-                analysis, and operational readiness in a Black Hawk support context.
-              </p>
-            </article>
+          <div class="model-viewer-panel">
+            <model-viewer
+              src="assets/models/heatsink.glb"
+              poster="assets/mechanical-hud-backdrop.png"
+              alt="Interactive placeholder for heat sink GLB thermal validation model"
+              auto-rotate
+              camera-controls
+              touch-action="pan-y"
+              interaction-prompt="auto"
+              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
+              exposure="0.9"
+              shadow-intensity="0.65"
+            ></model-viewer>
           </div>
         </div>
       </section>
 
-      <section class="competencies-section" id="competencies" aria-labelledby="competencies-title">
-        <div class="section-shell">
-          <div class="section-heading">
-            <p class="section-kicker">Core Competencies</p>
-            <h2 id="competencies-title">Tools, standards, and execution</h2>
-          </div>
-
-          <div class="competency-grid">
-            <article class="competency-card">
-              <h3>Design &amp; Analysis</h3>
-              <p>SolidWorks, Siemens NX, Finite Element Analysis, GD&amp;T documentation.</p>
-            </article>
-
-            <article class="competency-card">
-              <h3>Simulation &amp; Data</h3>
-              <p>Python, Microsoft Azure IoT, process simulation, condition-monitoring workflows.</p>
-            </article>
-
-            <article class="competency-card">
-              <h3>Hardware Execution</h3>
-              <p>Rapid prototyping, additive manufacturing, assembly validation, technical leadership.</p>
-            </article>
-          </div>
+      <section class="section projects" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Select Projects</p>
+          <h2 id="projects-title">Three things worth a fast look</h2>
         </div>
-      </section>
-
-      <section class="contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="section-shell contact-layout">
-          <article class="contact-card">
-            <p class="section-kicker">Contact</p>
-            <h2 id="contact-title">Ready for internships, co-ops, and technical conversations</h2>
+        <div class="interface-strip" aria-label="Portfolio design logic">
+          <span>Legible</span>
+          <span>Logical</span>
+          <span>Validated</span>
+          <span>Hardware-focused</span>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-topline">
+              <span>01</span>
+              <small>Advanced Digital Twins</small>
+            </div>
+            <h3>VR Assembly Verification Tool</h3>
             <p>
-              Available for Mechanical Engineering opportunities in manufacturing, hardware, and defense.
+              Unity XR / C# + VR Centrifugal Pump Assembly + Validated Poka-Yoke installation sequence prior to physical manufacturing.
             </p>
+            <ul>
+              <li>Tool used: Unity XR / C#.</li>
+              <li>Build: VR centrifugal pump assembly.</li>
+              <li>Result: Validated Poka-Yoke installation sequence prior to physical manufacturing.</li>
+            </ul>
           </article>
 
-          <article class="contact-card">
-            <p class="contact-label">Email</p>
-            <a href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
-            <p class="contact-label">LinkedIn</p>
-            <a href="https://www.linkedin.com/in/adrielvent/">linkedin.com/in/adrielvent</a>
+          <article class="project-card">
+            <figure class="project-media">
+              <img src="assets/google-sites/shaft-collar-fea.jpg" alt="SolidWorks FEA stress plot" />
+            </figure>
+            <div class="project-topline">
+              <span>02</span>
+              <small>FEA Optimization</small>
+            </div>
+            <h3>C-Frame Structural Analysis</h3>
+            <p>
+              SolidWorks FEA + Cast-Steel C-Frame + 45 kN operational load verified; 1.41 FoS achieved alongside a 15% material reduction.
+            </p>
+            <ul>
+              <li>Tool used: SolidWorks FEA.</li>
+              <li>Build: Cast-steel C-frame.</li>
+              <li>Result: 45 kN operational load verified; 1.41 FoS achieved alongside a 15% material reduction.</li>
+            </ul>
           </article>
+
+          <article class="project-card">
+            <figure class="project-media">
+              <img src="assets/google-sites/aa-battery-drawing.jpg" alt="GD&T drawing sheet for AA battery model" />
+            </figure>
+            <div class="project-topline">
+              <span>03</span>
+              <small>GD&T Documentation</small>
+            </div>
+            <h3>Drawings & Tolerance Control</h3>
+            <p>
+              2D CAD + GD&T Manufacturing Packages + 6 component drawing sets structured to ASME Y14.5 inspection standards.
+            </p>
+            <ul>
+              <li>Tool used: 2D CAD.</li>
+              <li>Build: GD&T manufacturing packages.</li>
+              <li>Result: 6 component drawing sets structured to ASME Y14.5 inspection standards.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>Rail Assembly</span>
+              <strong>Process Flow Audit</strong>
+            </figure>
+            <div class="project-topline">
+              <span>04</span>
+              <small>Process Engineering</small>
+            </div>
+            <h3>Siemens Mobility Industrial Simulation</h3>
+            <p>
+              Industrial Simulation + Rail Assembly Workflow + 20% cycle-time improvement identified via progressive cellular flow redesign.
+            </p>
+            <ul>
+              <li>Tool used: Industrial Simulation.</li>
+              <li>Build: Rail assembly workflow.</li>
+              <li>Result: 20% cycle-time improvement identified via progressive cellular flow redesign.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>Siemens NX</span>
+              <strong>Expression Table</strong>
+            </figure>
+            <div class="project-topline">
+              <span>05</span>
+              <small>Parametric Modeling</small>
+            </div>
+            <h3>Parametric Master Model</h3>
+            <p>
+              Siemens NX + Parametric Master Model + Maintained 100% alignment without manual constraints via global expression tables.
+            </p>
+            <ul>
+              <li>Tool used: Siemens NX.</li>
+              <li>Build: Parametric master model.</li>
+              <li>Result: Maintained 100% alignment without manual constraints via global expression tables.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <figure class="project-media project-schematic">
+              <span>FDM &amp; SLA</span>
+              <strong>Prototype Runs</strong>
+            </figure>
+            <div class="project-topline">
+              <span>06</span>
+              <small>Rapid Prototyping</small>
+            </div>
+            <h3>Functional Hardware Iterations</h3>
+            <p>
+              FDM &amp; SLA 3D Printers + Functional Hardware Iterations + 4+ active prototypes developed for fast fit checks and material selection.
+            </p>
+            <ul>
+              <li>Tool used: FDM &amp; SLA 3D Printers.</li>
+              <li>Build: Functional hardware iterations.</li>
+              <li>Result: 4+ active prototypes developed for fast fit checks and material selection.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section compact-band" id="competencies" aria-labelledby="competencies-title">
+        <div class="section-heading">
+          <p class="eyebrow">Core Competencies</p>
+          <h2 id="competencies-title">Tools, standards, and execution</h2>
+        </div>
+        <p class="section-deck">CORE TOOLS: SolidWorks | Siemens NX | ASME Y14.5 GD&amp;T | FEA | 3D Printing</p>
+        <div class="competency-grid">
+          <article>
+            <span>Design & Analysis</span>
+            <p>Siemens NX, SolidWorks, AutoCAD, Python, parametric modeling, assemblies, surfacing, structural FEA, static stress analysis, and tolerance stack-up.</p>
+          </article>
+          <article>
+            <span>Fabrication & Standards</span>
+            <p>FDM and resin SLA printing, DFM, ASME Y14.5 GD&T, metrology, Lean Six Sigma, precision tolerance verification, and assembly repair.</p>
+          </article>
+          <article>
+            <span>Simulation & Process</span>
+            <p>Unity XR Interaction Toolkit, C# scripting, assembly verification, logic validation, and workflow analysis.</p>
+          </article>
+          <article>
+            <span>Leadership & Management</span>
+            <p>Hofstra CSTEP Vice President and Co-President, ASME Recruitment Chair, professional development for 300+ students, technical writing, public speaking, outreach, and scheduling.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section proof" id="proof" aria-labelledby="proof-title">
+        <div class="section-heading">
+          <p class="eyebrow">Proof Points</p>
+          <h2 id="proof-title">Supporting work archive</h2>
+        </div>
+        <div class="proof-layout">
+          <article class="archive-card">
+            <img src="assets/google-sites/cstep-leadership.jpg" alt="CSTEP leadership group visit" />
+            <h3>Leadership & Management</h3>
+            <p>Hofstra CSTEP Community Board, Advocacy Day in Albany, CSTEP Summer Program, Brookhaven National Laboratory visit, and CSTEP graduate school trip.</p>
+          </article>
+          <article class="archive-card">
+            <img src="assets/google-sites/aa-battery-drawing.jpg" alt="Mechanical drawing sheet example" />
+            <h3>Drawings/GD&T</h3>
+            <p>Shaft Collar, AA Battery, L-Bracket, C-Frame, Links x 4, and Base End drawing packages.</p>
+          </article>
+          <article class="archive-card">
+            <img src="assets/google-sites/shaft-collar-fea.jpg" alt="Finite element analysis example" />
+            <h3>FEA Projects</h3>
+            <p>Table displacement, C-frame displacement, L-bracket static stress, and shaft collar static stress analysis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Resume & Contact</p>
+            <h2 id="contact-title">Stellant Systems co-op, Summer-Fall 2026</h2>
+            <p>
+              Currently completing a Mechanical Engineering co-op at Stellant Systems while continuing to build toward future manufacturing, hardware, and defense opportunities. Resume updated 01/26/2026.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="resume.pdf" target="_blank" rel="noreferrer">Download Resume PDF</a>
+            <a class="button primary" href="mailto:adrielvent5@gmail.com">Email Adriel</a>
+            <a class="button secondary" href="https://linkedin.com/in/adrielvent" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button secondary" href="#projects">Back to Projects</a>
+          </div>
         </div>
       </section>
     </main>
+
+    <aside class="status-widget" aria-label="Live portfolio status">
+      <span>System Status</span>
+      <strong id="statusMetric">ME '27</strong>
+    </aside>
+
+    <footer>
+      <span>AV-PORTFOLIO // Mechanical Engineering</span>
+      <span>Hofstra University // Class of 2027</span>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
