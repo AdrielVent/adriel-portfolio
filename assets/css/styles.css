@@ -667,14 +667,37 @@ address {
 }
 
 .project-visual {
+  position: relative;
   display: grid;
   align-content: center;
   gap: 0.45rem;
   padding: 1rem;
+  overflow: hidden;
   background:
     linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(255, 59, 59, 0.04)),
     repeating-linear-gradient(90deg, rgba(120, 218, 255, 0.08) 0, rgba(120, 218, 255, 0.08) 1px, transparent 1px, transparent 18px),
     #07101c;
+}
+
+.project-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.project-visual::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 72px;
+  height: 30px;
+  border-top: 1px solid rgba(0, 229, 255, 0.42);
+  border-right: 1px solid rgba(0, 229, 255, 0.42);
+  pointer-events: none;
 }
 
 .project-visual span {
@@ -683,16 +706,22 @@ address {
   font-size: 0.65rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 .project-visual strong {
   font-size: clamp(1.35rem, 2.4vw, 2rem);
+  position: relative;
+  z-index: 1;
 }
 
 .project-visual em {
   color: var(--text-muted);
   font-style: normal;
   max-width: 28ch;
+  position: relative;
+  z-index: 1;
 }
 
 .project-content {
