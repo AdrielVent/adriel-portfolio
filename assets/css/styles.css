@@ -555,6 +555,32 @@ address {
   margin-bottom: 1.2rem;
 }
 
+.dossier-status,
+.project-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.dossier-status span,
+.project-status span {
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(3, 11, 22, 0.68);
+  color: var(--text-muted);
+  font-family: var(--font-hud);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  padding: 0.32rem 0.52rem;
+  text-transform: uppercase;
+}
+
+.dossier-status span:first-child,
+.project-status span:first-child {
+  border-color: rgba(0, 229, 255, 0.46);
+  color: var(--cyan-glow);
+}
+
 .featured {
   border-block: 1px solid rgba(120, 218, 255, 0.16);
   background: linear-gradient(180deg, rgba(0, 229, 255, 0.035), rgba(255, 255, 255, 0));
@@ -605,7 +631,7 @@ address {
 
 .insight-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin: 1.25rem 0 2.25rem;
 }
@@ -763,6 +789,40 @@ address {
   font-size: 0.92rem;
 }
 
+.drawing-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.drawing-strip a {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  color: var(--text-muted);
+}
+
+.project-card .drawing-strip img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(120, 218, 255, 0.16);
+  border-radius: 6px;
+  background: #f6f8fb;
+  object-fit: cover;
+}
+
+.drawing-strip span {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-family: var(--font-hud);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -902,7 +962,8 @@ address {
 
   .project-grid,
   .result-grid,
-  .credential-grid {
+  .credential-grid,
+  .insight-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
