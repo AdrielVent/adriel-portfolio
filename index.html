@@ -9,6 +9,13 @@
     />
     <title>Adriel Ventura | Mechanical Engineering Portfolio</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/vendor/three.module.min.js"
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -60,11 +67,30 @@
               <span>System Focus</span>
               <span class="status-dot">Online</span>
             </div>
-            <img
-              class="hero-model"
-              src="assets/projects/heat-sink-render-top.png"
-              alt="CAD render of a finned heat sink used in Adriel Ventura's thermal design project"
-            />
+            <div
+              class="stl-stage hero-model"
+              data-stl-viewer
+              data-stl-view="hero"
+              aria-label="Interactive 3D STL model of the 15-fin Al-6061 heat sink"
+            >
+              <canvas class="stl-canvas" aria-hidden="true"></canvas>
+              <img
+                class="stl-fallback"
+                src="assets/projects/heat-sink-render-top.png"
+                alt="CAD render of a finned heat sink used in Adriel Ventura's thermal design project"
+              />
+              <div class="stl-vignette" aria-hidden="true"></div>
+              <div class="stl-scanline" aria-hidden="true"></div>
+              <div class="stl-readout" aria-hidden="true">
+                <span>STL Mesh</span>
+                <strong>15-Fin DFMA</strong>
+              </div>
+              <div class="stl-chip-row" aria-hidden="true">
+                <span>Al-6061</span>
+                <span>100 W</span>
+                <span>2.557 mm</span>
+              </div>
+            </div>
             <div class="telemetry-grid">
               <div class="telemetry-card"><span>Incoming</span><strong>Stellant Systems Co-op</strong></div>
               <div class="telemetry-card"><span>Education</span><strong>Hofstra ME '27</strong></div>
@@ -135,12 +161,27 @@
                 <a class="button" href="#thermal-results">View Thermal Results</a>
               </div>
             </div>
-            <figure class="media-frame">
-              <img
-                src="assets/projects/heat-sink-render-angled.png"
-                alt="Angled CAD render of the selected 15-fin heat sink"
-              />
-              <figcaption>Selected 15-fin Al-6061 heat sink geometry.</figcaption>
+            <figure class="media-frame stl-media-frame">
+              <div
+                class="stl-stage dossier-model"
+                data-stl-viewer
+                data-stl-view="dossier"
+                aria-label="Interactive 3D STL preview of the selected 15-fin Al-6061 heat sink"
+              >
+                <canvas class="stl-canvas" aria-hidden="true"></canvas>
+                <img
+                  class="stl-fallback"
+                  src="assets/projects/heat-sink-render-angled.png"
+                  alt="Angled CAD render of the selected 15-fin heat sink"
+                />
+                <div class="stl-vignette" aria-hidden="true"></div>
+                <div class="stl-scanline" aria-hidden="true"></div>
+                <div class="stl-readout" aria-hidden="true">
+                  <span>Live STL</span>
+                  <strong>Manufacturing Geometry</strong>
+                </div>
+              </div>
+              <figcaption>Live STL preview of the selected 15-fin Al-6061 heat sink geometry.</figcaption>
             </figure>
           </div>
 
@@ -561,6 +602,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>

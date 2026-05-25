@@ -338,11 +338,166 @@ address {
 }
 
 .hero-model {
-  width: min(420px, 86%);
-  aspect-ratio: 1 / 0.9;
-  object-fit: contain;
+  width: min(500px, 96%);
+  aspect-ratio: 1 / 0.82;
   margin: 0 auto 1rem;
   filter: drop-shadow(0 0 26px rgba(0, 229, 255, 0.18));
+}
+
+.stl-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(0, 229, 255, 0.2), transparent 34%),
+    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.08), transparent 26%),
+    linear-gradient(145deg, rgba(4, 13, 24, 0.95), rgba(3, 8, 16, 0.92));
+}
+
+.stl-stage::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  z-index: 1;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(-12deg);
+  box-shadow:
+    0 0 38px rgba(0, 229, 255, 0.12),
+    inset 0 0 22px rgba(0, 229, 255, 0.08);
+  pointer-events: none;
+}
+
+.stl-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0, rgba(0, 229, 255, 0.16) 50%, transparent 100%),
+    linear-gradient(transparent, rgba(255, 255, 255, 0.035), transparent);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  transform: translateX(-72%);
+  animation: hud-sweep 7s ease-in-out infinite;
+}
+
+.stl-canvas,
+.stl-fallback,
+.stl-vignette,
+.stl-scanline {
+  position: absolute;
+  inset: 0;
+}
+
+.stl-canvas {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.stl-fallback {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4%;
+  opacity: 1;
+  transition: opacity 260ms ease;
+}
+
+.stl-stage.is-loaded .stl-fallback {
+  opacity: 0;
+}
+
+.stl-vignette {
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, transparent 42%, rgba(0, 0, 0, 0.36) 100%),
+    linear-gradient(180deg, rgba(0, 229, 255, 0.06), transparent 24%, rgba(0, 229, 255, 0.04));
+}
+
+.stl-scanline {
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.26;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 6px,
+    rgba(0, 229, 255, 0.13) 7px,
+    transparent 8px
+  );
+}
+
+.stl-readout {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 5;
+  display: grid;
+  gap: 0.2rem;
+  pointer-events: none;
+}
+
+.stl-readout span,
+.stl-chip-row span {
+  color: var(--cyan-glow);
+  font-family: var(--font-hud);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.stl-readout strong {
+  color: var(--text-main);
+  font-size: 0.92rem;
+}
+
+.stl-chip-row {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.42rem;
+  pointer-events: none;
+  max-width: min(54%, 260px);
+}
+
+.stl-chip-row span {
+  border: 1px solid rgba(0, 229, 255, 0.26);
+  border-radius: 999px;
+  background: rgba(3, 11, 22, 0.68);
+  padding: 0.28rem 0.46rem;
+  color: var(--text-muted);
+}
+
+.stl-media-frame .stl-stage {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  border-radius: 0;
+}
+
+.dossier-model {
+  min-height: 360px;
+}
+
+@keyframes hud-sweep {
+  0%,
+  18% {
+    transform: translateX(-72%);
+  }
+
+  48%,
+  100% {
+    transform: translateX(72%);
+  }
 }
 
 .telemetry-grid,
@@ -758,6 +913,14 @@ address {
     min-height: auto;
   }
 
+  .hero-grid {
+    gap: 1.45rem;
+  }
+
+  .hero-copy {
+    gap: 1rem;
+  }
+
   .hero-actions .button,
   .button-row .button {
     flex: 1 1 190px;
@@ -784,10 +947,19 @@ address {
   }
 
   .media-frame img,
+  .stl-media-frame .stl-stage,
   .project-card img,
   .project-visual,
   .credential-card img {
     aspect-ratio: 4 / 3;
+  }
+
+  .dossier-model {
+    min-height: 300px;
+  }
+
+  .stl-chip-row {
+    display: none;
   }
 }
 
@@ -799,6 +971,16 @@ address {
 
   .button {
     width: 100%;
+  }
+
+  .hero-actions {
+    gap: 0.6rem;
+  }
+
+  .hero-actions .button {
+    flex-basis: calc(50% - 0.3rem);
+    width: auto;
+    padding-inline: 0.72rem;
   }
 }
 
