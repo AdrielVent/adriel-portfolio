@@ -1,365 +1,566 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adriel Ventura | Mechanical Engineering Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Mechanical engineering portfolio for Adriel Ventura, Hofstra University Class of 2027, focused on digital twins, Poka-Yoke systems, FEA, GD&T, additive manufacturing, and leadership."
+      content="Adriel Ventura mechanical engineering portfolio: CAD, GD&T, FEA, thermal design, additive manufacturing, and hardware development projects."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Adriel Ventura | Mechanical Engineering Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body class="booting">
-    <div class="startup-overlay" id="startupOverlay">
-      <div class="startup-grid" aria-hidden="true"></div>
-      <div class="startup-panel" role="status" aria-live="polite">
-        <img class="startup-logo" src="assets/vnua-industries.png" alt="Vnua Industries logo" />
-        <p class="startup-kicker">SYSTEM BOOT</p>
-        <h2 class="startup-title">VNUA INDUSTRIES</h2>
-        <p class="startup-copy">Initializing portfolio interface, project telemetry, and SAR module.</p>
-        <div class="startup-progress" aria-hidden="true">
-          <span></span>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <nav class="nav shell">
+        <a class="brand" href="#hero" aria-label="Adriel Ventura home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Adriel Ventura</span>
+        </a>
+        <div class="nav-links" aria-label="Section links">
+          <a href="#mission">Mission</a>
+          <a href="#featured">Dossier</a>
+          <a href="#archive">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#credentials">Credentials</a>
+          <a href="#experience">Experience</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
         </div>
-        <div class="startup-readout" aria-hidden="true">
-          <span>Loading design archive</span>
-          <span>Syncing validation layer</span>
-          <span>Opening engineering portfolio</span>
-        </div>
-        <button class="startup-skip" id="startupSkip" type="button">Skip Intro</button>
-      </div>
-    </div>
-    <div class="scanline" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Adriel Ventura home">
-        <span class="brand-mark">AV</span>
-        <span>Adriel Ventura</span>
-      </a>
-      <nav aria-label="Portfolio navigation">
-        <a href="#projects">Projects</a>
-        <a href="#competencies">Competencies</a>
-        <a href="#proof">Proof</a>
-        <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/mechanical-hud-backdrop.png" alt="" />
-        </div>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Hofstra University ME '27 // Digital Design to Physical Hardware</p>
-          <h1 id="hero-title">Adriel Ventura</h1>
-          <p class="hero-copy">
-            Mechanical Engineering student building VR digital twins, Poka-Yoke assembly logic, FEA-validated structures, and rapid prototypes for manufacturing-focused hardware teams.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#projects">Review Work</a>
-            <a class="button secondary" href="#active-project-title">Active Project</a>
-            <a class="button secondary" href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
-          </div>
-        </div>
-        <div class="glass-console" aria-label="Engineering snapshot">
-          <figure class="profile-frame">
-            <img src="assets/google-sites/adriel-headshot.jpg" alt="Adriel Ventura portrait" />
-          </figure>
-          <div class="console-core">
-            <span class="reticle" aria-hidden="true"></span>
-            <p>Primary Signal</p>
-            <strong>CAD + FEA + XR + Hardware</strong>
-          </div>
-          <aside class="quick-read" aria-label="Portfolio quick read">
-            <div>
-              <span>UPCOMING ROLE</span>
-              <strong>Mechanical Engineering Co-op at Stellant Systems (Summer–Fall 2026)</strong>
+    <main id="main">
+      <section class="hero section" id="hero" aria-labelledby="hero-title">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Engineering Command Center</p>
+            <h1 id="hero-title">Adriel Ventura</h1>
+            <p class="hero-headline">
+              Mechanical Engineering Student @ Hofstra | Incoming Engineering Intern @ Stellant Systems | CAD,
+              GD&amp;T, FEA, Thermal Design &amp; Additive Manufacturing
+            </p>
+            <p class="hero-summary">
+              Mechanical Engineering student building CAD-driven, simulation-supported, and manufacturing-ready
+              hardware projects across thermal design, FEA, GD&amp;T, additive manufacturing, and aerospace/defense
+              systems.
+            </p>
+            <div class="hero-actions" aria-label="Portfolio actions">
+              <a class="button button-primary" href="#archive">View Projects</a>
+              <a class="button" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Download Resume</a>
+              <a class="button" href="#contact">Contact</a>
+              <a class="button" href="https://www.linkedin.com/in/adrielvent/" rel="noreferrer">LinkedIn</a>
             </div>
-            <div>
-              <span>Best Fit</span>
-              <strong>Manufacturing, Hardware, Defense</strong>
+          </div>
+
+          <aside class="command-panel" aria-label="Portfolio telemetry">
+            <div class="panel-topline">
+              <span>System Focus</span>
+              <span class="status-dot">Online</span>
             </div>
-            <div>
-              <span>Leadership</span>
-              <strong>Hofstra CSTEP Co-President</strong>
+            <img
+              class="hero-model"
+              src="assets/projects/heat-sink-render-top.png"
+              alt="CAD render of a finned heat sink used in Adriel Ventura's thermal design project"
+            />
+            <div class="telemetry-grid">
+              <div class="telemetry-card"><span>Incoming</span><strong>Stellant Systems Co-op</strong></div>
+              <div class="telemetry-card"><span>Education</span><strong>Hofstra ME '27</strong></div>
+              <div class="telemetry-card"><span>Core Stack</span><strong>CAD + FEA + GD&amp;T</strong></div>
+              <div class="telemetry-card"><span>Focus</span><strong>Thermal Design</strong></div>
+              <div class="telemetry-card"><span>Project</span><strong>15-Fin Al-6061 Heat Sink</strong></div>
+              <div class="telemetry-card"><span>Load Case</span><strong>100 W Heat Load</strong></div>
+              <div class="telemetry-card"><span>Tools</span><strong>MATLAB + Fusion 360</strong></div>
+              <div class="telemetry-card"><span>Build Path</span><strong>Additive Manufacturing</strong></div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="section summary" aria-labelledby="summary-title">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2 id="summary-title">Compact engineering signal</h2>
-        </div>
-        <p>
-          I bridge digital design and physical hardware through SolidWorks, Siemens NX, AutoCAD, Unity, C# simulations, FEA, GD&T, and additive manufacturing. I am a Rabinowitz Honors College student, Provost Scholar, Hofstra CSTEP Co-President, ASME Recruitment Chair, and Member of the Society of Hispanic Professional Engineers (SHPE). I am actively targeting a graduate degree in Mechanical Engineering at Syracuse University.
-        </p>
-      </section>
-
-      <section class="section metrics" aria-label="Engineering highlights">
-        <div class="metric">
-          <span>300+</span>
-          <p>students supported through CSTEP</p>
-        </div>
-        <div class="metric">
-          <span>45 kN</span>
-          <p>C-frame operational load</p>
-        </div>
-        <div class="metric">
-          <span>4+</span>
-          <p>ACTIVE HARDWARE PROTOTYPES</p>
-        </div>
-      </section>
-
-      <section class="section active-project" aria-labelledby="active-project-title">
-        <div class="active-project-grid">
+      <section class="section" id="mission" aria-labelledby="mission-title">
+        <div class="shell two-column">
           <div>
-            <p class="eyebrow">Active Project</p>
-            <h2 id="active-project-title">Heat sink thermal validation</h2>
-            <p>
-              Project B is constrained by a 100 W heat load, 25 C ambient air, 85 C maximum operating temperature, and a 50.8 mm x 50.8 mm square footprint. The validation target is a thermal resistance at or below 0.60 C/W, derived from the 60 C allowable temperature rise over 100 W.
-            </p>
-            <div class="thermal-specs" aria-label="Heat sink boundary conditions">
-              <div><span>q</span><strong>100 W</strong></div>
-              <div><span>T ambient</span><strong>25 C</strong></div>
-              <div><span>T max</span><strong>85 C</strong></div>
-              <div><span>Footprint</span><strong>50.8 mm square</strong></div>
-            </div>
+            <p class="eyebrow">Mission Brief / About</p>
+            <h2 id="mission-title">CAD-to-hardware engineering with manufacturing judgment.</h2>
           </div>
-          <div class="model-viewer-panel">
-            <model-viewer
-              src="assets/models/heatsink.glb"
-              poster="assets/mechanical-hud-backdrop.png"
-              alt="Interactive placeholder for heat sink GLB thermal validation model"
-              auto-rotate
-              camera-controls
-              touch-action="pan-y"
-              interaction-prompt="auto"
-              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
-              exposure="0.9"
-              shadow-intensity="0.65"
-            ></model-viewer>
+          <div class="body-copy">
+            <p>
+              I am a Mechanical Engineering student at Hofstra University, Class of 2027, focused on mechanical
+              design, CAD modeling, additive manufacturing, GD&amp;T, manufacturing systems, and hands-on engineering
+              problem solving.
+            </p>
+            <p>
+              I will be joining Stellant Systems as an Engineering Intern/Co-op in Melville, NY, where I am continuing
+              to build experience in high-performance engineering and manufacturing environments. My technical
+              foundation includes SolidWorks, Siemens NX, GD&amp;T using ASME Y14.5, 3D printing, prototyping, MATLAB,
+              FEA, thermal simulation, and engineering documentation.
+            </p>
+            <p>
+              I enjoy bridging digital design and physical hardware through modeling, prototyping, troubleshooting,
+              fit checks, and manufacturing documentation.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="section projects" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="eyebrow">Select Projects</p>
-          <h2 id="projects-title">Three things worth a fast look</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <figure class="project-media project-schematic">
-              <span>Unity XR / C#</span>
-              <strong>Pump Assembly</strong>
-            </figure>
-            <div class="project-topline">
-              <span>01</span>
-              <small>Advanced Digital Twins</small>
-            </div>
-            <h3>VR Assembly Verification Tool</h3>
+      <section class="section featured" id="featured" aria-labelledby="featured-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Featured Technical Dossier</p>
+            <h2 id="featured-title">CPU Heat Sink Thermal Design - 15-Fin Al-6061 Forced-Convection Heat Sink</h2>
             <p>
-              Unity XR / C# + VR Centrifugal Pump Assembly + Validated Poka-Yoke installation sequence prior to physical manufacturing.
+              ENGG 114 Heat Transfer Design Project | CAD + MATLAB + Fusion 360 + DFMA
             </p>
-            <ul>
-              <li>Tool used: Unity XR / C#.</li>
-              <li>Build: VR centrifugal pump assembly.</li>
-              <li>Result: Validated Poka-Yoke installation sequence prior to physical manufacturing.</li>
-            </ul>
-          </article>
+          </div>
 
-          <article class="project-card">
-            <figure class="project-media">
-              <img src="assets/google-sites/shaft-collar-fea.jpg" alt="SolidWorks FEA stress plot" />
-            </figure>
-            <div class="project-topline">
-              <span>02</span>
-              <small>FEA Optimization</small>
+          <div class="dossier-hero">
+            <div class="dossier-copy">
+              <p>
+                Project B developed a forced-convection heat sink for a desktop CPU chip with a 100 W steady-state
+                heat load, 25&deg;C ambient air, an official chip temperature limit of &le;85&deg;C, and an internal
+                derated target of &le;70&deg;C. The final selected design is a 15-fin Al-6061 plate-fin heat sink
+                derived from a 17-fin thermal baseline.
+              </p>
+              <p>
+                MATLAB predicted a total thermal resistance of 0.4485 &deg;C/W and a chip temperature of 69.85&deg;C
+                for the final 15-fin design without an added TIM/contact penalty. Fusion 360 predicted a maximum
+                temperature of 69.775&deg;C for the final model under the modeled boundary conditions.
+              </p>
+              <div class="button-row">
+                <a class="button button-primary" href="assets/docs/heat-sink-thermal-design-report.pdf">View Report PDF</a>
+                <a class="button" href="assets/docs/heat-sink-project-deck.pptx">View Slide Deck</a>
+                <a class="button" href="assets/models/dfma-heatsink-3d-model.stl">View STL / 3D Model</a>
+                <a class="button" href="#thermal-results">View Thermal Results</a>
+              </div>
             </div>
-            <h3>C-Frame Structural Analysis</h3>
-            <p>
-              SolidWorks FEA + Cast-Steel C-Frame + 45 kN operational load verified; 1.41 FoS achieved alongside a 15% material reduction.
-            </p>
-            <ul>
-              <li>Tool used: SolidWorks FEA.</li>
-              <li>Build: Cast-steel C-frame.</li>
-              <li>Result: 45 kN operational load verified; 1.41 FoS achieved alongside a 15% material reduction.</li>
-            </ul>
-          </article>
+            <figure class="media-frame">
+              <img
+                src="assets/projects/heat-sink-render-angled.png"
+                alt="Angled CAD render of the selected 15-fin heat sink"
+              />
+              <figcaption>Selected 15-fin Al-6061 heat sink geometry.</figcaption>
+            </figure>
+          </div>
 
-          <article class="project-card">
-            <figure class="project-media">
-              <img src="assets/google-sites/aa-battery-drawing.jpg" alt="GD&T drawing sheet for AA battery model" />
-            </figure>
-            <div class="project-topline">
-              <span>03</span>
-              <small>GD&T Documentation</small>
-            </div>
-            <h3>Drawings & Tolerance Control</h3>
-            <p>
-              2D CAD + GD&T Manufacturing Packages + 6 component drawing sets structured to ASME Y14.5 inspection standards.
-            </p>
-            <ul>
-              <li>Tool used: 2D CAD.</li>
-              <li>Build: GD&T manufacturing packages.</li>
-              <li>Result: 6 component drawing sets structured to ASME Y14.5 inspection standards.</li>
-            </ul>
-          </article>
+          <div class="metric-grid" aria-label="Heat sink project metrics">
+            <div class="metric"><span>Heat Load</span><strong>100 W</strong></div>
+            <div class="metric"><span>Ambient</span><strong>25&deg;C</strong></div>
+            <div class="metric metric-alert"><span>Limit</span><strong>&le;85&deg;C</strong></div>
+            <div class="metric"><span>Derated Target</span><strong>&le;70&deg;C</strong></div>
+            <div class="metric"><span>MATLAB Prediction</span><strong>69.85&deg;C</strong></div>
+            <div class="metric"><span>Fusion 360 Prediction</span><strong>69.775&deg;C</strong></div>
+            <div class="metric"><span>R_total</span><strong>0.4485 &deg;C/W</strong></div>
+            <div class="metric"><span>Material</span><strong>Al-6061</strong></div>
+            <div class="metric"><span>Final Fin Count</span><strong>15</strong></div>
+            <div class="metric"><span>Baseline Fin Count</span><strong>17</strong></div>
+            <div class="metric"><span>Clear Spacing</span><strong>2.557 mm</strong></div>
+            <div class="metric"><span>Estimated Mass</span><strong>54.6 g</strong></div>
+            <div class="metric"><span>Footprint</span><strong>50.8 mm x 50.8 mm</strong></div>
+          </div>
 
-          <article class="project-card">
-            <figure class="project-media project-schematic">
-              <span>Rail Assembly</span>
-              <strong>Process Flow Audit</strong>
-            </figure>
-            <div class="project-topline">
-              <span>04</span>
-              <small>Process Engineering</small>
-            </div>
-            <h3>Siemens Mobility Industrial Simulation</h3>
-            <p>
-              Industrial Simulation + Rail Assembly Workflow + 20% cycle-time improvement identified via progressive cellular flow redesign.
-            </p>
-            <ul>
-              <li>Tool used: Industrial Simulation.</li>
-              <li>Build: Rail assembly workflow.</li>
-              <li>Result: 20% cycle-time improvement identified via progressive cellular flow redesign.</li>
-            </ul>
-          </article>
+          <div class="insight-grid">
+            <article class="insight-card">
+              <h3>Design Decision</h3>
+              <p>
+                The 17-fin baseline achieved a lower predicted temperature, but the selected 15-fin design was the
+                stronger engineering choice because a thermal-only optimum is incomplete. The final design balances
+                modeled thermal performance with manufacturability, tool access, airflow spacing, mounting
+                practicality, lower mass, and prototype readiness.
+              </p>
+            </article>
+            <article class="insight-card">
+              <h3>Technical Honesty</h3>
+              <p>
+                Fusion 360 and MATLAB results are treated as simulation-supported predictions, not real-world
+                validation. Prototype testing at 100 W and approximately 25&deg;C ambient is required before making
+                real-world performance claims.
+              </p>
+            </article>
+          </div>
 
-          <article class="project-card">
-            <figure class="project-media project-schematic">
-              <span>Siemens NX</span>
-              <strong>Expression Table</strong>
-            </figure>
-            <div class="project-topline">
-              <span>05</span>
-              <small>Parametric Modeling</small>
+          <div class="thermal-results" id="thermal-results" aria-labelledby="thermal-results-title">
+            <div class="section-heading compact">
+              <p class="eyebrow">Modeled Boundary Conditions</p>
+              <h3 id="thermal-results-title">Thermal Results and Sensitivity Evidence</h3>
             </div>
-            <h3>Parametric Master Model</h3>
-            <p>
-              Siemens NX + Parametric Master Model + Maintained 100% alignment without manual constraints via global expression tables.
-            </p>
-            <ul>
-              <li>Tool used: Siemens NX.</li>
-              <li>Build: Parametric master model.</li>
-              <li>Result: Maintained 100% alignment without manual constraints via global expression tables.</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <figure class="project-media project-schematic">
-              <span>FDM &amp; SLA</span>
-              <strong>Prototype Runs</strong>
-            </figure>
-            <div class="project-topline">
-              <span>06</span>
-              <small>Rapid Prototyping</small>
+            <div class="result-grid">
+              <figure class="media-frame">
+                <img src="assets/projects/heat-sink-fusion-15-final.png" alt="Fusion 360 result for the final 15-fin heat sink" />
+                <figcaption>Final 15-fin DFMA design: Fusion 360 max temperature 69.775&deg;C.</figcaption>
+              </figure>
+              <figure class="media-frame">
+                <img src="assets/projects/heat-sink-fusion-17-baseline.png" alt="Fusion 360 result for the 17-fin baseline heat sink" />
+                <figcaption>17-fin ideal baseline: Fusion 360 max temperature 61.487&deg;C.</figcaption>
+              </figure>
+              <figure class="media-frame">
+                <img src="assets/projects/heat-sink-matlab-resistance-mass.png" alt="MATLAB resistance and mass trade study chart" />
+                <figcaption>MATLAB trade study balancing thermal resistance, mass, and fin count.</figcaption>
+              </figure>
             </div>
-            <h3>Functional Hardware Iterations</h3>
-            <p>
-              FDM &amp; SLA 3D Printers + Functional Hardware Iterations + 4+ active prototypes developed for fast fit checks and material selection.
-            </p>
-            <ul>
-              <li>Tool used: FDM &amp; SLA 3D Printers.</li>
-              <li>Build: Functional hardware iterations.</li>
-              <li>Result: 4+ active prototypes developed for fast fit checks and material selection.</li>
-            </ul>
-          </article>
+          </div>
         </div>
       </section>
 
-      <section class="section compact-band" id="competencies" aria-labelledby="competencies-title">
-        <div class="section-heading">
-          <p class="eyebrow">Core Competencies</p>
-          <h2 id="competencies-title">Tools, standards, and execution</h2>
-        </div>
-        <p class="section-deck">CORE TOOLS: SolidWorks | Siemens NX | ASME Y14.5 GD&amp;T | FEA | 3D Printing</p>
-        <div class="competency-grid">
-          <article>
-            <span>Design & Analysis</span>
-            <p>Siemens NX, SolidWorks, AutoCAD, Python, parametric modeling, assemblies, surfacing, structural FEA, static stress analysis, and tolerance stack-up.</p>
-          </article>
-          <article>
-            <span>Fabrication & Standards</span>
-            <p>FDM and resin SLA printing, DFM, ASME Y14.5 GD&T, metrology, Lean Six Sigma, precision tolerance verification, and assembly repair.</p>
-          </article>
-          <article>
-            <span>Simulation & Process</span>
-            <p>Unity XR Interaction Toolkit, C# scripting, assembly verification, logic validation, and workflow analysis.</p>
-          </article>
-          <article>
-            <span>Leadership & Management</span>
-            <p>Hofstra CSTEP Co-President, ASME Recruitment Chair, professional development for 300+ students, technical writing, public speaking, outreach, and scheduling.</p>
-          </article>
+      <section class="section" id="archive" aria-labelledby="archive-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Engineering Project Archive</p>
+            <h2 id="archive-title">Evidence-backed mechanical engineering work.</h2>
+            <p>Each project is framed as situation, task, action, result, and evidence.</p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <img src="assets/projects/heat-sink-render-top.png" alt="Top CAD render of 15-fin heat sink" />
+              <div class="project-content">
+                <p class="tag">Thermal Design / DFMA</p>
+                <h3>CPU Heat Sink Thermal Design</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Desktop CPU cooling project with a 100 W heat load and 25&deg;C ambient air.</dd></div>
+                  <div><dt>Task</dt><dd>Develop a compact heat sink that satisfied &le;85&deg;C and evaluated a &le;70&deg;C derated target.</dd></div>
+                  <div><dt>Action</dt><dd>Used MATLAB trade studies, Fusion 360 thermal simulation, SolidWorks drawing work, DFMA, BOM planning, and validation planning.</dd></div>
+                  <div><dt>Result</dt><dd>Selected a 15-fin Al-6061 design predicted at 69.85&deg;C in MATLAB and 69.775&deg;C in Fusion 360 under modeled boundary conditions.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/docs/heat-sink-thermal-design-report.pdf">Report</a> / <a href="assets/docs/heat-sink-project-deck.pptx">Deck</a> / <a href="assets/models/dfma-heatsink-3d-model.stl">STL</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/certificates/black-hawk-certificate-preview.png" alt="Black Hawk maintenance and logistics job simulation certificate" />
+              <div class="project-content">
+                <p class="tag">Professional Development</p>
+                <h3>1109th TASMG Black Hawk Maintenance &amp; Logistics Job Simulation</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Forage certificate simulation connected to aviation maintenance and mission readiness workflows.</dd></div>
+                  <div><dt>Task</dt><dd>Complete practical tasks in Black Hawk Maintenance &amp; Diagnostics and Logistics &amp; Mission Readiness.</dd></div>
+                  <div><dt>Action</dt><dd>Worked through simulation tasks as a professional development exercise, not employment.</dd></div>
+                  <div><dt>Result</dt><dd>Certificate of Completion issued January 26, 2026.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/certificates/1109th-tasmg-black-hawk-certificate.pdf">Certificate PDF</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual evidence-visual" role="img" aria-label="Source-backed note for Industrial IoT Telemetry System">
+                <span>Source</span>
+                <strong>LinkedIn.md</strong>
+                <em>Telemetry / monitoring / industrial applications</em>
+              </div>
+              <div class="project-content">
+                <p class="tag">Industrial Systems</p>
+                <h3>Industrial IoT Telemetry System</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>LinkedIn source material documents a telemetry-focused engineering project for industrial applications.</dd></div>
+                  <div><dt>Task</dt><dd>Approach the project through data collection, monitoring, and system-level engineering thinking.</dd></div>
+                  <div><dt>Action</dt><dd>Connected monitoring concepts to technical documentation and industrial workflow logic.</dd></div>
+                  <div><dt>Result</dt><dd>Documented as project experience in the current LinkedIn source file.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/docs/linkedin-source.md">LinkedIn source notes</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual evidence-visual" role="img" aria-label="Source-backed note for Siemens Mobility Simulation">
+                <span>Source</span>
+                <strong>LinkedIn.md</strong>
+                <em>Simulation / transportation systems / workflow analysis</em>
+              </div>
+              <div class="project-content">
+                <p class="tag">Simulation / Process Analysis</p>
+                <h3>Siemens Mobility Simulation</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>LinkedIn source material identifies a simulation-based project connected to Siemens Mobility concepts.</dd></div>
+                  <div><dt>Task</dt><dd>Frame transportation technology through system modeling and engineering analysis.</dd></div>
+                  <div><dt>Action</dt><dd>Used simulation and workflow/process analysis as the supported emphasis.</dd></div>
+                  <div><dt>Result</dt><dd>Documented as project experience without unsupported technical metrics.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/docs/linkedin-source.md">LinkedIn source notes</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/projects/gdt-shaft-collar-drawing.jpg" alt="Shaft collar engineering drawing with dimensions and GD&T-style documentation" />
+              <div class="project-content">
+                <p class="tag">GD&amp;T / Drawings</p>
+                <h3>GD&amp;T / Engineering Drawing Packages</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Old portfolio files include drawing package work for a shaft collar, AA battery, L-bracket, and C-frame.</dd></div>
+                  <div><dt>Task</dt><dd>Communicate part geometry, manufacturing intent, and tolerance control through drawings.</dd></div>
+                  <div><dt>Action</dt><dd>Applied ASME Y14.5-oriented GD&amp;T, engineering drawings, and manufacturing documentation workflows.</dd></div>
+                  <div><dt>Result</dt><dd>Created visual drawing evidence for multiple parts and documentation exercises.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/projects/gdt-shaft-collar-drawing.jpg">Drawing image</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/projects/fea-c-frame-displacement.jpg" alt="FEA displacement plot for a C-frame component" />
+              <div class="project-content">
+                <p class="tag">FEA / Structural Analysis</p>
+                <h3>FEA / Structural Analysis Work</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Old portfolio pages document table displacement, C-frame displacement, L-bracket static stress, and shaft collar static stress work.</dd></div>
+                  <div><dt>Task</dt><dd>Evaluate stress, displacement, and manufacturability constraints using SolidWorks FEA evidence.</dd></div>
+                  <div><dt>Action</dt><dd>Documented a C-frame structural optimization study with a 45,000 N load, 1.41 factor of safety, 3&deg; draft angles, Conic Rho fillets, and 1.6 mm peak deflection in old portfolio materials.</dd></div>
+                  <div><dt>Result</dt><dd>Old portfolio documentation reports a 15% material-volume reduction while maintaining the stated FEA criteria.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/projects/fea-c-frame-displacement.jpg">FEA image</a> / <a href="assets/docs/old-portfolio-website.zip">Old portfolio archive</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/projects/additive-printed-linkage.jpg" alt="3D printed mechanical linkage prototype" />
+              <div class="project-content">
+                <p class="tag">Additive Manufacturing</p>
+                <h3>Additive Manufacturing / 3D Printing</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Resume and old portfolio files support FDM/SLA printing, 3D printer maintenance, assembly repair, and rapid prototyping.</dd></div>
+                  <div><dt>Task</dt><dd>Use printed parts for fit checks, functional iteration, and mechanical assembly learning.</dd></div>
+                  <div><dt>Action</dt><dd>Operated and maintained FDM and resin printers while focusing on tolerance stack-up and material selection.</dd></div>
+                  <div><dt>Result</dt><dd>Built hands-on prototype evidence and manufacturing-focused design habits.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/projects/additive-printed-linkage.jpg">Prototype image</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/projects/unity-xr-assembly-verification.jpg" alt="Unity XR assembly verification environment" />
+              <div class="project-content">
+                <p class="tag">Digital Twin / Assembly Logic</p>
+                <h3>Unity XR / VR Assembly Verification</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Old portfolio files document interactive VR environments used to validate assembly logic and manufacturing sequences.</dd></div>
+                  <div><dt>Task</dt><dd>Verify a centrifugal pump assembly workflow and prevent out-of-sequence assembly behavior.</dd></div>
+                  <div><dt>Action</dt><dd>Programmed Poka-Yoke logic in Unity with C# and XR Interaction Toolkit concepts.</dd></div>
+                  <div><dt>Result</dt><dd>Documented sequential assembly logic for Impeller to Cover workflow validation.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/projects/unity-xr-assembly-verification.jpg">Unity screenshot</a></dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="assets/images/leadership-brookhaven-trip.jpg" alt="CSTEP group visit to Brookhaven National Laboratory" />
+              <div class="project-content">
+                <p class="tag">Leadership / Technical Community</p>
+                <h3>Leadership / CSTEP / ASME / SHPE</h3>
+                <dl class="star-list">
+                  <div><dt>Situation</dt><dd>Engineering leadership work spans CSTEP, ASME, and SHPE chapter-building activity.</dd></div>
+                  <div><dt>Task</dt><dd>Support STEM students through technical community-building, professional development, recruitment, and workshop planning.</dd></div>
+                  <div><dt>Action</dt><dd>Co-President of CSTEP Community Board, ASME Social Media Coordinator and former Recruitment Chair, and SHPE Chapter Revamp Lead.</dd></div>
+                  <div><dt>Result</dt><dd>Resume documents a 5-person CSTEP board, 50+ engineering students supported, and increased workshop attendance through outreach.</dd></div>
+                  <div><dt>Evidence</dt><dd><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume PDF</a></dd></div>
+                </dl>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="section proof" id="proof" aria-labelledby="proof-title">
-        <div class="section-heading">
-          <p class="eyebrow">Proof Points</p>
-          <h2 id="proof-title">Supporting work archive</h2>
-        </div>
-        <div class="proof-layout">
-          <article class="archive-card">
-            <img src="assets/google-sites/cstep-leadership.jpg" alt="CSTEP leadership group visit" />
-            <h3>Leadership & Management</h3>
-            <p>Hofstra CSTEP Community Board, Advocacy Day in Albany, CSTEP Summer Program, Brookhaven National Laboratory visit, and CSTEP graduate school trip.</p>
-          </article>
-          <article class="archive-card">
-            <img src="assets/google-sites/aa-battery-drawing.jpg" alt="Mechanical drawing sheet example" />
-            <h3>Drawings/GD&T</h3>
-            <p>Shaft Collar, AA Battery, L-Bracket, C-Frame, Links x 4, and Base End drawing packages.</p>
-          </article>
-          <article class="archive-card">
-            <img src="assets/google-sites/shaft-collar-fea.jpg" alt="Finite element analysis example" />
-            <h3>FEA Projects</h3>
-            <p>Table displacement, C-frame displacement, L-bracket static stress, and shaft collar static stress analysis.</p>
-          </article>
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Skills &amp; Toolchain</p>
+            <h2 id="skills-title">Mechanical design stack organized for hardware roles.</h2>
+          </div>
+
+          <div class="skill-grid">
+            <article class="skill-cluster">
+              <h3>CAD &amp; Design</h3>
+              <ul>
+                <li>Siemens NX</li>
+                <li>SOLIDWORKS</li>
+                <li>AutoCAD</li>
+                <li>Fusion 360</li>
+                <li>Parametric modeling</li>
+                <li>Assemblies</li>
+                <li>Engineering drawings</li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Analysis &amp; Simulation</h3>
+              <ul>
+                <li>FEA</li>
+                <li>Static stress analysis</li>
+                <li>Thermal simulation</li>
+                <li>MATLAB</li>
+                <li>Design calculations</li>
+                <li>Data analysis</li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Manufacturing &amp; Documentation</h3>
+              <ul>
+                <li>GD&amp;T</li>
+                <li>ASME Y14.5</li>
+                <li>Additive manufacturing</li>
+                <li>FDM/SLA printing</li>
+                <li>DFMA</li>
+                <li>BOM creation</li>
+                <li>Engineering documentation</li>
+                <li>3D printer maintenance</li>
+                <li>Assembly repair</li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Programming / Digital Systems</h3>
+              <ul>
+                <li>Python</li>
+                <li>C#</li>
+                <li>Unity XR</li>
+                <li>Technical documentation workflows</li>
+                <li>Industrial simulation</li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Leadership</h3>
+              <ul>
+                <li>CSTEP Community Board President / Co-President</li>
+                <li>ASME Recruitment Chair / Social Media Coordinator</li>
+                <li>SHPE chapter revamp</li>
+                <li>STEM mentorship</li>
+                <li>Workshop planning</li>
+                <li>Student engagement</li>
+                <li>Professional communication</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-panel">
+      <section class="section" id="credentials" aria-labelledby="credentials-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Credentials / Mission Readiness</p>
+            <h2 id="credentials-title">Certifications and professional development.</h2>
+          </div>
+
+          <div class="credential-grid">
+            <article class="credential-card">
+              <img src="assets/certificates/lean-six-sigma-white-belt.jpeg" alt="Lean Six Sigma White Belt certificate for Adriel Ventura" />
+              <div>
+                <h3>Lean Six Sigma White Belt</h3>
+                <p>Council for Six Sigma Certification</p>
+                <p>Certification Date: November 16, 2025</p>
+                <a href="assets/certificates/lean-six-sigma-white-belt.jpeg">View certificate</a>
+              </div>
+            </article>
+            <article class="credential-card">
+              <img src="assets/certificates/asme-ethics-for-engineers.jpeg" alt="ASME Ethics for Engineers certificate for Adriel Ventura" />
+              <div>
+                <h3>ASME Ethics for Engineers: Doing the Right Thing When No One is Looking</h3>
+                <p>Completed: 1/8/2026</p>
+                <p>3.0 Professional Development Hours</p>
+                <a href="assets/certificates/asme-ethics-for-engineers.jpeg">View certificate</a>
+              </div>
+            </article>
+            <article class="credential-card">
+              <img src="assets/certificates/black-hawk-certificate-preview.png" alt="1109th TASMG Black Hawk Maintenance and Logistics certificate preview" />
+              <div>
+                <h3>1109th TASMG Black Hawk Maintenance &amp; Logistics Job Simulation</h3>
+                <p>Certificate of Completion - January 26, 2026</p>
+                <p>Black Hawk Maintenance &amp; Diagnostics; Logistics &amp; Mission Readiness</p>
+                <a href="assets/certificates/1109th-tasmg-black-hawk-certificate.pdf">View certificate PDF</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Leadership &amp; Experience</p>
+            <h2 id="experience-title">Technical community-building and upcoming engineering experience.</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <span>Expected Summer/Fall 2026</span>
+              <h3>Incoming Mechanical Engineering Intern / Co-op - Stellant Systems</h3>
+              <p>
+                Incoming role focused on applying mechanical engineering, CAD, manufacturing, and technical
+                documentation skills in a professional engineering environment.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <span>Sep 2025 - Present</span>
+              <h3>Co-President, CSTEP Community Board - Hofstra University</h3>
+              <p>
+                Direct a 5-person executive board for professional development programming supporting 50+ engineering
+                students, with outreach tied to workshop attendance and student engagement.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <span>May 2026 - Present</span>
+              <h3>SHPE Chapter Revamp Lead</h3>
+              <p>
+                Collaborating with engineering faculty and student peers to reactivate Hofstra's SHPE chapter and build
+                a sustainable mentorship and resource pipeline for minority STEM students.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <span>Aug 2024 - Present</span>
+              <h3>ASME Social Media Coordinator &amp; Former Recruitment Chair</h3>
+              <p>
+                Support recruitment, technical networking, industry-mentor connection, external communications, and
+                technical workshop coordination.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <span>Professional Experience</span>
+              <h3>Brand Representative - Polo Ralph Lauren</h3>
+              <p>
+                LinkedIn source material documents customer-facing experience in communication, product knowledge,
+                team collaboration, and fast-paced professional service.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resume-section" id="resume" aria-labelledby="resume-title">
+        <div class="shell resume-panel">
           <div>
-            <p class="eyebrow">Resume & Contact</p>
-            <h2 id="contact-title">Stellant Systems co-op, Summer-Fall 2026</h2>
+            <p class="eyebrow">Resume / Download Dossier</p>
+            <h2 id="resume-title">Download the current engineering resume.</h2>
             <p>
-              Currently completing a Mechanical Engineering co-op at Stellant Systems while continuing to build toward future manufacturing, hardware, and defense opportunities. Resume updated 01/26/2026.
-            </p>
-            <p>
-              Direct email: <a href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
+              The resume PDF includes education, technical skills, heat sink project work, leadership, and the incoming
+              Stellant Systems internship/co-op listing.
             </p>
           </div>
-          <div class="contact-actions">
-            <a class="button primary" href="resume.pdf" target="_blank" rel="noreferrer">Download Resume PDF</a>
-            <a class="button primary" href="mailto:adrielvent5@gmail.com">Email Adriel</a>
-            <button class="button secondary" id="copyEmailButton" type="button" data-email="adrielvent5@gmail.com">Copy Email</button>
-            <a class="button secondary" href="https://linkedin.com/in/adrielvent" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="button secondary" href="#projects">Back to Projects</a>
+          <a class="button button-primary" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Download Resume PDF</a>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="shell contact-grid">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Long Island / New York area mechanical engineering student.</h2>
+            <p>
+              Interested in mechanical design, CAD, GD&amp;T, FEA, thermal management, additive manufacturing,
+              manufacturing systems, aerospace/defense hardware, and hands-on product development roles.
+            </p>
           </div>
+          <address class="contact-card">
+            <a href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
+            <a href="https://www.linkedin.com/in/adrielvent/" rel="noreferrer">linkedin.com/in/adrielvent</a>
+            <a href="https://adrielvent.github.io/adriel-portfolio/" rel="noreferrer">adrielvent.github.io/adriel-portfolio</a>
+            <span>Central Islip / Long Island / New York area</span>
+          </address>
         </div>
       </section>
     </main>
 
-    <aside class="status-widget" aria-label="Live portfolio status">
-      <span>System Status</span>
-      <strong id="statusMetric">ME '27</strong>
-    </aside>
-
-    <footer>
-      <span>AV-PORTFOLIO // Mechanical Engineering</span>
-      <span>Hofstra University // Class of 2027</span>
+    <footer class="site-footer">
+      <div class="shell footer-content">
+        <span>Adriel Ventura - Mechanical Engineering Portfolio</span>
+        <span id="year"></span>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
