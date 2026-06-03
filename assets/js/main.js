@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { STLLoader } from "../vendor/STLLoader.js";
+import modelUrl from "../models/dfma-heatsink-viewer.stl";
 
 const year = document.querySelector("#year");
 if (year) {
@@ -32,7 +33,6 @@ if ("IntersectionObserver" in window && sections.length) {
 
 const stlStages = Array.from(document.querySelectorAll("[data-stl-viewer]"));
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const modelUrl = "assets/models/dfma-heatsink-viewer.stl";
 let sharedGeometryPromise;
 
 function extractHeatSinkGeometry(sourceGeometry) {
