@@ -1,1 +1,16 @@
 .DS_Store
+*.DS_Store
+*.bak
+*.tmp
+*.zip
+
+# Ignore loose scratch files in root
+/*.pdf
+/*.png
+/*.jpg
+/*.jpeg
+
+# Explicitly track repository root essentials
+!CNAME
+!README.md
+!index.html
