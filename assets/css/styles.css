@@ -377,97 +377,25 @@ input:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   5. Hero Section & Technical Dossier Intro
+   5. Hero Section & Intro
    -------------------------------------------------------------------------- */
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  display: block;
+  max-width: 900px;
 }
 
 .hero-headline {
-  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  font-size: clamp(1.125rem, 2.2vw, 1.35rem);
   font-weight: 500;
   color: var(--text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
 }
 
 .hero-summary {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Telemetry & Spec Readout Panel */
-.command-panel {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.panel-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 0.75rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border-subtle);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.status-badge::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--accent);
-}
-
-.telemetry-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-
-.telemetry-card {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.telemetry-card span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; /* >= 12px */
-  text-transform: uppercase;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-}
-
-.telemetry-card strong {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  line-height: 1.65;
 }
 
 /* --------------------------------------------------------------------------
@@ -487,9 +415,9 @@ input:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   7. Featured Technical Dossier: CPU Heat Sink
+   7. Featured Engineering Project: CPU Heat Sink
    -------------------------------------------------------------------------- */
-.dossier-hero {
+.featured-hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2.25rem;
@@ -497,14 +425,14 @@ input:focus-visible,
   margin-bottom: 2rem;
 }
 
-.dossier-status {
+.featured-status {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
-.dossier-status span {
+.featured-status span {
   font-family: var(--font-mono);
   font-size: 0.75rem; /* 12px */
   font-weight: 600;
@@ -650,7 +578,7 @@ input:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   8. Project Archive Grid & Technical Dossiers
+   8. Project Archive Grid & Technical Projects
    -------------------------------------------------------------------------- */
 .project-grid {
   display: grid;
@@ -965,7 +893,7 @@ input:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   12. Resume Dossier Panel & Contact
+   12. Resume Panel & Contact
    -------------------------------------------------------------------------- */
 .resume-panel {
   background: var(--bg-surface);
@@ -1026,8 +954,7 @@ input:focus-visible,
    14. Responsive Layout & Media Queries
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .hero-grid,
-  .dossier-hero,
+  .featured-hero,
   .two-column,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1058,8 +985,7 @@ input:focus-visible,
 @media (max-width: 768px) {
   .insight-grid,
   .result-grid,
-  .credential-grid,
-  .telemetry-grid {
+  .credential-grid {
     grid-template-columns: 1fr;
   }
   
@@ -1099,5 +1025,106 @@ input:focus-visible,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. Print Stylesheet (@media print)
+   Avoids awkward page breaks inside cards, hides navigation and interactives,
+   and prevents empty trailing pages.
+   -------------------------------------------------------------------------- */
+@media print {
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide navigation, theme toggle, skip-link, 3D buttons, and footer */
+  .site-header,
+  .nav-controls,
+  .theme-toggle,
+  .skip-link,
+  #btn-load-3d,
+  .button-row,
+  .site-footer,
+  .model-overlay-controls {
+    display: none !important;
+  }
+
+  /* Reset layout containers to avoid trailing empty pages */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section {
+    padding-block: 1rem !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Avoid page breaks inside cards and content units */
+  .project-card,
+  .credential-card,
+  .timeline-item,
+  .insight-card,
+  .metric,
+  .model-container,
+  .media-frame,
+  .skill-cluster,
+  .contact-card,
+  .hero-grid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Linearize grid structures for clean document flow */
+  .project-grid,
+  .credential-grid,
+  .skill-grid,
+  .result-grid,
+  .insight-grid,
+  .featured-hero,
+  .two-column,
+  .contact-grid {
+    display: block !important;
+  }
+
+  .project-card,
+  .credential-card,
+  .skill-cluster {
+    display: block !important;
+    width: 100% !important;
+    border: 1px solid #94a3b8 !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: #000000 !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8.5pt;
+    font-family: var(--font-mono);
+    word-break: break-all;
   }
 }
