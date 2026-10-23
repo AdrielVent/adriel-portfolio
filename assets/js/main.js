@@ -21,9 +21,13 @@
   var themeToggleText = document.getElementById("theme-toggle-text");
   var htmlEl = document.documentElement;
 
-  // Detect system preference
+  // Detect system preference or URL query param (?theme=light or ?theme=dark)
+  var urlParams = new URLSearchParams(window.location.search);
+  var themeParam = urlParams.get("theme");
   var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  var currentTheme = prefersDark ? "dark" : "light";
+  var currentTheme = (themeParam === "dark" || themeParam === "light") 
+    ? themeParam 
+    : (prefersDark ? "dark" : "light");
   
   function updateThemeUI(theme) {
     if (theme === "dark") {
