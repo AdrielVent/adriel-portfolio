@@ -20,6 +20,7 @@
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Source Sans Pro", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --mark: #f1e3a4;         /* :target highlight */
   --type: "Courier Prime", "Courier New", Courier, monospace;   /* buttons and action links */
 
   --text: 1.125rem;        /* 18 px body */
@@ -137,7 +138,9 @@ strong { color: var(--ink); font-weight: 600; }
 .plate { background: var(--plate); }
 .plate img { margin-inline: auto; }
 
-.feature-media img { width: 100%; padding: 6%; }
+.feature-media { margin: 0; }
+.feature-media .viewer > img { padding: 6%; }
+.spin-toggle { margin: 0.5rem 0 0 -0.35rem; }
 
 .feature h3 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 1.875rem); line-height: 1.2; margin-bottom: 0.4rem; }
 .feature h3 a { color: var(--ink); text-decoration: none; }
@@ -304,13 +307,57 @@ td.assumed { color: var(--accent); font-weight: 600; }
 .viewer-status { margin: 0.5rem 0 0; color: var(--muted); font-size: var(--small); }
 .open-3d { width: fit-content; margin: 0.5rem 0 0 -0.35rem; text-align: left; }
 
+/* 12b. Typewriter layer --------------------------------------------------
+   Everything that is a label, date, number or control is "typed" in
+   Courier Prime; reading text stays in Source Sans, headings in Source Serif.
+   Ideas: Courier Prime (quoteunquoteapps/CourierPrime, OFL), the typed
+   section marks and :target highlight in riggraz/no-style-please (MIT),
+   captions set beside the figure they explain, as in edwardtufte/tufte-css (MIT).
+   No code copied. */
+.site-nav a,
+.meta,
+.section-head p,
+.facts dt,
+.facts-box dt,
+.role-when,
+.crumb,
+.toc a,
+caption,
+thead th,
+figcaption b,
+.files span,
+.site-footer h2 {
+  font-family: var(--type);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.facts dt, .facts-box dt, figcaption b, thead th { color: var(--ink); }
+.facts dt::after, .facts-box dt::after { content: ":"; content: ":" / ""; }
+
+/* Case-study chapters get typed numbers: 01, 02, ... (hidden from screen readers). */
+main { counter-reset: chapter; }
+.chapter { counter-increment: chapter; }
+.chapter > .wrap > h2::before {
+  content: counter(chapter, decimal-leading-zero) "\2003";
+  content: counter(chapter, decimal-leading-zero) "\2003" / "";
+  font: 400 1rem/1 var(--type);
+  color: var(--muted);
+  vertical-align: 0.35em;
+}
+.toc ol { counter-reset: toc; }
+.toc li { counter-increment: toc; }
+.toc a::before { content: counter(toc, decimal-leading-zero) "\00a0"; content: counter(toc, decimal-leading-zero) "\00a0" / ""; color: var(--muted); }
+
+/* Jumping to a chapter marks it, like a highlighter on a typed page. */
+.chapter:target > .wrap > h2 { background: linear-gradient(transparent 55%, var(--mark) 55%); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
 /* 13. Responsive --------------------------------------------------------- */
 @media (max-width: 860px) {
   .feature, .case-top, .about { grid-template-columns: 1fr; }
   /* One column: keep the render from filling a whole tablet screen */
-  .feature-media { text-align: center; }
-  .feature-media img { width: auto; max-width: 100%; max-height: 26rem; }
-  .case-top .viewer { aspect-ratio: 4 / 3; }
+  .feature-media .viewer, .case-top .viewer { aspect-ratio: 4 / 3; }
   .work-list > li, .roles > li { grid-template-columns: 1fr; }
   .work-list figure { max-width: 100%; }
 }

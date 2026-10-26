@@ -34,7 +34,7 @@ All text pairs pass WCAG AA (4.5:1) on `--paper`; checked with an automated cont
 | Major headings (h1, h2, feature title) | Source Serif 4, 600 | `--serif` |
 | Body and interface | Source Sans 3, 400 / 600, italic 400 | `--sans` |
 | Notation only (equations) | system monospace stack | `--mono` |
-| Buttons and action links | Courier Prime 400 | `--type`. Typed-label look: `[Angled]`, `[x] Section cut`, `Read the case study →`. Brackets and arrow are CSS, hidden from screen readers |
+| Labels, dates, nav, table heads, figure numbers, buttons | Courier Prime 400 | `--type`. The "typed" layer: anything that is a label, date, number or control. Labels end in a colon (`Objective:`), case-study chapters carry typed numbers (`01`–`08`), buttons read `[Angled]`, `[x] Section cut`, `Read the case study →`. Colons, numbers, brackets and arrow are CSS with empty alt text, so screen readers skip them |
 
 - Body `--text`: 1.125rem (18px); 1.0625rem (17px) under 600px.
 - Small text `--small`: 1rem (16px). Nothing on the site is set smaller than 16px.
@@ -63,13 +63,15 @@ Breakpoints: 860px (two columns collapse to one; the render is capped at 26rem t
 ## Interaction
 
 - The site works without JavaScript. `main.js` only adds keyboard stops to tables that scroll sideways and loads the 3D viewer on request.
-- The 3D viewer (three.js r164, about 0.7 MB with the STL) loads only after the "Rotate the 3D model" button is pressed. That button is hidden until JavaScript runs, so it never appears as a dead control. After loading, focus moves to the model; arrow keys rotate, R resets.
-- Smooth scrolling only under `prefers-reduced-motion: no-preference`. No other animation.
+- Case study: the 3D viewer (three.js r164, about 0.7 MB with the STL) loads only after `[Rotate in 3D]` is pressed. That button is hidden until JavaScript runs, so it never appears as a dead control. After loading, focus moves to the model; arrow keys rotate, R resets.
+- Homepage: the heat sink turns slowly (one turn per 24 s) after the page has loaded and the render is near the screen. It stops while off screen, in a hidden tab, or while being dragged. `[Pause rotation]` stops it (WCAG 2.2.2). With reduced motion or Save-Data it stays a still render until `[Rotate]` is pressed. It uses `dfma-heatsink-body.stl`, the same model without the separate 38 mm plate.
+- Smooth scrolling only under `prefers-reduced-motion: no-preference`. The turntable above is the only other motion.
+- Jumping to a case-study chapter marks its heading with a highlighter band (`--mark`, `#f1e3a4`).
 - Focus: 2px outline in `--accent` on every link, button and focusable region (white on the dark 3D canvas).
 
 ## Not used
 
-Boxed or filled buttons, blueprint grids, crosshairs, HUD graphics, neon, gradients, glows, glassmorphism, giant hero sections, skill percentages, counters, badge walls, typewriter text, scroll hijacking, custom cursors, decorative animation (including typewriter typing effects; the typewriter feel is type only), stock or AI imagery, a dark-mode toggle.
+Boxed or filled buttons, blueprint grids, crosshairs, HUD graphics, neon, gradients, glows, glassmorphism, giant hero sections, skill percentages, counters, badge walls, typewriter text, scroll hijacking, custom cursors, decorative animation (including typing effects; the typewriter feel comes from type only), stock or AI imagery, a dark-mode toggle.
 
 ## References
 
@@ -81,5 +83,9 @@ Looked at before the October 2026 editorial redesign. They were inputs, not temp
 | [TimWitzdam/astro-minimal-portfolio-template](https://github.com/TimWitzdam/astro-minimal-portfolio-template) (commit ff91800) | MIT | Compact text header, and experience entries that keep title, organization and dates as separate fields |
 | [moeyua/astro-theme-typography](https://github.com/moeyua/astro-theme-typography) (commit 162ca9c) | MIT | Serif headings over a Source Sans interface face, and a single dark-blue accent (its default `primary` is `#2e405b`; this site uses `#2d4a6b`) |
 | [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (commit 2329b96) | CC0 1.0 | One page per project in a fixed section order, separating what was asked, what I did and what came out |
+| [quoteunquoteapps/CourierPrime](https://github.com/quoteunquoteapps/CourierPrime) (commit 7fd585a) | SIL OFL 1.1 | The typed-layer face, served from Google Fonts |
+| [riggraz/no-style-please](https://github.com/riggraz/no-style-please) (commit 2f8dba2) | MIT | Monospace metadata, typed characters as structure (its `/////` dividers became typed chapter numbers here), and highlighting the `:target` you jumped to |
+| [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css) (commit b5d7b7b) | MIT | Captions that explain the figure and say where its numbers come from |
+| [iaolo/iA-Fonts](https://github.com/iaolo/iA-Fonts) (commit c658867) | OFL, plus iA usage guidelines | Looked at and **not used**: its guidelines ask that themes not imitate iA Writer, so the typewriter face is Courier Prime instead |
 
 Earlier references (bchiang7/v4, MIT MechE Communication Lab guide, BU ENG portfolio guide, three-cad-viewer) are listed in `SOURCES.md`.
