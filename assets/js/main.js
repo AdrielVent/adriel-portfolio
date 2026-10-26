@@ -4,7 +4,7 @@
  * Features:
  * - Theme Toggle (Light / Dark) with ZERO localStorage
  * - Active Navigation Spy via IntersectionObserver
- * - Dynamic On-Demand 3D STL Model Loader (Preserves initial load budget < 800 KB)
+ * - 3D STL viewer loaded only on request (assets/js/viewer.js)
  */
 
 (function () {
@@ -87,28 +87,45 @@
     });
   }
 
-  // 4. Hero 3D model
-  // The bundle (three.js + STLLoader) scans for [data-stl-viewer] when it
-  // runs, so mark the stage first. It loads after the page so text and
-  // images are never blocked; the static render stays if WebGL fails.
-  var heroStage = document.getElementById("hero-stage");
+  // 4. Wide tables scroll inside their wrapper on small screens. A scrolling
+  // region must be reachable by keyboard, so it gets a tab stop only then.
+  var scrollers = Array.from(document.querySelectorAll(".table-scroll"));
+  function markScrollers() {
+    scrollers.forEach(function (el) {
+      if (el.scrollWidth > el.clientWidth + 1) {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "region");
+        var cap = el.querySelector("caption");
+        el.setAttribute("aria-label", cap ? cap.textContent : "Table");
+      } else {
+        el.removeAttribute("tabindex");
+        el.removeAttribute("role");
+        el.removeAttribute("aria-label");
+      }
+    });
+  }
+  markScrollers();
+  window.addEventListener("resize", markScrollers);
 
-  if (heroStage) {
-    var loadViewer = function () {
-      heroStage.setAttribute("data-stl-viewer", "");
-      heroStage.setAttribute("data-stl-view", "hero");
-      var script = document.createElement("script");
-      script.src = "assets/js/main.bundle.js";
-      script.onerror = function () {
-        heroStage.removeAttribute("data-stl-viewer");
-      };
-      document.body.appendChild(script);
-    };
+  // 5. 3D model, on request only
+  // The page shows a static render. three.js (about 670 KB) and the STL load
+  // only when the visitor presses "Open 3D model"; the render stays if WebGL fails.
+  var openBtn = document.getElementById("open-3d");
 
-    if (document.readyState === "complete") {
-      loadViewer();
-    } else {
-      window.addEventListener("load", loadViewer);
-    }
+  if (openBtn) {
+    openBtn.addEventListener("click", function () {
+      var stage = document.getElementById("model-stage");
+      var controls = document.getElementById("viewer-controls");
+      var status = document.getElementById("viewer-status");
+      openBtn.disabled = true;
+      openBtn.hidden = true;
+      import("./viewer.js")
+        .then(function (m) {
+          m.mountViewer(stage, controls, status);
+        })
+        .catch(function () {
+          status.textContent = "The 3D model didn't load. The render above shows the same part.";
+        });
+    });
   }
 })();

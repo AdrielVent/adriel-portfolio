@@ -130,10 +130,31 @@ Portfolios and templates I looked at before the October 2026 redesign. No code w
 |---|---|
 | [bchiang7/v4](https://github.com/bchiang7/v4) (Brittany Chiang) | Two tiers of projects: a few featured with full detail, the rest as a compact list |
 | [smaranjitghose/awesome-portfolio-websites](https://github.com/smaranjitghose/awesome-portfolio-websites) (MIT) | Core sections only: experience, projects, education. Optional pages left out |
-| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | A portfolio for hardware engineers should show problem solving that a resume can't |
+| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | One page per project with a fixed section order; a portfolio should show problem solving that a resume can't |
 | MIT MechE Communication Lab portfolio guide | 3 to 4 main projects, 2 to 6 visuals each, say what I was responsible for, compare the result to the objective |
-| [nasa/openmct](https://github.com/nasa/openmct) (NASA Ames, Apache-2.0) | Dense, ruled data tables with mono values; no cards around numbers |
+| [nasa/openmct](https://github.com/nasa/openmct) (NASA Ames, Apache-2.0) | Dense, ruled data tables with mono values; no cards around numbers. Its mission-ops look was rejected for this site because I have no live telemetry to show |
 | [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) | Keeping the design rules in a `DESIGN.md` file so every change uses the same tokens |
-| [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) | Looked at for a part-tree / clipping viewer. Not used yet: my only model is a single STL |
+| [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) (MIT), README and Design.md | Drawn edges on the mesh, a section (clipping) plane, preset views, and rendering only when something changes. No code copied; it needs tessellated CAD input, not STL |
 | Boston University ENG, ["Key Factors of Engineering Portfolios"](https://www.bu.edu/eng/files/2022/07/Key-Factors-of-Engineering-Portfolios.pdf) | Most important project first, "I" over "we", show the full process and what's still uncertain |
 | My own earlier version of this site (`main` before Oct 2026) | The rotating STL heat sink in the hero, kept and restyled without the scanline and glow |
+| [Claude frontend-aesthetics cookbook](https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics) | List of generic AI-design tells (Inter/Roboto, purple gradients, predictable layouts, scattered animation) to check this site against |
+
+## Heat sink design review page (`heat-sink.html`)
+
+Every number on that page comes from my ENGG 114 report, [`heat-sink-thermal-design-report.pdf`](assets/docs/heat-sink-thermal-design-report.pdf):
+
+| Claim on the page | Report location |
+|---|---|
+| Requirements, R_max 0.600 / 0.450 °C/W | §II, Table 1, Eqs. 1–3 |
+| Concepts A, B, C and decisions | §III, Table 3 |
+| Resistance path, T_chip = 69.85 °C, margins 15.15 / 0.15 °C | §IV.C, Eqs. 4–8 |
+| Fin geometry, m, η_f, η_o, R values, 54.6 g | §IV.B Table 4, §V Table 5 |
+| h = 65 W/m²K is assumed | §V, Eq. 9 |
+| Contact-resistance table | §V.B, Table 6 |
+| 15 vs 17 fins: gap, R, MATLAB and Fusion temps, mass | §V.C Table 7, §VI Table 8 |
+| 0.0031 °C/W is the high end of the PTM7950 ideal range | Legend of the TIM sensitivity plot, [`heat-sink-derated-sensitivity.png`](assets/projects/heat-sink-derated-sensitivity.png) |
+| ~46 W/m²K crossing of 85 °C | Read off [`heat-sink-contact-sensitivity.png`](assets/projects/heat-sink-contact-sensitivity.png), not stated in the report |
+| Assembly drawing, 38 mm plate | Report Fig. 8 (page 14), cropped to [`heat-sink-drawing-15fin.png`](assets/projects/heat-sink-drawing-15fin.png) |
+| 3D-printed demonstration models, not thermal validation | §I.D |
+| Test plan and $376.92 test equipment | §VIII.B Table 10, §IX |
+| Individual work | Declaration of Original Work, page 1 |

@@ -9,8 +9,12 @@
     />
     <title>Adriel Ventura | Mechanical Engineering Portfolio</title>
     <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/" />
-    
-    <!-- Distinctive Typography: IBM Plex Sans & IBM Plex Mono -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Adriel Ventura | Mechanical Engineering Portfolio" />
+    <meta property="og:description" content="Mechanical engineering student, Hofstra (Dec 2027). Thermal analysis and fixture design co-op at Stellant Systems. Heat sink design review with report, plots and STL." />
+    <meta property="og:url" content="https://adrielvent.github.io/adriel-portfolio/" />
+    <meta property="og:image" content="https://adrielvent.github.io/adriel-portfolio/assets/images/og-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,20 +27,20 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" aria-label="Primary navigation">
-      <nav class="nav shell">
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Primary">
         <a class="brand" href="#hero" aria-label="Adriel Ventura home">
           <span class="brand-mark" aria-hidden="true"></span>
           <span>Adriel Ventura</span>
         </a>
         <div class="nav-controls">
-          <div class="nav-links" aria-label="Section links">
-            <a href="#featured">Work</a>
+          <div class="nav-links">
+            <a href="#work">Work</a>
             <a href="#experience">Experience</a>
             <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
           </div>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme mode" title="Toggle theme (Light / Dark)">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
             <span id="theme-toggle-text">Light</span>
           </button>
         </div>
@@ -44,7 +48,6 @@
     </header>
 
     <main id="main">
-      <!-- HERO SECTION -->
       <section class="hero section" id="hero" aria-labelledby="hero-title">
         <div class="shell hero-grid">
           <div class="hero-copy">
@@ -58,272 +61,300 @@
               ANSYS Mechanical and designed an O-ring cutting fixture for the assembly floor. My featured project is a
               15-fin heat sink I designed on my own and checked with a MATLAB model and a Fusion 360 simulation.
             </p>
-            <div class="button-row" aria-label="Primary portfolio actions">
-              <a class="button button-primary" href="#featured">See the heat sink project</a>
+            <div class="button-row">
+              <a class="button button-primary" href="heat-sink.html">Read the heat sink design review</a>
               <a class="text-link" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Resume (PDF)</a>
               <a class="text-link" href="https://www.linkedin.com/in/adrielvent/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a class="text-link" href="#press">Hofstra News feature</a>
             </div>
           </div>
-          <figure class="hero-figure hero-model-figure">
-            <div class="stl-stage" id="hero-stage" aria-label="3D model of the 15-fin Al-6061 heat sink. Move the pointer over it to tilt.">
-              <canvas class="stl-canvas" aria-hidden="true"></canvas>
-              <img
-                class="stl-fallback"
-                src="assets/projects/heat-sink-render-top.png"
-                alt="CAD render of the 15-fin Al-6061 heat sink I designed"
-                width="948"
-                height="881"
-                loading="eager"
-              />
-            </div>
-            <figcaption>
-              <span>15-fin heat sink &middot; Al-6061 &middot; 50.8 mm base &middot; my STL, rendered live</span>
-              <a href="#featured">How I sized it</a>
-            </figcaption>
+
+          <figure class="figure framed hero-figure">
+            <img
+              src="assets/projects/heat-sink-render-top.png"
+              alt="CAD render of the 15-fin Al-6061 heat sink I designed"
+              width="948"
+              height="881"
+              fetchpriority="high"
+            />
+            <table class="title-block">
+              <tbody>
+                <tr><th scope="row">Part</th><td>15-fin plate-fin heat sink</td></tr>
+                <tr><th scope="row">Material</th><td>Al-6061</td></tr>
+                <tr><th scope="row">Load</th><td class="mono">100 W, 25 &deg;C air, &le; 85 &deg;C</td></tr>
+                <tr><th scope="row">Predicted</th><td class="mono">69.85 &deg;C (MATLAB)</td></tr>
+                <tr><th scope="row">Status</th><td class="status">Analysis only, not bench tested</td></tr>
+              </tbody>
+            </table>
+            <figcaption>My CAD render. The 3D model is on the <a href="heat-sink.html">design review page</a>.</figcaption>
           </figure>
         </div>
       </section>
 
-      <!-- FEATURED PROJECT: CPU HEAT SINK -->
-      <section class="section featured" id="featured" aria-labelledby="featured-title">
-        <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Featured project · Solo · Spring 2026</p>
-            <h2 id="featured-title">A 15-fin heat sink for a 100 W CPU</h2>
-            <p>ENGG 114 Heat Transfer, Hofstra. Design, calculations, MATLAB model, CAD, and Fusion 360 study are my own work.</p>
-            <div class="featured-status" aria-label="Project status">
-              <span>Analysis + simulation</span>
-              <span>Not tested on hardware</span>
-            </div>
-          </div>
-
-          <div class="featured-hero">
-            <div class="featured-copy">
-              <h3>The problem</h3>
-              <p>
-                Keep a 50.8 &times; 50.8 mm CPU at or below 85&deg;C while it dissipates 100 W in 25&deg;C air, using the
-                existing mounting hardware. I also set a stricter 70&deg;C target for myself to leave margin.
-              </p>
-              <h3>What I compared</h3>
-              <p>
-                Three concepts: a copper pin-fin heat sink with natural convection, an aluminum folded-fin heat-pipe
-                design, and an Al-6061 plate-fin heat sink with a fan. I picked the plate-fin, then ran a fin-count
-                trade study in MATLAB.
-              </p>
-              <div class="button-row">
-                <a class="button button-primary" href="assets/docs/heat-sink-thermal-design-report.pdf" target="_blank" rel="noopener noreferrer">Report (PDF)</a>
-                <a class="button" href="assets/docs/heat-sink-project-deck.pptx">Slides (PPTX)</a>
-                <a class="button" href="assets/models/dfma-heatsink-3d-model.stl" download>STL model</a>
-              </div>
-            </div>
-
-            <figure class="hero-figure">
-              <img
-                src="assets/projects/heat-sink-fusion-15fin-result.png"
-                alt="Fusion 360 steady-state temperature plot of the final 15-fin heat sink, 54.8 to 69.8 degrees C"
-                width="1050"
-                height="530"
-                loading="lazy"
-              />
-              <figcaption>Final 15-fin design in Fusion 360: max 69.775&deg;C.</figcaption>
-            </figure>
-          </div>
-
-          <table class="spec-table">
-            <caption>Heat sink data sheet. The source column says where each number comes from.</caption>
-            <thead>
-              <tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Source</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Heat load</th><td>100 W</td><td>Given</td></tr>
-              <tr><th scope="row">Ambient air</th><td>25&deg;C</td><td>Given</td></tr>
-              <tr><th scope="row">Max chip temperature</th><td>&le; 85&deg;C</td><td>Requirement</td></tr>
-              <tr><th scope="row">Design target</th><td>&le; 70&deg;C</td><td>Self-set</td></tr>
-              <tr><th scope="row">Convection coefficient h</th><td>65 W/m&sup2;K</td><td class="src-assumed">Assumed</td></tr>
-              <tr><th scope="row">R<sub>total</sub></th><td>0.4485&deg;C/W</td><td>MATLAB</td></tr>
-              <tr><th scope="row">Chip temperature, zero contact resistance</th><td>69.85&deg;C</td><td>MATLAB</td></tr>
-              <tr><th scope="row">Hottest point in model</th><td>69.775&deg;C</td><td>Fusion 360</td></tr>
-              <tr><th scope="row">Fin gap</th><td>2.557 mm</td><td>My design</td></tr>
-              <tr><th scope="row">Mass</th><td>54.6 g</td><td>MATLAB estimate</td></tr>
-            </tbody>
-          </table>
-
-          <ol class="design-notes" aria-label="Design notes">
-            <li>
-              <h3>Why 15 fins, not 17</h3>
-              <p>
-                The 17-fin version ran cooler in Fusion 360 (61.5&deg;C vs 69.8&deg;C). I chose 15 anyway: the wider
-                2.557 mm gap is easier to machine and leaves room for tools, and the mass drops 27.5% (75.3 g to 54.6 g).
-              </p>
-            </li>
-            <li>
-              <h3>What the numbers mean</h3>
-              <p>
-                69.85&deg;C is the MATLAB chip temperature with zero contact resistance. 69.775&deg;C is the hottest point
-                in the Fusion 360 model. They are different quantities, so I don't treat them as a match. The
-                convection coefficient (65 W/m&sup2;K) is assumed, not measured.
-              </p>
-            </li>
-            <li>
-              <h3>What's still uncertain</h3>
-              <p>
-                The margin to my 70&deg;C target is only 0.15&deg;C. Adding just 0.0031&deg;C/W of contact resistance
-                puts the chip at 70.16&deg;C, which is over my target but still well under the 85&deg;C requirement. Next step is the 100 W bench test in the report's test plan.
-              </p>
-            </li>
-          </ol>
-
-          <div class="thermal-results" id="thermal-results" aria-labelledby="thermal-results-title">
-            <div class="section-heading compact">
-              <p class="eyebrow">Evidence</p>
-              <h3 id="thermal-results-title">Simulation plots and trade study</h3>
-            </div>
-            <div class="result-grid">
-              <figure class="media-frame">
-                <img src="assets/projects/heat-sink-fusion-17fin-result.png" alt="Fusion 360 temperature plot for the 17-fin baseline, max 61.487 degrees C" width="742" height="350" loading="lazy" />
-                <figcaption>17-fin baseline: Fusion 360 max 61.487&deg;C.</figcaption>
-              </figure>
-              <figure class="media-frame">
-                <img src="assets/projects/heat-sink-matlab-resistance-mass.png" alt="MATLAB plot of thermal resistance and mass against fin count" width="1399" height="843" loading="lazy" />
-                <figcaption>MATLAB: thermal resistance and mass vs fin count.</figcaption>
-              </figure>
-              <figure class="media-frame">
-                <img src="assets/projects/heat-sink-contact-sensitivity.png" alt="MATLAB plot of predicted chip temperature against assumed convection coefficient, with and without a 0.05 C/W contact penalty" width="1399" height="843" loading="lazy" />
-                <figcaption>Chip temperature vs assumed h. Below roughly 46 W/m&sup2;K (read off the plot) the design misses 85&deg;C, so h is the first thing a bench test should pin down.</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FEATURED PROJECTS 2 AND 3 -->
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">More featured work</p>
-            <h2 id="work-title">Tooling on the assembly floor, and structural analysis</h2>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card">
-              <div class="project-content">
-                <p class="tag">Stellant Systems co-op · 2026</p>
+          <p class="eyebrow">Work</p>
+          <h2 id="work-title">Projects, most important first</h2>
+          <ol class="work-rows">
+            <li class="is-lead">
+              <div class="work-body">
+                <h3><a href="heat-sink.html">Heat sink for a 100 W CPU: design review</a></h3>
+                <p class="work-meta">ENGG 114 Heat Transfer · individual project · Spring 2026</p>
+                <p>
+                  Screened three concepts, then traded a cooler 17-fin baseline for a 15-fin design that is easier to
+                  machine and 27.5% lighter. The page covers requirements, the resistance model, Fusion 360 results,
+                  what's still uncertain, and the untested bench plan.
+                </p>
+              </div>
+              <div class="work-key">
+                <dl>
+                  <div><dt>Limit</dt><dd>&le; 85 &deg;C</dd></div>
+                  <div><dt>Predicted</dt><dd>69.85 &deg;C</dd></div>
+                  <div><dt>Mass</dt><dd>54.6 g</dd></div>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
                 <h3>Multi-diameter O-ring cutting fixture</h3>
+                <p class="work-meta">Stellant Systems co-op · 2026 · text only</p>
                 <p>
-                  <strong>Problem.</strong> Cutting O-rings to several diameters had a blade-deflection
-                  problem that made cuts hard to repeat.
+                  Cutting O-rings to several diameters had a blade-deflection problem that made cuts hard to repeat. I
+                  designed the fixture and printed four FDM iterations, changing each one based on feedback from the
+                  technicians who use it, and applied GD&amp;T and a tolerance stack-up to deal with blade deflection.
+                  I don't have a before/after measurement of cut quality, so I don't claim one.
                 </p>
-                <p>
-                  <strong>What I did.</strong> Designed the fixture and printed four FDM iterations, changing each one based
-                  on feedback from the technicians who use it. I applied GD&amp;T and a tolerance stack-up to deal with
-                  blade deflection.
-                </p>
-                <p>
-                  <strong>Status.</strong> Built and iterated with the floor. I don't have a before/after measurement of cut
-                  quality, so I don't claim one.
-                </p>
-                <p class="project-note">
-                  Company drawings and photos aren't public. Described here with my manager's OK.
-                </p>
+                <p class="work-meta">Company drawings and photos aren't public. Described here with my manager's OK.</p>
               </div>
-            </article>
-
-            <article class="project-card">
-              <img
-                src="assets/projects/fea-c-frame-displacement.jpg"
-                alt="SOLIDWORKS static displacement plot of a four-leg table under a distributed top load, maximum 0.014 mm"
-                width="1600"
-                height="854"
-                loading="lazy"
-              />
-              <div class="project-content">
-                <p class="tag">Coursework · SOLIDWORKS static FEA</p>
+              <div class="work-key">
+                <dl>
+                  <div><dt>Iterations</dt><dd>4 FDM prints</dd></div>
+                  <div><dt>Status</dt><dd>Built, iterated with techs</dd></div>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
                 <h3>Structural FEA: C-frame, table, bracket, collar</h3>
+                <p class="work-meta">Coursework · SOLIDWORKS static FEA</p>
                 <p>
-                  <strong>C-frame.</strong> Cast-steel frame under a 45,000 N load. I iterated the geometry to remove
-                  material and reached a 1.41 factor of safety with 15% less volume.
-                </p>
-                <p>
-                  <strong>Image above.</strong> The table study: 0.014 mm maximum displacement. Plots for the
+                  Cast-steel C-frame under a 45,000 N load: I iterated the geometry to remove material and reached a
+                  1.41 factor of safety with 15% less volume. Plots for the
                   <a href="assets/projects/fea-l-bracket-static-stress.jpg">L-bracket</a> and
-                  <a href="assets/projects/fea-shaft-collar-stress.jpg">shaft collar</a> are linked.
+                  <a href="assets/projects/fea-shaft-collar-stress.jpg">shaft collar</a> are linked. Mesh and convergence
+                  details aren't in these images.
                 </p>
-                <p class="project-note">Mesh and convergence details aren't in these images.</p>
+                <figure class="figure work-thumb on-white">
+                  <img
+                    src="assets/projects/fea-c-frame-displacement.jpg"
+                    alt="SOLIDWORKS static displacement plot of a four-leg table under a distributed top load, maximum 0.014 mm"
+                    width="1600"
+                    height="854"
+                    loading="lazy"
+                  />
+                  <figcaption>Table study: 0.014 mm maximum displacement.</figcaption>
+                </figure>
               </div>
-            </article>
-          </div>
+              <div class="work-key">
+                <dl>
+                  <div><dt>C-frame load</dt><dd>45,000 N</dd></div>
+                  <div><dt>Factor of safety</dt><dd>1.41</dd></div>
+                  <div><dt>Volume</dt><dd>&minus;15%</dd></div>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
+                <h3>Lunar rover thermal control</h3>
+                <p class="work-meta">NASA L'SPACE Mission Concept Academy · Team 6 · Aug 2026&ndash; · student academy, not NASA employment</p>
+                <p>
+                  As team thermal engineer I wrote Section 1.1 (Mission Statement) of our Mission Concept Review, which
+                  reviewers scored 24/25 with no RFAs. The team's descope, replacing the radioisotope heater with
+                  electric heaters, was accepted. Earned the academy's Requirements skill badge (Sep 2026).
+                </p>
+              </div>
+              <div class="work-key">
+                <dl>
+                  <div><dt>MCR &sect;1.1</dt><dd>24/25, no RFAs</dd></div>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
+                <h3>CONFIRM: evidence-gated troubleshooting</h3>
+                <p class="work-meta">Rockwell Automation &times; SHPE AI Hackathon · 2026 · with Miguel Gutierrez</p>
+                <p>
+                  A support-call workflow that tests one hypothesis at a time: 90%+ evidence match proceeds, 60&ndash;90%
+                  warns the technician, under 60% hands off to a human. My Round 1 entry made me one of 27 participants
+                  advancing to the live round (Oct 29, 2026).
+                </p>
+              </div>
+              <div class="work-key">
+                <dl>
+                  <div><dt>Round 1</dt><dd>1 of 27 advancing</dd></div>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
+                <h3>VR pump assembly check</h3>
+                <p class="work-meta">Unity 2022.3 · XR Interaction Toolkit · Jan 2026</p>
+                <p>
+                  Set up XR socket interactors with layer masks so each pump part only seats in its matching socket.
+                  <a href="assets/projects/unity-xr-assembly-verification.jpg">Editor screenshot</a>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="work-body">
+                <h3>GD&amp;T drawings and NX assembly</h3>
+                <p class="work-meta">Coursework · ASME Y14.5 · Siemens NX</p>
+                <p>
+                  Drawings: <a href="assets/projects/gdt-shaft-collar-drawing.jpg">shaft collar</a>,
+                  <a href="assets/projects/gdt-l-bracket-drawing.jpg">L-bracket</a>,
+                  <a href="assets/projects/gdt-c-frame-drawing.jpg">C-frame</a>. Earlier, I led a six-part clamp assembly in
+                  Siemens NX, fixed two interferences, and printed parts for a water-pump prototype.
+                </p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <!-- COMPACT WORK LIST -->
-      <section class="section" id="archive" aria-labelledby="archive-title">
+      <section class="section" id="experience" aria-labelledby="experience-title">
         <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Other work</p>
-            <h2 id="archive-title">Shorter projects</h2>
-          </div>
-          <ul class="work-list">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">Work and leadership</h2>
+          <ul class="exp-rows">
             <li>
-              <h3>CONFIRM: evidence-gated troubleshooting <span>Rockwell Automation &times; SHPE AI Hackathon · 2026</span></h3>
-              <p>
-                Two-person entry with Miguel Gutierrez. A support-call workflow that tests one hypothesis at a time:
-                90%+ evidence match proceeds, 60&ndash;90% warns the technician, under 60% hands off to a human. My
-                Round 1 entry, CONFIRM, made me one of 27 participants advancing to the live round. Live
-                build round: Oct 29, 2026.
-              </p>
+              <p class="exp-date">Jun 2026 &ndash; now</p>
+              <div>
+                <h3>Mechanical Engineering Co-op · Stellant Systems, Melville, NY</h3>
+                <p>
+                  Mentor-guided steady-state thermal analysis in ANSYS Mechanical on RF and defense electronic assemblies:
+                  geometry clean-up, meshing, boundary conditions. Revised thermal-pad contact conductance in one model to
+                  remove an artificial temperature gradient. Create and audit BOMs, write ECNs routed through SharePoint,
+                  and built an Inventor-to-Excel macro for BOM and cost checks.
+                </p>
+              </div>
             </li>
             <li>
-              <h3>Lunar rover thermal control <span>NASA L'SPACE Mission Concept Academy · Team 6 · Aug 2026&ndash;</span></h3>
-              <p>
-                Student academy, not NASA employment. As team thermal engineer I wrote Section 1.1 (Mission Statement) of
-                our Mission Concept Review, which reviewers scored 24/25 with no RFAs. The team's descope, replacing the
-                radioisotope heater with electric heaters, was accepted. Earned the academy's Requirements skill badge (Sep 2026).
-              </p>
+              <p class="exp-date">May 2026 &ndash; now</p>
+              <div>
+                <h3>President &amp; Chapter Revamp Lead · SHPE, Hofstra</h3>
+                <p>
+                  Rebuilding Hofstra's SHPE chapter as a new student organization: recruited an executive board, drafted
+                  the constitution, filed for recognition, and organized the first Meet the Board event (Oct 7, 2026). The
+                  chapter won SHPE National's <em>SHPE's Got Talent</em> (Oct 2026).
+                </p>
+              </div>
             </li>
             <li>
-              <h3>VR pump assembly check <span>Unity 2022.3 · XR Interaction Toolkit · Jan 2026</span></h3>
-              <p>
-                Set up XR socket interactors with layer masks so each pump part only seats in its matching socket.
-                <a href="assets/projects/unity-xr-assembly-verification.jpg">Editor screenshot</a>.
-              </p>
+              <p class="exp-date">2026&ndash;27</p>
+              <div>
+                <h3>Co-President &amp; Social Media Chair · ASME, Hofstra</h3>
+                <p>
+                  Co-lead the section with Dara Khaimov. Ran steam-turbine and catapult builds, co-hosted the Night Shift
+                  Engineering Mixer with SWE and the Commuter Student Association (30 attendees, Oct 2026), and represented
+                  Hofstra at ASME Student Leader Weekend in Philadelphia (Oct 2026).
+                </p>
+              </div>
             </li>
             <li>
-              <h3>GD&amp;T drawings <span>Coursework · ASME Y14.5</span></h3>
-              <p>
-                <a href="assets/projects/gdt-shaft-collar-drawing.jpg">Shaft collar</a>,
-                <a href="assets/projects/gdt-l-bracket-drawing.jpg">L-bracket</a>,
-                <a href="assets/projects/gdt-c-frame-drawing.jpg">C-frame</a>. Earlier, I led a six-part clamp assembly
-                in Siemens NX, fixed two interferences, and printed parts for a water-pump prototype.
-              </p>
+              <p class="exp-date">Sep 2026 &ndash; now</p>
+              <div>
+                <h3>Co-President &amp; Reactivation Lead · AIAA, Hofstra</h3>
+                <p>
+                  Co-leading the restart of a dormant student branch with faculty advisors and AIAA regional coordinators.
+                  Drafted two AIAA Classroom Grant proposals (Earth observation from space, and a Radio JOVE radio
+                  telescope) for a Long Island high school Earth and Space Science teacher, who submitted both.
+                </p>
+              </div>
+            </li>
+            <li>
+              <p class="exp-date">Sep 2025 &ndash; Jun 2026</p>
+              <div>
+                <h3>Co-President · CSTEP Community Board, Hofstra</h3>
+                <p>Co-directed the CSTEP student community board.</p>
+              </div>
+            </li>
+            <li>
+              <p class="exp-date">Dec 2027 (expected)</p>
+              <div>
+                <h3>B.S. Mechanical Engineering, Aerospace Concentration · Hofstra University</h3>
+                <p>
+                  Rabinowitz Honors College, Provost Scholar, CSTEP Scholar. Coursework: Heat Transfer, Thermodynamics,
+                  Fluid Mechanics, Computer-Aided Design, Engineering Materials.
+                </p>
+              </div>
             </li>
           </ul>
+
+          <div class="table-scroll">
+            <table class="spec-table tool-table">
+              <caption>Tools, and where I actually used them</caption>
+              <thead>
+                <tr><th scope="col">Tool</th><th scope="col">Used for</th><th scope="col">Where</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">ANSYS Mechanical</th><td>Steady-state thermal: clean-up, meshing, boundary conditions</td><td class="src">Stellant co-op</td></tr>
+                <tr><th scope="row">Autodesk Inventor</th><td>Models from drawing packages, BOMs, Inventor-to-Excel macro</td><td class="src">Stellant co-op</td></tr>
+                <tr><th scope="row">MATLAB</th><td>Thermal resistance model and fin-count trade study</td><td class="src"><a href="heat-sink.html#analysis">Heat sink</a></td></tr>
+                <tr><th scope="row">Fusion 360</th><td>CAD and steady-state thermal simulation</td><td class="src"><a href="heat-sink.html#simulation">Heat sink</a></td></tr>
+                <tr><th scope="row">SOLIDWORKS</th><td>Static FEA, assembly drawing</td><td class="src"><a href="#work">FEA</a>, <a href="heat-sink.html#simulation">heat sink</a></td></tr>
+                <tr><th scope="row">Siemens NX</th><td>Six-part clamp assembly, interference checks</td><td class="src"><a href="#work">Coursework</a></td></tr>
+                <tr><th scope="row">GD&amp;T, ASME Y14.5</th><td>Drawings, tolerance stack-up</td><td class="src"><a href="#work">O-ring fixture, drawings</a></td></tr>
+                <tr><th scope="row">FDM 3D printing</th><td>Fixture iterations, design-review models</td><td class="src"><a href="#work">O-ring fixture</a>, <a href="heat-sink.html#contribution">heat sink</a></td></tr>
+                <tr><th scope="row">Unity XR Interaction Toolkit</th><td>Socket interactors with layer masks</td><td class="src"><a href="#work">VR pump check</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3 id="honors-title">Honors</h3>
+              <ul aria-labelledby="honors-title">
+                <li>Nominee, Aviation Week <a href="https://aviation.informaexhibitions.com/20-20/" target="_blank" rel="noopener noreferrer">20 Twenties</a>, Class of 2027 (university nomination, Oct 2026; winners announced Jan 2027)</li>
+                <li>One of 27 participants advancing to the live Rockwell Automation &times; SHPE AI Hackathon (Oct 2026)</li>
+                <li>Hofstra SHPE: winner, SHPE National's <em>SHPE's Got Talent</em> (Oct 2026)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 id="certs-title">Certificates</h3>
+              <ul aria-labelledby="certs-title">
+                <li><a href="assets/certificates/lean-six-sigma-white-belt.jpeg">Lean Six Sigma White Belt</a> (Nov 2025)</li>
+                <li><a href="assets/certificates/asme-ethics-for-engineers.jpeg">ASME Ethics for Engineers</a> (Jan 2026, 3.0 PDH)</li>
+                <li><a href="assets/certificates/1109th-tasmg-black-hawk-certificate.pdf">Forage job simulation: 1109th TASMG Black Hawk Maintenance</a> (Jan 2026)</li>
+                <li>Forage job simulation: Siemens Mobility Industrial Engineer</li>
+                <li>PMI Kickoff: Predictive Project Management</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- PRESS AND WRITING -->
       <section class="section" id="press" aria-labelledby="press-title">
         <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Press and writing</p>
-            <h2 id="press-title">Hofstra's feature on my co-op, and what I write</h2>
-          </div>
-          <ul class="work-list">
+          <p class="eyebrow">Press and writing</p>
+          <h2 id="press-title">Hofstra's feature on my co-op, and what I write</h2>
+          <ul class="plain-list">
             <li>
-              <h3><a href="https://news.hofstra.edu/2026/09/18/engineering-his-path-to-the-future/" target="_blank" rel="noopener noreferrer">Engineering His Path to the Future</a> <span>Hofstra News · Sep 18, 2026</span></h3>
+              <h3><a href="https://news.hofstra.edu/2026/09/18/engineering-his-path-to-the-future/" target="_blank" rel="noopener noreferrer">Engineering His Path to the Future</a></h3>
+              <p class="work-meta">Hofstra News · Sep 18, 2026</p>
               <p>
-                Hofstra's Marketing and Communications team interviewed and filmed me about my Stellant co-op. Photos
-                and video were limited to the lobby and conference room, under Stellant's rules.
+                Hofstra's Marketing and Communications team interviewed and filmed me about my Stellant co-op. Photos and
+                video were limited to the lobby and conference room, under Stellant's rules.
               </p>
             </li>
             <li>
-              <h3><a href="https://www.instagram.com/reel/DexRr5noZua/" target="_blank" rel="noopener noreferrer">From the classroom to the lab</a> <span>Hofstra University and Hofstra SEAS on Instagram · Oct 2026</span></h3>
+              <h3><a href="https://www.instagram.com/reel/DexRr5noZua/" target="_blank" rel="noopener noreferrer">From the classroom to the lab</a></h3>
+              <p class="work-meta">Hofstra University and Hofstra SEAS on Instagram · Oct 2026</p>
               <p>Video reel from the same shoot, posted by @hofstrau with the School of Engineering and Applied Science.</p>
             </li>
             <li>
-              <h3><a href="https://thehofstrachronicle.com/staff_name/adriel-ventura/" target="_blank" rel="noopener noreferrer">The Hofstra Chronicle</a> <span>Stories for the Chronicle · 2025&ndash;</span></h3>
+              <h3><a href="https://thehofstrachronicle.com/staff_name/adriel-ventura/" target="_blank" rel="noopener noreferrer">The Hofstra Chronicle</a></h3>
+              <p class="work-meta">Stories for the Chronicle · 2025&ndash;</p>
               <p>
-                News stories:
                 <a href="https://thehofstrachronicle.com/115177/news/taste-of-the-neighborhood-connects-hofstra-students-with-local-restaurants/" target="_blank" rel="noopener noreferrer">Taste of the Neighborhood</a> (Sep 2026),
                 <a href="https://thehofstrachronicle.com/110662/news/hofstra-university-scores-five-year-partnership-with-new-york-islanders-and-ubs-arena/" target="_blank" rel="noopener noreferrer">Hofstra's five-year partnership with the Islanders and UBS Arena</a> (Feb 2026),
                 <a href="https://thehofstrachronicle.com/103557/news/hofstra-hosts-spring-blood-drive/" target="_blank" rel="noopener noreferrer">spring blood drive</a> (Mar 2025).
@@ -333,136 +364,27 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE AND LEADERSHIP -->
-      <section class="section" id="experience" aria-labelledby="experience-title">
-        <div class="shell">
-          <div class="section-heading">
-            <p class="eyebrow">Experience</p>
-            <h2 id="experience-title">Work and leadership</h2>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-meta">Jun 2026 &ndash; Present</div>
-              <div class="timeline-content">
-                <h3>Mechanical Engineering Co-op · Stellant Systems, Melville, NY</h3>
-                <p>
-                  Mentor-guided steady-state thermal analysis in ANSYS Mechanical on RF and defense electronic
-                  assemblies: geometry clean-up, meshing, boundary conditions. Revised thermal-pad contact conductance
-                  in one model to remove an artificial temperature gradient. Create and audit BOMs, write ECNs routed
-                  through SharePoint, and built an Inventor-to-Excel macro for BOM and cost checks.
-                </p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta">May 2026 &ndash; Present</div>
-              <div class="timeline-content">
-                <h3>President &amp; Chapter Revamp Lead · SHPE, Hofstra</h3>
-                <p>
-                  Rebuilding Hofstra's SHPE chapter as a new student organization: recruited an executive board,
-                  drafted the constitution, filed for recognition, organized the first Meet the Board event (Oct 7, 2026). The chapter won SHPE National's
-                  <em>SHPE's Got Talent</em> (Oct 2026).
-                </p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta">2026&ndash;27</div>
-              <div class="timeline-content">
-                <h3>Co-President &amp; Social Media Chair · ASME, Hofstra</h3>
-                <p>
-                  Co-lead the section with Dara Khaimov. Ran steam-turbine and catapult builds, co-hosted the Night Shift
-                  Engineering Mixer with SWE and the Commuter Student Association (30 attendees, Oct 2026), and represented
-                  Hofstra at ASME Student Leader Weekend in Philadelphia (Oct 2026).
-                </p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta">Sep 2026 &ndash; Present</div>
-              <div class="timeline-content">
-                <h3>Co-President &amp; Reactivation Lead · AIAA, Hofstra</h3>
-                <p>Co-leading the restart of a dormant student branch with faculty advisors and AIAA regional coordinators. Drafted two AIAA Classroom Grant proposals (Earth observation from space, and a Radio JOVE radio telescope) for a Long Island high school Earth and Space Science teacher, who submitted both.</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta">Sep 2025 &ndash; Jun 2026</div>
-              <div class="timeline-content">
-                <h3>Co-President · CSTEP Community Board, Hofstra</h3>
-                <p>Co-directed the CSTEP student community board.</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta">Expected Dec 2027</div>
-              <div class="timeline-content">
-                <h3>B.S. Mechanical Engineering, Aerospace Concentration · Hofstra University</h3>
-                <p>
-                  Rabinowitz Honors College, Provost Scholar, CSTEP Scholar. Coursework: Heat Transfer, Thermodynamics,
-                  Fluid Mechanics, Computer-Aided Design, Engineering Materials.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <table class="spec-table tool-table">
-            <caption>Tools, and where I actually used them</caption>
-            <thead>
-              <tr><th scope="col">Tool</th><th scope="col">Used for</th><th scope="col">Where</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">ANSYS Mechanical</th><td>Steady-state thermal: clean-up, meshing, boundary conditions</td><td>Stellant co-op</td></tr>
-              <tr><th scope="row">Autodesk Inventor</th><td>Models from drawing packages, BOMs, Inventor-to-Excel macro</td><td>Stellant co-op</td></tr>
-              <tr><th scope="row">MATLAB</th><td>Thermal resistance model and fin-count trade study</td><td><a href="#featured">Heat sink</a></td></tr>
-              <tr><th scope="row">Fusion 360</th><td>CAD and steady-state thermal simulation</td><td><a href="#featured">Heat sink</a></td></tr>
-              <tr><th scope="row">SOLIDWORKS</th><td>Static FEA</td><td><a href="#work">C-frame, table, bracket, collar</a></td></tr>
-              <tr><th scope="row">Siemens NX</th><td>Six-part clamp assembly, interference checks</td><td><a href="#archive">Coursework</a></td></tr>
-              <tr><th scope="row">GD&amp;T, ASME Y14.5</th><td>Drawings, tolerance stack-up</td><td><a href="#work">O-ring fixture</a>, <a href="#archive">drawings</a></td></tr>
-              <tr><th scope="row">FDM 3D printing</th><td>Fixture iterations, demo models</td><td><a href="#work">O-ring fixture</a>, <a href="#featured">heat sink</a></td></tr>
-              <tr><th scope="row">Unity XR Interaction Toolkit</th><td>Socket interactors with layer masks</td><td><a href="#archive">VR pump check</a></td></tr>
-            </tbody>
-          </table>
-
-          <div class="cert-row" aria-labelledby="honors-title">
-            <h3 id="honors-title">Honors</h3>
-            <ul>
-              <li>Nominee, Aviation Week <a href="https://aviation.informaexhibitions.com/20-20/" target="_blank" rel="noopener noreferrer">20 Twenties</a>, Class of 2027 (university nomination, Oct 2026; winners announced Jan 2027)</li>
-              <li>One of 27 participants advancing to the live Rockwell Automation &times; SHPE AI Hackathon (Oct 2026)</li>
-              <li>Hofstra SHPE: winner, SHPE National's <em>SHPE's Got Talent</em> (Oct 2026)</li>
-            </ul>
-          </div>
-
-          <div class="cert-row" aria-labelledby="certs-title">
-            <h3 id="certs-title">Certificates</h3>
-            <ul>
-              <li><a href="assets/certificates/lean-six-sigma-white-belt.jpeg">Lean Six Sigma White Belt</a> (Nov 2025)</li>
-              <li><a href="assets/certificates/asme-ethics-for-engineers.jpeg">ASME Ethics for Engineers</a> (Jan 2026, 3.0 PDH)</li>
-              <li><a href="assets/certificates/1109th-tasmg-black-hawk-certificate.pdf">Forage job simulation: 1109th TASMG Black Hawk Maintenance</a> (Jan 2026)</li>
-              <li>Forage job simulation: Siemens Mobility Industrial Engineer</li>
-              <li>PMI Kickoff: Predictive Project Management</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESUME SECTION -->
-      <section class="section resume-section" id="resume" aria-labelledby="resume-title">
-        <div class="shell resume-panel">
+      <section class="section" id="resume" aria-labelledby="resume-title">
+        <div class="shell contact-grid">
           <div>
             <p class="eyebrow">Resume</p>
             <h2 id="resume-title">One-page resume</h2>
             <p>Updated October 2026. Same facts as this page.</p>
           </div>
-          <a class="button button-primary" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Download resume (PDF)</a>
+          <div class="button-row" style="margin-top: 0">
+            <a class="button button-primary" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Download resume (PDF)</a>
+          </div>
         </div>
       </section>
 
-      <!-- CONTACT SECTION -->
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <section class="section" id="contact" aria-labelledby="contact-title">
         <div class="shell contact-grid">
           <div>
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Looking for Summer 2027 internships</h2>
             <p>Thermal analysis, mechanical design, and manufacturing roles. Long Island, NY.</p>
           </div>
-          <address class="contact-card">
+          <address class="contact-list">
             <a href="mailto:adrielvent5@gmail.com">adrielvent5@gmail.com</a>
             <a href="https://www.linkedin.com/in/adrielvent/" target="_blank" rel="noopener noreferrer">linkedin.com/in/adrielvent</a>
             <a href="https://github.com/adrielvent/adriel-portfolio" target="_blank" rel="noopener noreferrer">Site source on GitHub</a>
@@ -479,17 +401,16 @@
       <div class="shell credits" aria-labelledby="credits-title">
         <h2 id="credits-title">Built with</h2>
         <ul>
-          <li>3D viewer: <a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener noreferrer">three.js</a> r164 and its STLLoader (MIT license)</li>
+          <li>3D viewer (design review page, loads on request): <a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener noreferrer">three.js</a> r164 and its STLLoader (MIT license); drawn edges, section plane and render-on-demand after <a href="https://github.com/bernhard-42/three-cad-viewer" target="_blank" rel="noopener noreferrer">bernhard-42/three-cad-viewer</a></li>
           <li>Type: <a href="https://github.com/IBM/plex" target="_blank" rel="noopener noreferrer">IBM Plex</a> (SIL Open Font License)</li>
           <li>Resume layout: <a href="https://github.com/jakegut/resume" target="_blank" rel="noopener noreferrer">jakegut/resume</a>, based on <a href="https://github.com/sb2nov/resume" target="_blank" rel="noopener noreferrer">sb2nov/resume</a></li>
           <li>Page structure follows the <a href="https://mitcommlab.mit.edu/meche/commkit/portfolio/" target="_blank" rel="noopener noreferrer">MIT MechE Communication Lab portfolio guide</a></li>
-          <li>Featured-plus-list project layout after <a href="https://github.com/bchiang7/v4" target="_blank" rel="noopener noreferrer">bchiang7/v4</a>; data-sheet tables after the density of <a href="https://github.com/nasa/openmct" target="_blank" rel="noopener noreferrer">nasa/openmct</a>. Design tokens in <a href="https://github.com/adrielvent/adriel-portfolio/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">DESIGN.md</a>, format after <a href="https://github.com/VoltAgent/awesome-design-md" target="_blank" rel="noopener noreferrer">VoltAgent/awesome-design-md</a></li>
+          <li>One page per main project with a fixed section order after <a href="https://github.com/lowinertia/free-to-engineer-portfolio-template" target="_blank" rel="noopener noreferrer">lowinertia/free-to-engineer-portfolio-template</a>; data-sheet tables after the density of <a href="https://github.com/nasa/openmct" target="_blank" rel="noopener noreferrer">nasa/openmct</a>. Design tokens in <a href="https://github.com/adrielvent/adriel-portfolio/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">DESIGN.md</a>, format after <a href="https://github.com/VoltAgent/awesome-design-md" target="_blank" rel="noopener noreferrer">VoltAgent/awesome-design-md</a></li>
           <li>Site code written with help from Claude (Anthropic). The engineering work and numbers are mine; each claim's source is in <a href="https://github.com/adrielvent/adriel-portfolio/blob/main/SOURCES.md" target="_blank" rel="noopener noreferrer">SOURCES.md</a>.</li>
         </ul>
       </div>
     </footer>
 
-    <!-- Modular, Deferred JavaScript (Zero localStorage) -->
     <script defer src="assets/js/main.js"></script>
   </body>
 </html>

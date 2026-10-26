@@ -6,7 +6,7 @@ Format after [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-
 
 ## Direction
 
-An engineering data sheet, not a product landing page. Dark by default, like a CAD viewport. Numbers carry the page; decoration doesn't.
+A design review, not a product landing page. The homepage reads like a drawing sheet: a title block filled with real data, then numbered rows of work. Each main project gets its own page in a fixed order: problem, requirements, my contribution, alternatives, analysis, simulation and test, results, limitations, lessons. Dark by default, like a CAD viewport. Numbers carry the page; decoration doesn't.
 
 ## Color
 
@@ -20,7 +20,9 @@ An engineering data sheet, not a product landing page. Dark by default, like a C
 | `--text-muted` | `#94a3b8` | `#64748b` | Captions, labels |
 | `--border-subtle` | `#243042` | `#e2e8f0` | Table rules, dividers |
 | `--border-strong` | `#3b4d66` | `#cbd5e1` | Outer frames |
-| `--accent` | `#4cc9f0` | `#1a5fb4` | Links, primary button, "Assumed" source, note numbers |
+| `--rule` | `#3b4d66` | `#94a3b8` | Title-block lines, top rule of a list |
+| `--accent` | `#4cc9f0` | `#1a5fb4` | Links, primary button, "Assumed" source, row numbers |
+| `--on-accent` | `#0b0f17` | `#ffffff` | Text on an accent background (button, skip link) |
 | `--grid-line` | `rgba(76,201,240,.045)` | none | 40 px drafting grid behind the page |
 
 One accent only. It never fills a large area.
@@ -45,15 +47,26 @@ One accent only. It never fills a large area.
 
 | Component | Rule |
 |---|---|
-| Data-sheet table (`.spec-table`) | Every value gets a Source column: Given, Requirement, Assumed, MATLAB, Fusion 360. Assumed values use the accent color |
-| Design notes (`.design-notes`) | Numbered 01, 02, 03 with rules between. Not cards |
-| Project list (`.work-list`) | One heading line with a mono meta span, then 2–4 lines of text |
-| 3D viewer (`.stl-stage`) | Loads after the page. Static render underneath as fallback |
+| Title block (`.title-block`) | Drawing-sheet box. Only real data: part, material, load, result, status. Status always says whether it was tested |
+| Data-sheet table (`.spec-table`) | Every value gets a Source column: Given, Requirement, Assumed, MATLAB, Fusion 360. Assumed values use the accent color. Selected option row is shaded |
+| Work rows (`.work-rows`) | Numbered 01, 02 in order of importance. Title, mono meta line, 2–4 lines of text, key numbers on the right. Not cards |
+| Experience rows (`.exp-rows`) | Date column, then role and one paragraph. Ruled, no boxes |
+| Design notes (`.design-notes`) | Numbered 01, 02, 03 with rules between |
+| Figures (`.figure`) | Numbered in the case study (Fig. 1, 2…). Caption says what it shows and whose it is |
+| 3D viewer (`.viewer`) | Static render first. three.js and the STL load only on "Open 3D model". Drawn edges, Iso/Front/Top, a section plane. Renders only on input, no idle loop, no wheel capture, arrow keys work |
 | Buttons | One primary action per section. Secondary actions are underlined text links |
+
+## Any 3D or HUD feature must answer
+
+1. What engineering fact does it show that a picture doesn't?
+2. Does the page work without it?
+3. What does it cost in bytes and CPU, and is that paid only by people who ask for it?
+4. Can a keyboard or reduced-motion user get the same information?
 
 ## Banned
 
-- Gradients, glow, neon, scanlines, animated HUD overlays
+- Gradients, glow, neon, scanlines, animated HUD overlays, status lights, crosshairs, fake telemetry
+- Auto-rotating or auto-loading 3D in the first screen
 - "Verified", "validated" or "proven" badges without a test record
 - Skill bars, percentages, or tool walls without a project behind each tool
 - Three identical feature cards in a row
