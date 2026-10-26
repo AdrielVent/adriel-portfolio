@@ -1,5 +1,6 @@
 /* On-demand STL viewer for the heat sink design review.
-   Loads only when the visitor presses "Open 3D model". Renders only when
+   Loads only when the visitor presses "Open 3D model". Shown on the same dark
+   plate as the CAD render, so the colors are fixed. Renders only when
    something changes (drag, keys, view buttons), never in an idle loop.
    Edges and a section plane after bernhard-42/three-cad-viewer (MIT). */
 
@@ -35,14 +36,6 @@ export function mountViewer(stage, controls, status) {
   const state = { pitch: views.iso[0], yaw: views.iso[1], cut: false, radius: 1 };
 
   let mesh, edges;
-
-  function applyTheme() {
-    if (!mesh) return;
-    const dark = document.documentElement.getAttribute("data-theme") === "dark";
-    mesh.material.color.set(dark ? 0xb8c2cf : 0x8f9aab);
-    edges.material.color.set(dark ? 0x0b0f17 : 0x1e293b);
-    render();
-  }
 
   function resize() {
     const w = stage.clientWidth;
@@ -114,7 +107,6 @@ export function mountViewer(stage, controls, status) {
   }
 
   new ResizeObserver(resize).observe(stage);
-  new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
   status.textContent = "Loading model…";
   new STLLoader().load(
@@ -129,11 +121,11 @@ export function mountViewer(stage, controls, status) {
 
       mesh = new THREE.Mesh(
         geometry,
-        new THREE.MeshStandardMaterial({ color: 0xb8c2cf, metalness: 0.15, roughness: 0.6, side: THREE.DoubleSide })
+        new THREE.MeshStandardMaterial({ color: 0xc9ced6, metalness: 0.15, roughness: 0.6, side: THREE.DoubleSide })
       );
       edges = new THREE.LineSegments(
         new THREE.EdgesGeometry(geometry, 25),
-        new THREE.LineBasicMaterial({ color: 0x0b0f17 })
+        new THREE.LineBasicMaterial({ color: 0x1c1b19 })
       );
       pivot.add(mesh, edges);
 
@@ -141,12 +133,15 @@ export function mountViewer(stage, controls, status) {
       stage.classList.add("is-live");
       controls.hidden = false;
       status.textContent = "Drag, or focus the model and use the arrow keys. R resets the view.";
-      applyTheme();
       resize();
+      // The button that opened the viewer is now hidden; keep keyboard focus here.
+      canvas.focus({ preventScroll: true });
     },
     undefined,
     () => {
       status.textContent = "The 3D model didn't load. The render above shows the same part.";
+      status.tabIndex = -1;
+      status.focus();
     }
   );
 }

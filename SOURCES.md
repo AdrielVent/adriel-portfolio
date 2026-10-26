@@ -124,7 +124,7 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 
 ## Design references
 
-Portfolios and templates I looked at before the October 2026 redesign. No code was copied from any of them.
+Portfolios and templates I looked at during the October 2026 redesigns. No code was copied from any of them. The four references behind the current editorial design (pacocoursey/paco, TimWitzdam/astro-minimal-portfolio-template, moeyua/astro-theme-typography, lowinertia/free-to-engineer-portfolio-template), with licenses and what each contributed, are in [`DESIGN.md`](DESIGN.md#references). The table below is from the earlier round.
 
 | Reference | What I took from it |
 |---|---|
@@ -136,7 +136,7 @@ Portfolios and templates I looked at before the October 2026 redesign. No code w
 | [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) | Keeping the design rules in a `DESIGN.md` file so every change uses the same tokens |
 | [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) (MIT), README and Design.md | Drawn edges on the mesh, a section (clipping) plane, preset views, and rendering only when something changes. No code copied; it needs tessellated CAD input, not STL |
 | Boston University ENG, ["Key Factors of Engineering Portfolios"](https://www.bu.edu/eng/files/2022/07/Key-Factors-of-Engineering-Portfolios.pdf) | Most important project first, "I" over "we", show the full process and what's still uncertain |
-| My own earlier version of this site (`main` before Oct 2026) | The rotating STL heat sink in the hero, kept and restyled without the scanline and glow |
+| My own earlier version of this site (`main` before Oct 2026) | The rotatable STL heat sink, now loaded on request on the heat sink page instead of in a homepage hero |
 | [Claude frontend-aesthetics cookbook](https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics) | List of generic AI-design tells (Inter/Roboto, purple gradients, predictable layouts, scattered animation) to check this site against |
 
 ## Heat sink design review page (`heat-sink.html`)

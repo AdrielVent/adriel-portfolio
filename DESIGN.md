@@ -1,74 +1,84 @@
 # Design system
 
-The rules this site follows. Any change, by me or by a coding assistant, should use these tokens instead of inventing new ones. The values live in `assets/css/styles.css` (`:root` and `[data-theme="dark"]`).
+The rules this site follows. Any change, by me or by a coding assistant, should use these tokens instead of inventing new ones. The values live in `:root` in `assets/css/styles.css`.
 
 Format after [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md).
 
 ## Direction
 
-A design review, not a product landing page. The homepage reads like a drawing sheet: a title block filled with real data, then numbered rows of work. Each main project gets its own page in a fixed order: problem, requirements, my contribution, alternatives, analysis, simulation and test, results, limitations, lessons. Dark by default, like a CAD viewport. Numbers carry the page; decoration doesn't.
+An editorial engineering portfolio: it should read like a well-set technical report, not a product landing page. Warm paper, near-black text, one muted ink-blue accent. Hierarchy comes from type size, spacing and thin rules. Real CAD renders, plots and drawings provide the visual identity; there is no decorative graphics layer.
+
+One light theme only. The only dark surface is the `--plate` behind the transparent CAD render, so the light-grey part stays visible.
 
 ## Color
 
-| Token | Dark (default) | Light | Use |
-|---|---|---|---|
-| `--bg-canvas` | `#0b0f17` | `#f8fafc` | Page |
-| `--bg-surface` | `#131923` | `#ffffff` | Tables, figures, cards |
-| `--bg-subtle` | `#1c2433` | `#f1f5f9` | Table headers |
-| `--text-primary` | `#f8fafc` | `#0f172a` | Headings, values |
-| `--text-secondary` | `#cbd5e1` | `#475569` | Body |
-| `--text-muted` | `#94a3b8` | `#64748b` | Captions, labels |
-| `--border-subtle` | `#243042` | `#e2e8f0` | Table rules, dividers |
-| `--border-strong` | `#3b4d66` | `#cbd5e1` | Outer frames |
-| `--rule` | `#3b4d66` | `#94a3b8` | Title-block lines, top rule of a list |
-| `--accent` | `#4cc9f0` | `#1a5fb4` | Links, primary button, "Assumed" source, row numbers |
-| `--on-accent` | `#0b0f17` | `#ffffff` | Text on an accent background (button, skip link) |
-| `--grid-line` | `rgba(76,201,240,.045)` | none | 40 px drafting grid behind the page |
+| Token | Value | Use |
+|---|---|---|
+| `--paper` | `#f7f4ee` | Page background |
+| `--paper-2` | `#efebe3` | Selected table row, equation blocks |
+| `--plate` | `#2b2a27` | Backdrop for the transparent heat sink render and 3D viewer only |
+| `--ink` | `#1c1b19` | Headings, strong text, section rules |
+| `--ink-2` | `#45423c` | Body text |
+| `--muted` | `#625e55` | Captions, metadata, dates |
+| `--rule` | `#d8d2c6` | Hairlines between rows |
+| `--rule-strong` | `#b9b2a4` | Boxes around notes, path steps, files list |
+| `--accent` | `#2d4a6b` | Links, "assumed" values |
+| `--accent-hover` | `#1b3350` | Link hover |
 
-One accent only. It never fills a large area.
+All text pairs pass WCAG AA (4.5:1) on `--paper`; checked with an automated contrast scan at four widths (Oct 2026).
 
 ## Type
 
-| Role | Font | Size |
+| Role | Family | Notes |
 |---|---|---|
-| Body | IBM Plex Sans 400 | 1rem / 1.6 |
-| Headings | IBM Plex Sans 600–700 | h1 clamp(2.5rem…), h2 ~2rem, h3 1–1.125rem |
-| Values, units, labels, captions | IBM Plex Mono | 0.75–0.9375rem |
-| Eyebrows, table headers | IBM Plex Mono, uppercase, 0.06–0.08em tracking | 0.75rem |
+| Major headings (h1, h2, feature title) | Source Serif 4, 600 | `--serif` |
+| Body and interface | Source Sans 3, 400 / 600, italic 400 | `--sans` |
+| Notation only (equations) | system monospace stack | `--mono` |
 
-## Shape and spacing
+- Body `--text`: 1.125rem (18px); 1.0625rem (17px) under 600px.
+- Small text `--small`: 1rem (16px). Nothing on the site is set smaller than 16px.
+- Prose measure `--measure`: 40rem. Page width `--wide`: 70rem.
+- Fonts load from Google Fonts with `display=swap`; both families are SIL Open Font License.
 
-- Radius 4 / 6 / 8 px. No pills.
-- 1 px borders. No drop shadows on cards.
-- Corner ticks (14 px, 1 px accent) on hero figures in dark mode, like a viewport frame.
-- Touch targets at least 44 px.
+## Layout patterns
 
-## Components
+Each kind of content has its own shape. There are no repeated rounded cards.
 
-| Component | Rule |
+| Content | Pattern |
 |---|---|
-| Title block (`.title-block`) | Drawing-sheet box. Only real data: part, material, load, result, status. Status always says whether it was tested |
-| Data-sheet table (`.spec-table`) | Every value gets a Source column: Given, Requirement, Assumed, MATLAB, Fusion 360. Assumed values use the accent color. Selected option row is shaded |
-| Work rows (`.work-rows`) | Numbered 01, 02 in order of importance. Title, mono meta line, 2–4 lines of text, key numbers on the right. Not cards |
-| Experience rows (`.exp-rows`) | Date column, then role and one paragraph. Ruled, no boxes |
-| Design notes (`.design-notes`) | Numbered 01, 02, 03 with rules between |
-| Figures (`.figure`) | Numbered in the case study (Fig. 1, 2…). Caption says what it shows and whose it is |
-| 3D viewer (`.viewer`) | Static render first. three.js and the STL load only on "Open 3D model". Drawn edges, Iso/Front/Top, a section plane. Renders only on input, no idle loop, no wheel capture, arrow keys work |
-| Buttons | One primary action per section. Secondary actions are underlined text links |
+| Header | Name (home link) left, four text links right. Wraps to two short lines on phones; 44px tap targets |
+| Intro | h1 name, one plain paragraph, three links. No hero image |
+| Featured project | Two columns: render on the plate (7fr) and a definition list of objective / contribution / result (5fr) |
+| Other projects | Ruled rows: title and context on the left (15rem), problem / contribution / status on the right |
+| Experience | Ordered list of ruled rows: dates and location in a left column (13rem), role, organization and bullets on the right |
+| Tools | Ruled table linking each tool to the place it was used. On phones each tool becomes a stacked block |
+| Contact | Short About paragraph next to a labelled list of links |
+| Case study | Title and lede, render plus a facts box, an in-page contents list, then numbered chapters in a fixed order (problem, role, approach, decisions, analysis, simulation/testing, results/limitations, next) |
+| Tables | Rules only, tabular numbers, the chosen option shaded with `--paper-2` |
+| Figures | Numbered captions that say what the figure shows and where its numbers come from |
 
-## Any 3D or HUD feature must answer
+Breakpoints: 860px (two columns collapse to one; the render is capped at 26rem tall) and 600px (smaller body text, stacked tools table).
 
-1. What engineering fact does it show that a picture doesn't?
-2. Does the page work without it?
-3. What does it cost in bytes and CPU, and is that paid only by people who ask for it?
-4. Can a keyboard or reduced-motion user get the same information?
+## Interaction
 
-## Banned
+- The site works without JavaScript. `main.js` only adds keyboard stops to tables that scroll sideways and loads the 3D viewer on request.
+- The 3D viewer (three.js r164, about 0.7 MB with the STL) loads only after the "Rotate the 3D model" button is pressed. That button is hidden until JavaScript runs, so it never appears as a dead control. After loading, focus moves to the model; arrow keys rotate, R resets.
+- Smooth scrolling only under `prefers-reduced-motion: no-preference`. No other animation.
+- Focus: 2px outline in `--accent` on every link, button and focusable region (white on the dark 3D canvas).
 
-- Gradients, glow, neon, scanlines, animated HUD overlays, status lights, crosshairs, fake telemetry
-- Auto-rotating or auto-loading 3D in the first screen
-- "Verified", "validated" or "proven" badges without a test record
-- Skill bars, percentages, or tool walls without a project behind each tool
-- Three identical feature cards in a row
-- Emoji in headings
-- Marketing verbs ("revolutionized", "spearheaded") where a number would do
+## Not used
+
+Blueprint grids, crosshairs, HUD graphics, neon, gradients, glows, glassmorphism, giant hero sections, skill percentages, counters, badge walls, typewriter text, scroll hijacking, custom cursors, decorative animation, stock or AI imagery, a dark-mode toggle.
+
+## References
+
+Looked at before the October 2026 editorial redesign. They were inputs, not templates: no code or assets were copied. Source was read from a local clone; the live demo sites could not be opened from the environment used for the redesign.
+
+| Reference | License | What this site takes from it |
+|---|---|---|
+| [pacocoursey/paco](https://github.com/pacocoursey/paco) (commit e011620) | `package.json` declares MIT; the repo has no LICENSE file | The restraint: the name as the page title and one plain paragraph with inline links as the whole introduction |
+| [TimWitzdam/astro-minimal-portfolio-template](https://github.com/TimWitzdam/astro-minimal-portfolio-template) (commit ff91800) | MIT | Compact text header, and experience entries that keep title, organization and dates as separate fields |
+| [moeyua/astro-theme-typography](https://github.com/moeyua/astro-theme-typography) (commit 162ca9c) | MIT | Serif headings over a Source Sans interface face, and a single dark-blue accent (its default `primary` is `#2e405b`; this site uses `#2d4a6b`) |
+| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (commit 2329b96) | CC0 1.0 | One page per project in a fixed section order, separating what was asked, what I did and what came out |
+
+Earlier references (bchiang7/v4, MIT MechE Communication Lab guide, BU ENG portfolio guide, three-cad-viewer) are listed in `SOURCES.md`.
