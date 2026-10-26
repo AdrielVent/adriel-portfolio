@@ -1,1346 +1,349 @@
-/* ==========================================================================
-   Adriel Ventura | Mechanical & Aerospace Engineering Portfolio
-   Design System: Technical Publication / Engineering Review Standard
-   Typography: IBM Plex Sans + IBM Plex Mono
-   Palette: Neutral Engineering Surfaces + Technical Cobalt Accent
-   Accessibility: WCAG AA Conformance, 44px Touch Targets, High-Contrast Focus
-   ========================================================================== */
+/* Adriel Ventura, engineering portfolio
+   Editorial: warm paper, near-black ink, one muted ink-blue accent.
+   Source Serif 4 for major headings, Source Sans 3 for everything else,
+   monospace for notation; Courier Prime for controls (typed labels).
+   Rules in DESIGN.md. */
 
-/* --------------------------------------------------------------------------
-   1. Theme Custom Properties & Design Tokens
-   -------------------------------------------------------------------------- */
+/* 1. Tokens -------------------------------------------------------------- */
 :root {
-  /* Light Theme (Default) */
-  --bg-canvas: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-code: #e2e8f0;
-  
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --border-technical: #94a3b8;
-  
-  --accent: #1a5fb4;
-  --accent-hover: #154b8c;
-  --accent-subtle: rgba(26, 95, 180, 0.08);
-  --accent-surface: #eff6ff;
-  --on-accent: #ffffff;
-  --grid-line: transparent;
-  
-  --tag-bg: #e2e8f0;
-  --tag-text: #1e293b;
-  
-  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --paper: #f7f4ee;
+  --paper-2: #efebe3;      /* table heads, quiet fills */
+  --plate: #2b2a27;        /* backdrop for CAD renders only */
+  --ink: #1c1b19;
+  --ink-2: #45423c;        /* body copy */
+  --muted: #625e55;        /* metadata; 5.6:1 on paper */
+  --rule: #d8d2c6;
+  --rule-strong: #b9b2a4;
+  --accent: #2d4a6b;       /* links; 8.4:1 on paper */
+  --accent-hover: #1b3350;
+
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", "Source Sans Pro", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --type: "Courier Prime", "Courier New", Courier, monospace;   /* buttons and action links */
+
+  --text: 1.125rem;        /* 18 px body */
+  --small: 1rem;           /* 16 px metadata, captions; never smaller */
+  --measure: 40rem;        /* reading column */
+  --wide: 70rem;           /* figures, project list */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --space: clamp(3.5rem, 8vw, 6rem);   /* between sections */
 }
 
-/* Explicit Dark Theme via data-theme attribute */
-[data-theme="dark"] {
-  --bg-canvas: #0b0f17;
-  --bg-surface: #131923;
-  --bg-subtle: #1c2433;
-  --bg-code: #1e293b;
-  
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  
-  --border-subtle: #243042;
-  --border-strong: #3b4d66;
-  --border-technical: #475569;
-  
-  --accent: #4cc9f0;
-  --accent-hover: #8be0f7;
-  --accent-subtle: rgba(76, 201, 240, 0.12);
-  --accent-surface: #0e2a36;
-  --on-accent: #06121a;
-  --grid-line: rgba(76, 201, 240, 0.045);
-  
-  --tag-bg: #1e293b;
-  --tag-text: #e2e8f0;
-  
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
+/* 2. Base ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
 
-/* Automatic Dark Mode Fallback when user prefers dark and no manual toggle is set */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg-canvas: #0b0f17;
-    --bg-surface: #131923;
-    --bg-subtle: #1c2433;
-    --bg-code: #1e293b;
-    
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    
-    --border-subtle: #243042;
-    --border-strong: #3b4d66;
-    --border-technical: #475569;
-    
-    --accent: #4cc9f0;
-    --accent-hover: #8be0f7;
-    --accent-subtle: rgba(76, 201, 240, 0.12);
-    --accent-surface: #0e2a36;
-    --on-accent: #06121a;
-    --grid-line: rgba(76, 201, 240, 0.045);
-    
-    --tag-bg: #1e293b;
-    --tag-text: #e2e8f0;
-    
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   2. Base & Reset
-   -------------------------------------------------------------------------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: var(--font-sans);
-  font-size: 1rem; /* 16px */
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--bg-canvas);
-  /* Faint drafting grid; transparent in light mode */
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: 400 var(--text)/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography Hierarchy - Fluid Clamp Scale */
-h1, h2, h3, h4 {
-  font-family: var(--font-sans);
-  color: var(--text-primary);
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0;
-  letter-spacing: -0.02em;
-}
+h1, h2, h3 { margin: 0; color: var(--ink); }
 
-h1 {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
-}
+h1, h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.1; }
+h2 { font-size: clamp(1.75rem, 3.4vw, 2.25rem); line-height: 1.15; }
+h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
 
-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  margin-bottom: 0.75rem;
-}
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
 
-h3 {
-  font-size: clamp(1.125rem, 2vw, 1.375rem);
-  font-weight: 600;
-}
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
 
-p {
-  margin: 0 0 1rem 0;
-  color: var(--text-secondary);
-}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-p:last-child {
-  margin-bottom: 0;
-}
+img { display: block; max-width: 100%; height: auto; }
 
-a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
-}
+ul, ol { margin: 0; padding-left: 1.25rem; }
+li + li { margin-top: 0.35rem; }
 
-a:hover {
-  color: var(--accent-hover);
-}
+strong { color: var(--ink); font-weight: 600; }
 
-/* Accessible Focus States */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
+.mono, code { font-family: var(--mono); font-size: 0.92em; }
 
-/* Skip to content link */
+[hidden] { display: none !important; }
+
 .skip-link {
   position: absolute;
-  top: 1rem;
   left: 1rem;
-  z-index: 1000;
-  padding: 0.75rem 1.25rem;
-  background: var(--accent);
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--radius-sm);
+  top: 0.75rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
   transform: translateY(-200%);
-  transition: transform 150ms ease;
 }
+.skip-link:focus { transform: none; color: var(--paper); }
 
-.skip-link:focus {
-  transform: translateY(0);
-}
+.wrap { width: min(var(--wide), 100% - 2 * var(--gutter)); margin-inline: auto; }
+.narrow { max-width: var(--measure); }
 
-/* Layout Container */
-.shell {
-  width: min(1200px, calc(100% - 2.5rem));
-  margin-inline: auto;
-}
+.section { padding-block: var(--space) 0; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem; padding-bottom: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+.section-head p { margin: 0; color: var(--muted); font-size: var(--small); }
 
-.section {
-  padding-block: 3.5rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
+.meta { color: var(--muted); font-size: var(--small); }
 
-.section:last-of-type {
-  border-bottom: none;
-}
+/* 3. Header -------------------------------------------------------------- */
+.site-header { border-bottom: 1px solid var(--rule); }
 
-/* Eyebrows and Technical Indicators */
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: clamp(0.75rem, 1.5vw, 0.8125rem); /* >= 12px */
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.section-heading {
-  margin-bottom: 2rem;
-}
-
-.section-heading.compact {
-  margin-bottom: 1.25rem;
-}
-
-/* --------------------------------------------------------------------------
-   3. Header & Navigation (Touch Targets >= 44px)
-   -------------------------------------------------------------------------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: background-color 200ms ease, border-color 200ms ease;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 56px;
-  gap: 1.5rem;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-weight: 700;
-  font-size: 1.0625rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  min-height: 44px;
-}
-
-.brand-mark {
-  width: 10px;
-  height: 10px;
-  background-color: var(--accent);
-  border-radius: 2px;
-}
-
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  overflow-x: auto;
-}
-
-.nav-links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px; /* WCAG 44px target */
-  padding: 0 0.875rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  transition: color 150ms ease, background-color 150ms ease;
-}
-
-.nav-links a:hover,
-.nav-links a.is-active {
-  color: var(--text-primary);
-  background-color: var(--bg-subtle);
-}
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px; /* WCAG 44px target */
-  padding: 0.5rem;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  transition: background-color 150ms ease, border-color 150ms ease;
-}
-
-.theme-toggle:hover {
-  background: var(--border-subtle);
-}
-
-/* --------------------------------------------------------------------------
-   4. Buttons & Interactive Controls
-   -------------------------------------------------------------------------- */
-.button-row {
+.site-header .wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  min-height: 3.75rem;
+  padding-block: 0.5rem;
 }
 
+.site-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+.site-name:hover { color: var(--ink); }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; }
+.site-nav li + li { margin: 0; }
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-2);
+  font-size: var(--small);
+  text-decoration: none;
+}
+.site-nav a:hover, .site-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; }
+
+/* 4. Introduction -------------------------------------------------------- */
+.intro { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.intro h1 { margin-bottom: 1rem; }
+.intro .lede { font-size: clamp(1.2rem, 2.2vw, 1.375rem); line-height: 1.5; color: var(--ink); max-width: 38rem; }
+.intro-links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.intro-links li + li { margin: 0; }
+.intro-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* 5. Selected work ------------------------------------------------------- */
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.plate { background: var(--plate); }
+.plate img { margin-inline: auto; }
+
+.feature-media img { width: 100%; padding: 6%; }
+
+.feature h3 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 1.875rem); line-height: 1.2; margin-bottom: 0.4rem; }
+.feature h3 a { color: var(--ink); text-decoration: none; }
+.feature h3 a:hover { text-decoration: underline; }
+
+.facts { margin: 1.25rem 0 0; }
+.facts div { padding: 0.75rem 0; border-top: 1px solid var(--rule); }
+.facts dt { font-size: var(--small); font-weight: 600; color: var(--ink); }
+.facts dd { margin: 0.15rem 0 0; }
+
+.more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.75rem; font: 400 var(--small)/1.2 var(--type); }
+.more::after { content: "\00a0\2192"; content: "\00a0\2192" / ""; }
+
+.work-list { list-style: none; margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.work-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 0.5rem 2.5rem;
+  margin: 0;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.work-list h3 { margin-bottom: 0.25rem; }
+.work-list .meta { margin: 0; }
+.work-list .body p { max-width: var(--measure); }
+.work-list figure { margin: 1rem 0 0; max-width: 24rem; }
+
+/* 6. Figures ------------------------------------------------------------- */
+figure { margin: 0; }
+figcaption { margin-top: 0.6rem; color: var(--muted); font-size: var(--small); line-height: 1.5; }
+figcaption b { color: var(--ink); font-weight: 600; }
+
+.figure-white img { background: #fff; border: 1px solid var(--rule); }
+.chapter .wrap > figure { margin-block: 2rem; }
+.figure-wide { max-width: 46rem; }
+.sources-note { margin-top: 1.5rem; }
+
+.figure-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-block: 2rem; }
+
+/* 7. Tables -------------------------------------------------------------- */
+.table-scroll { overflow-x: auto; margin-block: 1.5rem; }
+.table-scroll:focus-visible { outline-offset: 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: var(--small); }
+caption { caption-side: top; text-align: left; padding-bottom: 0.5rem; color: var(--muted); }
+th, td { padding: 0.6rem 0.75rem 0.6rem 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+thead th { font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--ink); }
+tbody th { font-weight: 600; color: var(--ink); }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+tr.chosen th, tr.chosen td { background: var(--paper-2); }
+tr.chosen th { padding-left: 0.5rem; }
+td.assumed { color: var(--accent); font-weight: 600; }
+
+/* 8. Experience ---------------------------------------------------------- */
+.roles { list-style: none; margin: 0; padding: 0; }
+.roles > li {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.25rem 2.5rem;
+  margin: 0;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.roles > li:first-child { padding-top: 0; }
+.role-when { color: var(--muted); font-size: var(--small); }
+.role-when span { display: block; }
+.roles h3 { margin-bottom: 0.1rem; }
+.roles .org { margin-bottom: 0.5rem; color: var(--ink-2); }
+.roles ul { max-width: var(--measure); }
+
+.subhead { margin: 3rem 0 1rem; font-size: 1.25rem; }
+
+.columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+.columns h3 { margin-bottom: 0.75rem; }
+
+/* 9. Press --------------------------------------------------------------- */
+.press { list-style: none; margin: 0; padding: 0; }
+.press > li { margin: 0; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); max-width: 48rem; }
+.press > li:first-child { padding-top: 0; }
+.press h3 { font-size: 1.125rem; margin-bottom: 0.2rem; }
+
+/* 10. About + contact ---------------------------------------------------- */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); gap: 2rem 4rem; align-items: start; }
+.contact-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.contact-list li { margin: 0; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.contact-list span { display: block; color: var(--muted); font-size: var(--small); }
+.contact-list a { overflow-wrap: anywhere; }
+
+/* 11. Footer ------------------------------------------------------------- */
+.site-footer { margin-top: var(--space); padding-block: 2rem 2.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: var(--small); }
+.site-footer h2 { font-family: var(--sans); font-size: var(--small); font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+.site-footer ul { max-width: 52rem; }
+
+/* 12. Case study --------------------------------------------------------- */
+.case-head { padding-block: clamp(2rem, 5vw, 3.5rem) 0; }
+.crumb { margin-bottom: 1.5rem; font-size: var(--small); }
+.case-head h1 { max-width: 26ch; margin-bottom: 1rem; }
+.case-head .lede { font-size: clamp(1.2rem, 2.2vw, 1.375rem); line-height: 1.5; color: var(--ink); max-width: 40rem; }
+
+.case-top { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(1.5rem, 4vw, 3.5rem); margin-top: 2.5rem; align-items: start; }
+
+.facts-box { margin: 0; border-top: 1px solid var(--ink); }
+.facts-box div { padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.facts-box dt { color: var(--muted); font-size: var(--small); }
+.facts-box dd { margin: 0; color: var(--ink); }
+
+.toc { margin-top: 2.5rem; padding: 1rem 0; border-block: 1px solid var(--rule); }
+.toc ol { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin: 0; padding: 0; list-style: none; }
+.toc li + li { margin: 0; }
+.toc a { display: inline-flex; min-height: 44px; align-items: center; font-size: var(--small); }
+
+.chapter { padding-top: var(--space); }
+.chapter > .wrap > h2 { margin-bottom: 1.25rem; }
+.prose { max-width: var(--measure); }
+.prose ul, .prose ol { margin-bottom: 1rem; }
+
+.equation { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--paper-2); border-left: 2px solid var(--ink); font-family: var(--mono); font-size: 1rem; color: var(--ink); overflow-x: auto; max-width: var(--measure); }
+.equation span { display: block; margin-top: 0.35rem; color: var(--muted); }
+
+.path { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0; margin: 1.5rem 0; padding: 0; list-style: none; font-size: var(--small); }
+.path li { margin: 0; display: flex; align-items: center; }
+.path li + li::before { content: "\2192"; margin: 0 0.6rem; color: var(--muted); }
+.path span { padding: 0.4rem 0.7rem; border: 1px solid var(--rule-strong); background: #fff; color: var(--ink); }
+.path small { display: block; color: var(--muted); font-size: var(--small); }
+
+.note { margin: 1.5rem 0; padding: 1rem 1.25rem; border: 1px solid var(--rule-strong); background: #fff; max-width: var(--measure); }
+
+.files { list-style: none; margin: 1.5rem 0 0; padding: 0; border-top: 1px solid var(--rule-strong); max-width: var(--measure); }
+.files li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin: 0; border-bottom: 1px solid var(--rule); }
+.files a { display: inline-flex; align-items: center; min-height: 44px; }
+.files span { display: inline-flex; align-items: center; color: var(--muted); font-size: var(--small); }
+
+/* 3D viewer: static render first; the canvas replaces it on request */
+.viewer { position: relative; aspect-ratio: 1 / 0.93; overflow: hidden; }
+.viewer > img { width: 100%; height: 100%; object-fit: contain; padding: 7%; }
+.viewer canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.viewer canvas:active { cursor: grabbing; }
+.viewer.is-live > img { visibility: hidden; }
+.viewer canvas:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+
+/* Controls read like typed labels: [Angled]  [x] Section cut.
+   The brackets are drawn with CSS and hidden from screen readers. */
 .button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-height: 44px; /* WCAG 44px target */
-  padding: 0.5rem 1.25rem;
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-strong);
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 150ms ease;
-}
-
-.button:hover {
-  background-color: var(--bg-subtle);
-  border-color: var(--text-muted);
-}
-
-.button-primary {
-  background-color: var(--accent);
-  color: var(--on-accent);
-  border-color: var(--accent);
-}
-
-.button-primary:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: var(--on-accent);
-}
-
-/* --------------------------------------------------------------------------
-   5. Hero Section & Intro
-   -------------------------------------------------------------------------- */
-.hero-grid {
-  display: block;
-  max-width: 900px;
-}
-
-.hero-headline {
-  font-size: clamp(1.125rem, 2.2vw, 1.35rem);
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
-}
-
-.hero-summary {
-  font-size: 1.0625rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-/* --------------------------------------------------------------------------
-   6. Two-Column Narrative & Decisions
-   -------------------------------------------------------------------------- */
-.two-column {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.body-copy p {
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-
-/* --------------------------------------------------------------------------
-   7. Featured Engineering Project: CPU Heat Sink
-   -------------------------------------------------------------------------- */
-.featured-hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.25rem;
-  align-items: start;
-  margin-bottom: 2rem;
-}
-
-.featured-status {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.featured-status span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; /* 12px */
-  font-weight: 600;
-  padding: 0.25rem 0.625rem;
-  background: var(--accent-subtle);
-  color: var(--accent);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-}
-
-/* Hero 3D viewer. The bundle adds .is-loaded once the STL renders. */
-.stl-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 0.82;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 20px 20px;
-  overflow: hidden;
-}
-
-.stl-canvas,
-.stl-fallback {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.stl-canvas {
-  z-index: 2;
-  cursor: grab;
-}
-
-.stl-fallback {
-  z-index: 1;
-  object-fit: contain;
-  padding: 6%;
-  transition: opacity 260ms ease;
-}
-
-.stl-stage.is-loaded .stl-fallback {
-  opacity: 0;
-}
-
-.hero-model-figure figcaption {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.25rem 1rem;
-}
-
-/* Data-sheet tables: 1px rules, mono values, a source column */
-.spec-table {
-  width: 100%;
-  margin-block: 1.5rem;
-  border-collapse: collapse;
-  border: 1px solid var(--border-strong);
-  background: var(--bg-surface);
-  font-size: 0.9375rem;
-}
-
-.spec-table caption {
-  caption-side: top;
-  text-align: left;
-  padding-bottom: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.spec-table th,
-.spec-table td {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border-subtle);
-  text-align: left;
-  vertical-align: top;
-}
-
-.spec-table thead th {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: var(--bg-subtle);
-}
-
-.spec-table tbody th {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.spec-table td:nth-child(2) {
-  font-family: var(--font-mono);
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.spec-table td:last-child {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-}
-
-.spec-table td.src-assumed {
-  color: var(--accent);
-}
-
-/* Tool table: the middle column is prose, not a value */
-.tool-table td:nth-child(2) {
-  font-family: var(--font-sans);
-  white-space: normal;
-  color: var(--text-secondary);
-}
-
-/* Design notes: numbered, ruled, no cards */
-.design-notes {
-  list-style: none;
-  counter-reset: note;
-  margin: 2rem 0;
-  padding: 0;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.design-notes li {
-  counter-increment: note;
-  display: grid;
-  grid-template-columns: 3rem 1fr;
-  column-gap: 1rem;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.design-notes li::before {
-  content: counter(note, decimal-leading-zero);
-  grid-row: span 2;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--accent);
-}
-
-.design-notes h3 {
-  font-size: 1rem;
-  margin: 0 0 0.375rem;
-}
-
-.design-notes p {
-  margin: 0;
-  max-width: 72ch;
-}
-
-.text-link {
-  display: inline-flex;
-  align-items: center;
   min-height: 44px;
-  font-weight: 500;
-  color: var(--text-primary);
-  text-decoration: underline;
-  text-decoration-color: var(--border-technical);
-  text-underline-offset: 4px;
+  padding: 0 0.35rem;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: 400 var(--small)/1.2 var(--type);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.button::before { content: "["; content: "[" / ""; color: var(--muted); }
+.button::after { content: "]"; content: "]" / ""; color: var(--muted); }
+.button:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.button:active { color: var(--accent); }
+.button[aria-pressed]::before { content: "[ ]\00a0"; content: "[ ]\00a0" / ""; }
+.button[aria-pressed]::after { content: none; }
+.button[aria-pressed="true"]::before { content: "[x]\00a0"; content: "[x]\00a0" / ""; color: var(--ink); }
+
+.viewer-controls { display: flex; flex-wrap: wrap; gap: 0 0.75rem; margin: 0.5rem 0 0 -0.35rem; }
+.viewer-status { margin: 0.5rem 0 0; color: var(--muted); font-size: var(--small); }
+.open-3d { width: fit-content; margin: 0.5rem 0 0 -0.35rem; text-align: left; }
+
+/* 13. Responsive --------------------------------------------------------- */
+@media (max-width: 860px) {
+  .feature, .case-top, .about { grid-template-columns: 1fr; }
+  /* One column: keep the render from filling a whole tablet screen */
+  .feature-media { text-align: center; }
+  .feature-media img { width: auto; max-width: 100%; max-height: 26rem; }
+  .case-top .viewer { aspect-ratio: 4 / 3; }
+  .work-list > li, .roles > li { grid-template-columns: 1fr; }
+  .work-list figure { max-width: 100%; }
 }
 
-.text-link:hover {
-  text-decoration-color: var(--accent);
+@media (max-width: 600px) {
+  :root { --text: 1.0625rem; }
+  .site-header .wrap { padding-block: 0.4rem; }
+  .site-nav { gap: 0 1rem; }
+  .figure-row, .columns { grid-template-columns: 1fr; }
+  td.num { white-space: normal; }
+  /* Tools table: one block per tool instead of three narrow columns */
+  .tools thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .tools tr { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+  .tools th, .tools td { display: block; padding: 0; border: 0; }
+  .tools td:last-child { color: var(--muted); }
 }
 
-/* Result Media Grid */
-.result-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 1.25rem;
+/* 14. Motion ------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
-.media-frame {
-  margin: 0;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.media-frame img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-}
-
-.media-frame figcaption {
-  padding: 0.75rem 1rem;
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
-}
-
-/* --------------------------------------------------------------------------
-   8. Project Archive Grid & Technical Projects
-   -------------------------------------------------------------------------- */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
-}
-
-.project-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 150ms ease;
-}
-
-.project-card:hover {
-  border-color: var(--border-technical);
-}
-
-.project-visual {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--bg-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.project-visual span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
-}
-
-.project-visual strong {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 0.35rem;
-}
-
-.project-visual em {
-  font-style: normal;
-  font-size: 0.875rem;
-  color: var(--text-muted);
-}
-
-.project-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  /* contain, not cover: cropping an FEA plot can cut off the legend */
-  object-fit: contain;
-  background: #fff;
-  display: block;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.project-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.project-tags {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; /* 12px */
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  border-radius: var(--radius-sm);
-}
-
-.project-status {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.project-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-/* STAR Breakdown List */
-.star-list {
-  display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.star-list div {
-  display: grid;
-  grid-template-columns: 85px 1fr;
-  gap: 0.75rem;
-  align-items: baseline;
-  font-size: 0.9375rem;
-}
-
-.star-list dt {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.star-list dd {
-  margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Drawing Strip Artifacts */
-.drawing-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.625rem;
-  margin-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1rem;
-}
-
-.drawing-strip a {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--bg-subtle);
-}
-
-.drawing-strip img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.drawing-strip span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.35rem 0.5rem;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
-.drawing-strip a:hover span {
-  color: var(--accent);
-}
-
-/* --------------------------------------------------------------------------
-   9. Skills & Toolchain Grid
-   -------------------------------------------------------------------------- */
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-}
-
-.skill-cluster {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-}
-
-.skill-cluster h3 {
-  font-size: 1rem;
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--accent);
-  padding-bottom: 0.625rem;
-  margin-bottom: 0.875rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.skill-cluster ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.skill-cluster li {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.skill-cluster li::before {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-/* --------------------------------------------------------------------------
-   10. Credentials & Certifications Grid
-   -------------------------------------------------------------------------- */
-.credential-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.credential-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.credential-card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-bottom: 1px solid var(--border-subtle);
-  background: var(--bg-subtle);
-}
-
-.credential-card .project-visual {
-  aspect-ratio: 16 / 10;
-}
-
-.credential-card div:last-child {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.credential-card h3 {
-  font-size: 1.0625rem;
-  margin-bottom: 0.5rem;
-}
-
-.credential-card p {
-  font-size: 0.875rem;
-  margin-bottom: 0.35rem;
-}
-
-.credential-card a {
-  margin-top: auto;
-  padding-top: 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-/* --------------------------------------------------------------------------
-   11. Experience & Leadership Timeline
-   -------------------------------------------------------------------------- */
-.timeline {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.timeline-item {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 1.5rem;
-  align-items: baseline;
-}
-
-.timeline-meta {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.timeline-content h3 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-content p {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-}
-
-/* --------------------------------------------------------------------------
-   12. Resume Panel & Contact
-   -------------------------------------------------------------------------- */
-.resume-panel {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.contact-card {
-  font-style: normal;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.contact-card a,
-.contact-card span {
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-}
-
-/* --------------------------------------------------------------------------
-   13. Footer
-   -------------------------------------------------------------------------- */
-.site-footer {
-  padding-block: 2.5rem;
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-/* --------------------------------------------------------------------------
-   14. Responsive Layout & Media Queries
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .featured-hero,
-  .two-column,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .result-grid,
-  .credential-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  
-  .resume-panel {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 768px) {
-  .result-grid,
-  .credential-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .nav {
-    flex-wrap: wrap;
-    padding-block: 0.5rem;
-  }
-  
-  /* The links sit inside .nav-controls, so that wrapper has to take the
-     full row and be allowed to shrink, or the links push the page wider. */
-  .nav-controls {
-    order: 3;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .nav-links {
-    flex: 1;
-    min-width: 0;
-    padding-bottom: 0.5rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .shell {
-    width: calc(100% - 1.5rem);
-  }
-  
-  .star-list div {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   15. Accessibility: Reduced Motion
-   -------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   16. Print Stylesheet (@media print)
-   Avoids awkward page breaks inside cards, hides navigation and interactives,
-   and prevents empty trailing pages.
-   -------------------------------------------------------------------------- */
+/* 15. Print -------------------------------------------------------------- */
 @media print {
-  *, *::before, *::after {
-    background: transparent !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  body {
-    background: #ffffff !important;
-    color: #0f172a !important;
-    font-size: 11pt !important;
-    line-height: 1.4 !important;
-  }
-
-  /* Hide navigation, theme toggle, skip-link, 3D buttons, and footer */
-  .site-header,
-  .nav-controls,
-  .theme-toggle,
-  .skip-link,
-  .button-row,
-  .site-footer,
-  .stl-canvas {
-    display: none !important;
-  }
-
-  /* Reset layout containers to avoid trailing empty pages */
-  html, body {
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  .shell {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .section {
-    padding-block: 1rem !important;
-    border-bottom: 1px solid #cbd5e1 !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
-  }
-
-  /* Avoid page breaks inside cards and content units */
-  .project-card,
-  .credential-card,
-  .timeline-item,
-  .design-notes li,
-  .spec-table tr,
-  .media-frame,
-  .skill-cluster,
-  .contact-card,
-  .hero-grid {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    margin-bottom: 1rem !important;
-  }
-
-  /* Linearize grid structures for clean document flow */
-  .project-grid,
-  .credential-grid,
-  .skill-grid,
-  .result-grid,
-  .featured-hero,
-  .two-column,
-  .contact-grid {
-    display: block !important;
-  }
-
-  .project-card,
-  .credential-card,
-  .skill-cluster {
-    display: block !important;
-    width: 100% !important;
-    border: 1px solid #94a3b8 !important;
-  }
-
-  a {
-    text-decoration: underline !important;
-    color: #000000 !important;
-  }
-
-  a[href^="http"]::after {
-    content: " (" attr(href) ")";
-    font-size: 8.5pt;
-    font-family: var(--font-mono);
-    word-break: break-all;
-  }
+  @page { margin: 15mm; }
+  body { background: #fff; color: #000; font-size: 10.5pt; }
+  .skip-link, .site-nav, .toc, .viewer-controls, .viewer-status, .open-3d, .viewer canvas, .site-footer ul, .no-print { display: none !important; }
+  .plate { background: #fff; }
+  .section, .chapter { padding-top: 1.25rem; }
+  .feature, .case-top, .about, .figure-row, .columns { display: block; }
+  .work-list > li, .roles > li, tr, figure { break-inside: avoid; }
+  .work-list > li, .roles > li { display: block; padding: 0.6rem 0; }
+  .feature-media, .work-list figure { display: none; }
+  figure img { max-height: 75mm; width: auto; }
+  a { color: #000; }
 }
-
-/* --------------------------------------------------------------------------
-   17. Hero figure, compact work list, certificate row
-   -------------------------------------------------------------------------- */
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 3rem;
-  align-items: center;
-  max-width: none;
-}
-
-.hero-figure {
-  margin: 0;
-}
-
-.hero-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-}
-
-.hero-figure figcaption,
-.project-note {
-  margin-top: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-.work-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.work-list li {
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.work-list h3 {
-  margin: 0 0 0.375rem;
-  font-size: 1.0625rem;
-}
-
-.work-list h3 span {
-  display: block;
-  margin-top: 0.125rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--text-muted);
-}
-
-.work-list p {
-  margin: 0;
-  max-width: 72ch;
-  color: var(--text-secondary);
-}
-
-.cert-row {
-  margin-top: 2.5rem;
-}
-
-.cert-row h3 {
-  font-size: 1rem;
-  margin: 0 0 0.5rem;
-}
-
-.cert-row ul {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   18. Dark mode frame corners and credits
-   Corner ticks like a CAD viewport frame. Lines only, no glow.
-   -------------------------------------------------------------------------- */
-.hero-figure {
-  position: relative;
-}
-
-[data-theme="dark"] .hero-figure::before,
-[data-theme="dark"] .hero-figure::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-color: var(--accent);
-  border-style: solid;
-  pointer-events: none;
-  z-index: 1;
-}
-
-[data-theme="dark"] .hero-figure::before {
-  top: -5px;
-  left: -5px;
-  border-width: 1px 0 0 1px;
-}
-
-[data-theme="dark"] .hero-figure::after {
-  bottom: -5px;
-  right: -5px;
-  border-width: 0 1px 1px 0;
-}
-
-.credits {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1.25rem;
-  margin-top: 1.25rem;
-  font-size: 0.875rem;
-  color: var(--text-muted);
-}
-
-.credits h2 {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0 0 0.5rem;
-  color: var(--text-secondary);
-}
-
-.credits ul {
-  margin: 0;
-  padding-left: 1.1rem;
-}
-

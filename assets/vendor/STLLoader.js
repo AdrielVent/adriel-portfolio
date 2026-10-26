@@ -1,3 +1,6 @@
+// three.js r164, examples/jsm/loaders/STLLoader.js
+// Copyright 2010-2024 Three.js Authors. SPDX-License-Identifier: MIT
+
 import {
 	BufferAttribute,
 	BufferGeometry,

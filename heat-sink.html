@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Heat sink for a 100 W CPU, a case study | Adriel Ventura</title>
+    <meta
+      name="description"
+      content="Case study: a 15-fin Al-6061 plate-fin heat sink for a 100 W CPU. Requirements, concept trade, MATLAB resistance model, Fusion 360 results, limitations and an untested bench plan."
+    />
+    <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/heat-sink.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Heat sink for a 100 W CPU | Adriel Ventura" />
+    <meta property="og:description" content="100 W, 85 °C limit. MATLAB predicts 69.85 °C; Fusion 360 maximum 69.775 °C. Analysis only, not bench tested." />
+    <meta property="og:url" content="https://adrielvent.github.io/adriel-portfolio/heat-sink.html" />
+    <meta property="og:image" content="https://adrielvent.github.io/adriel-portfolio/assets/images/og-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="importmap">
+      { "imports": { "three": "./assets/vendor/three.module.min.js" } }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-name" href="./">Adriel Ventura</a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            <li><a href="./#work" aria-current="page">Work</a></li>
+            <li><a href="./#experience">Experience</a></li>
+            <li><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume</a></li>
+            <li><a href="./#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="case-head wrap">
+        <p class="crumb"><a href="./#work">Selected work</a></p>
+        <h1>Heat sink for a 100&nbsp;W CPU</h1>
+        <p class="lede">
+          I designed a forced-convection heat sink to keep a 50.8&nbsp;mm CPU at or below 85&nbsp;&deg;C. My model predicts
+          69.85&nbsp;&deg;C. Nothing has been built or bench tested yet, and this page says where the prediction could be
+          wrong.
+        </p>
+
+        <div class="case-top">
+          <figure>
+            <div class="viewer plate" id="model-stage" data-stl="assets/models/dfma-heatsink-viewer.stl" data-label="3D model of the 15-fin heat sink and the 38 mm plate under its base. Drag, or use the arrow keys, to rotate.">
+              <img src="assets/projects/heat-sink-render-top.png" alt="CAD render of the final 15-fin Al-6061 heat sink, seen from above at an angle" width="948" height="881" />
+            </div>
+            <button class="button open-3d" type="button" id="open-3d" hidden>Rotate in 3D (0.7&nbsp;MB)</button>
+            <div class="viewer-controls" id="viewer-controls" hidden>
+              <button class="button" type="button" data-view="iso">Angled</button>
+              <button class="button" type="button" data-view="front">Along the fins</button>
+              <button class="button" type="button" data-view="top">Top</button>
+              <button class="button" type="button" data-section aria-pressed="false">Section cut</button>
+            </div>
+            <p class="viewer-status" id="viewer-status" aria-live="polite"></p>
+            <figcaption><b>Figure 1.</b> My CAD render of the final design. In the 3D model, the thin plate under the base is the 38&nbsp;mm part shown in my assembly drawing (Figure 6).</figcaption>
+          </figure>
+
+          <dl class="facts-box">
+            <div><dt>Course</dt><dd>ENGG 114 Heat Transfer, Hofstra, Spring 2026</dd></div>
+            <div><dt>Role</dt><dd>Individual project</dd></div>
+            <div><dt>Design</dt><dd>15-fin plate-fin heat sink, 50&nbsp;mm fan</dd></div>
+            <div><dt>Material</dt><dd>Al-6061 / Al-6061-T6</dd></div>
+            <div><dt>Tools</dt><dd>MATLAB, Fusion 360, SOLIDWORKS</dd></div>
+            <div><dt>Status</dt><dd>Analysis and simulation only. Not built or bench tested.</dd></div>
+            <div><dt>Files</dt><dd><a href="assets/docs/heat-sink-thermal-design-report.pdf">Design report</a> (PDF, 26 pages)</dd></div>
+          </dl>
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#problem">Problem and constraints</a></li>
+            <li><a href="#role">My role</a></li>
+            <li><a href="#approach">Approach and assumptions</a></li>
+            <li><a href="#decisions">Decisions and tradeoffs</a></li>
+            <li><a href="#analysis">Analysis</a></li>
+            <li><a href="#simulation">Simulation and testing</a></li>
+            <li><a href="#results">Results and limitations</a></li>
+            <li><a href="#next">What I'd change next</a></li>
+          </ol>
+        </nav>
+      </header>
+
+      <section class="chapter" id="problem" aria-labelledby="problem-title">
+        <div class="wrap">
+          <h2 id="problem-title">Problem and constraints</h2>
+          <div class="prose">
+            <p>
+              A desktop CPU's existing cooler was inadequate. The replacement had to remove 100&nbsp;W at steady state from
+              a vertically mounted 50.8&nbsp;&times;&nbsp;50.8&nbsp;mm chip in 25&nbsp;&deg;C case air, and bolt to the
+              existing mounting hardware. The 85&nbsp;&deg;C limit was the course requirement; I added a 70&nbsp;&deg;C
+              target to force margin into the design.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Requirements</caption>
+              <thead><tr><th scope="col">Requirement</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">CPU footprint</th><td class="num">50.8 &times; 50.8 mm</td><td>Given</td></tr>
+                <tr><th scope="row">Orientation</th><td>Vertical</td><td>Given</td></tr>
+                <tr><th scope="row">Heat load, Q</th><td class="num">100 W</td><td>Given</td></tr>
+                <tr><th scope="row">Ambient air, T<sub>&infin;</sub></th><td class="num">25 &deg;C</td><td>Given</td></tr>
+                <tr><th scope="row">Chip temperature limit</th><td class="num">&le; 85 &deg;C</td><td>Requirement</td></tr>
+                <tr><th scope="row">Design target</th><td class="num">&le; 70 &deg;C</td><td>Set by me</td></tr>
+                <tr><th scope="row">Mounting</th><td>Existing hardware</td><td>Requirement</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="prose">Each temperature limit sets a maximum total thermal resistance from chip to air:</p>
+          <div class="equation">
+            R<sub>max</sub> = (T<sub>max</sub> &minus; T<sub>&infin;</sub>) / Q
+            <span>85 &deg;C limit: (85 &minus; 25) / 100 = 0.600 &deg;C/W. 70 &deg;C target: (70 &minus; 25) / 100 = 0.450 &deg;C/W.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="role" aria-labelledby="role-title">
+        <div class="wrap prose">
+          <h2 id="role-title">My role</h2>
+          <p>
+            This was an individual course project. The calculations, MATLAB model, CAD, Fusion 360 study, drawings and
+            report are mine; the report carries a signed declaration of original work. The problem statement and the
+            85&nbsp;&deg;C requirement came from the course.
+          </p>
+          <p>
+            I also 3D-printed plastic models of the 17-fin and 15-fin designs to compare fin spacing and tool access in
+            the design review. They say nothing about thermal performance.
+          </p>
+        </div>
+      </section>
+
+      <section class="chapter" id="approach" aria-labelledby="approach-title">
+        <div class="wrap">
+          <h2 id="approach-title">Approach and assumptions</h2>
+          <div class="prose">
+            <p>I modeled the heat path as resistances in series, from chip to air:</p>
+          </div>
+          <ol class="path">
+            <li><span>CPU<small>100 W</small></span></li>
+            <li><span>Contact / thermal pad<small>0 in the base case</small></span></li>
+            <li><span>Al-6061 base<small>0.0023 &deg;C/W</small></span></li>
+            <li><span>15 fins to air<small>0.4462 &deg;C/W</small></span></li>
+            <li><span>Ambient air<small>25 &deg;C</small></span></li>
+          </ol>
+          <div class="prose">
+            <p>Two inputs are assumptions, and both matter more than any geometry choice:</p>
+            <ul>
+              <li><strong>Convection coefficient h = 65&nbsp;W/m&sup2;K.</strong> Not backed by fan-curve, pressure-drop or CFD data.</li>
+              <li><strong>Zero contact resistance</strong> between chip and base in the headline number. Section 7 shows what a real pad does.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="decisions" aria-labelledby="decisions-title">
+        <div class="wrap">
+          <h2 id="decisions-title">Decisions and tradeoffs</h2>
+          <div class="prose">
+            <p>I screened three concepts on thermal performance, manufacturability, airflow, tool access, mass, cost and how ready each was to prototype.</p>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Concept screening</caption>
+              <thead><tr><th scope="col">Concept</th><th scope="col">Why</th><th scope="col">Decision</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Copper pin-fin, natural convection</th><td>Heavy; natural convection too weak for 100&nbsp;W in this footprint</td><td>Rejected</td></tr>
+                <tr><th scope="row">Aluminum folded-fin with heat pipes</th><td>Would work, but adds cost, interfaces and packaging risk</td><td>Rejected</td></tr>
+                <tr class="chosen"><th scope="row">Al-6061 plate-fin with a 50&nbsp;mm fan</th><td>Best balance of performance, cost and machinability</td><td>Selected</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prose">
+            <p>
+              Inside the plate-fin concept, I first modeled an idealized 17-fin baseline, then traded it for 15 fins. The
+              17-fin version ran 8.3&nbsp;&deg;C cooler in Fusion 360, but its 2.11&nbsp;mm gaps are hard to machine and
+              reach with tools. Fifteen fins open the gap to 2.557&nbsp;mm and cut the mass 27.5% (75.3&nbsp;g to
+              54.6&nbsp;g), while still meeting 85&nbsp;&deg;C with margin.
+            </p>
+          </div>
+          <figure class="figure-white figure-wide">
+            <img src="assets/projects/heat-sink-matlab-resistance-mass.png" alt="MATLAB scatter plot of estimated heat sink mass in grams against total thermal resistance in degrees C per watt for many fin configurations, with the selected 15-fin design and a 0.45 C/W target line marked" width="1399" height="843" loading="lazy" />
+            <figcaption><b>Figure 2.</b> Mass against total thermal resistance for the fin configurations I swept in MATLAB. The star is the selected 15-fin design; the dashed line is the 0.45&nbsp;&deg;C/W target.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="analysis" aria-labelledby="analysis-title">
+        <div class="wrap">
+          <h2 id="analysis-title">Analysis</h2>
+          <div class="equation">
+            T<sub>chip</sub> = T<sub>&infin;</sub> + Q &middot; R<sub>total</sub> = 25 &deg;C + 100 W &times; 0.4485 &deg;C/W = 69.85 &deg;C
+            <span>Margin to 85 &deg;C: 15.15 &deg;C. Margin to 70 &deg;C: 0.15 &deg;C.</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>MATLAB output for the final 15-fin design</caption>
+              <thead><tr><th scope="col">Quantity</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Fin height / thickness</th><td class="num">29.29 / 1.00 mm</td><td>My design</td></tr>
+                <tr><th scope="row">Clear fin spacing</th><td class="num">2.557 mm</td><td>My design</td></tr>
+                <tr><th scope="row">Convection coefficient h</th><td class="num">65 W/m&sup2;K</td><td class="assumed">Assumed</td></tr>
+                <tr><th scope="row">Fin parameter m</th><td class="num">27.901 m<sup>&minus;1</sup></td><td>MATLAB</td></tr>
+                <tr><th scope="row">Fin efficiency &eta;<sub>f</sub></th><td class="num">0.8195</td><td>MATLAB</td></tr>
+                <tr><th scope="row">Overall surface efficiency &eta;<sub>o</sub></th><td class="num">0.8079</td><td>MATLAB</td></tr>
+                <tr><th scope="row">R<sub>total</sub>, no contact resistance</th><td class="num">0.4485 &deg;C/W</td><td>MATLAB</td></tr>
+                <tr><th scope="row">Mass</th><td class="num">54.6 g</td><td>MATLAB estimate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure-white figure-wide">
+            <img src="assets/projects/heat-sink-contact-sensitivity.png" alt="MATLAB plot of predicted chip temperature in degrees C against the assumed convection coefficient from 30 to 100 W/m2K, with and without a 0.05 C/W contact penalty; the no-penalty curve crosses 85 C near 46 W/m2K" width="1399" height="843" loading="lazy" />
+            <figcaption><b>Figure 3.</b> Predicted chip temperature against the assumed convection coefficient. Below roughly 46&nbsp;W/m&sup2;K (read off the plot) the design misses 85&nbsp;&deg;C, so h decides pass or fail.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="simulation" aria-labelledby="simulation-title">
+        <div class="wrap">
+          <h2 id="simulation-title">Simulation and testing</h2>
+          <div class="prose">
+            <p>
+              I ran steady-state thermal studies of both fin counts in Fusion 360 with the same heat load, ambient and
+              convection inputs. These are simplified predictions, not validation.
+            </p>
+          </div>
+          <div class="figure-row">
+            <figure class="figure-white">
+              <img src="assets/projects/heat-sink-fusion-15fin-result.png" alt="Fusion 360 steady-state temperature plot of the final 15-fin heat sink; legend maximum 69.775 C" width="1050" height="530" loading="lazy" />
+              <figcaption><b>Figure 4.</b> Final 15-fin design: 69.775&nbsp;&deg;C maximum.</figcaption>
+            </figure>
+            <figure class="figure-white">
+              <img src="assets/projects/heat-sink-fusion-17fin-result.png" alt="Fusion 360 steady-state temperature plot of the 17-fin baseline; legend maximum 61.487 C" width="742" height="350" loading="lazy" />
+              <figcaption><b>Figure 5.</b> 17-fin baseline: 61.487&nbsp;&deg;C maximum.</figcaption>
+            </figure>
+          </div>
+          <figure class="figure-white">
+            <img src="assets/projects/heat-sink-drawing-15fin.png" alt="SOLIDWORKS assembly drawing sheet: fan with a 5.20 mm hole callout, four long screws, the 15-fin heat sink, a 38 mm plate below it, and an exploded isometric view" width="1182" height="822" loading="lazy" />
+            <figcaption><b>Figure 6.</b> My SOLIDWORKS assembly drawing (report, page 14): fan, screws, heat sink and the 38&nbsp;mm plate. Its title block, material and tolerance fields are blank.</figcaption>
+          </figure>
+          <div class="note">
+            <p>
+              <strong>Not tested yet.</strong> I wrote a bench-test plan but have not run it: a 100&nbsp;W cartridge heater in
+              a 50.8&nbsp;mm block standing in for the CPU, the fan at rated voltage, and Type-K thermocouples at the
+              interface, base, fin, inlet and outlet, logged until steady state. The test equipment is budgeted at
+              $376.92 if bought new.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="results" aria-labelledby="results-title">
+        <div class="wrap">
+          <h2 id="results-title">Results and limitations</h2>
+          <div class="prose">
+            <p>
+              Both models predict a pass on the 85&nbsp;&deg;C requirement. The 70&nbsp;&deg;C target is met by
+              0.15&nbsp;&deg;C, and only with zero contact resistance. 69.85&nbsp;&deg;C is the MATLAB chip temperature;
+              69.775&nbsp;&deg;C is the hottest point in the Fusion model. They measure different things, so their
+              closeness is not a validation.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Final design against the baseline</caption>
+              <thead>
+                <tr><th scope="col">Design</th><th scope="col">Fins</th><th scope="col">Gap</th><th scope="col">R<sub>total</sub></th><th scope="col">MATLAB chip</th><th scope="col">Fusion max</th><th scope="col">Mass</th></tr>
+              </thead>
+              <tbody>
+                <tr class="chosen"><th scope="row">Final</th><td class="num">15</td><td class="num">2.557 mm</td><td class="num">0.4485 &deg;C/W</td><td class="num">69.85 &deg;C</td><td class="num">69.775 &deg;C</td><td class="num">54.6 g</td></tr>
+                <tr><th scope="row">Baseline</th><td class="num">17</td><td class="num">2.1125 mm</td><td class="num">0.3529 &deg;C/W</td><td class="num">60.29 &deg;C</td><td class="num">61.487 &deg;C</td><td class="num">75.3 g</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Effect of contact resistance on the final design (MATLAB)</caption>
+              <thead><tr><th scope="col">Added contact resistance</th><th scope="col">R<sub>total</sub></th><th scope="col">Chip temperature</th><th scope="col">70 &deg;C target</th></tr></thead>
+              <tbody>
+                <tr><td class="num">0</td><td class="num">0.4485 &deg;C/W</td><td class="num">69.85 &deg;C</td><td>Met</td></tr>
+                <tr><td class="num">0.00155 &deg;C/W</td><td class="num">0.4500 &deg;C/W</td><td class="num">70.00 &deg;C</td><td>At the limit</td></tr>
+                <tr><td class="num">0.0031 &deg;C/W</td><td class="num">0.4516 &deg;C/W</td><td class="num">70.16 &deg;C</td><td>Missed</td></tr>
+                <tr><td class="num">0.0114 &deg;C/W</td><td class="num">0.4599 &deg;C/W</td><td class="num">70.99 &deg;C</td><td>Missed</td></tr>
+                <tr><td class="num">0.05 &deg;C/W</td><td class="num">0.4985 &deg;C/W</td><td class="num">74.85 &deg;C</td><td>Missed; 85 &deg;C still met</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prose">
+            <h3 id="limits-title">Limitations</h3>
+            <ul aria-labelledby="limits-title">
+              <li>The convection coefficient is assumed, and it decides pass or fail (Figure 3).</li>
+              <li>0.0031&nbsp;&deg;C/W of contact resistance, the high end of the ideal range I used for a PTM7950 pad, erases the 0.15&nbsp;&deg;C margin.</li>
+              <li>The Fusion 360 result depends on which faces get convection, the mesh and the contact settings. I have not shown a mesh convergence check.</li>
+              <li>The mass is a MATLAB estimate; the CAD mass should replace it.</li>
+              <li>The drawing is not yet a fabrication drawing (Figure 6).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="next" aria-labelledby="next-title">
+        <div class="wrap prose">
+          <h2 id="next-title">What I'd change next</h2>
+          <ol>
+            <li>Measure the fan's airflow and the pressure drop through the fins, so h is a measured input instead of an assumption.</li>
+            <li>Run the 100&nbsp;W bench test, reading interface temperature first, since the interface decides the 70&nbsp;&deg;C target.</li>
+            <li>Replace the MATLAB mass with the CAD mass, and fill in the drawing's material, tolerances and title block.</li>
+            <li>Add a mesh convergence check to the Fusion 360 study.</li>
+          </ol>
+          <ul class="files">
+            <li><a href="assets/docs/heat-sink-thermal-design-report.pdf">Design report (PDF)</a><span>1.6 MB · 26 pages</span></li>
+            <li><a href="assets/models/dfma-heatsink-3d-model.stl" download>Full assembly STL</a><span>6.0 MB</span></li>
+            <li><a href="assets/docs/heat-sink-project-deck.pptx" download>Presentation slides (PPTX)</a><span>6.3 MB</span></li>
+          </ul>
+          <p class="meta sources-note">Every number on this page comes from the design report. Section-by-section sources are in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/SOURCES.md">SOURCES.md</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p><a href="./#work">&larr; All work</a></p>
+      </div>
+    </footer>
+
+    <script defer src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -26,7 +26,6 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | Drawings: shaft collar, L-bracket, C-frame | In repo: [`gdt-shaft-collar-drawing.jpg`](assets/projects/gdt-shaft-collar-drawing.jpg), [`gdt-l-bracket-drawing.jpg`](assets/projects/gdt-l-bracket-drawing.jpg), [`gdt-c-frame-drawing.jpg`](assets/projects/gdt-c-frame-drawing.jpg) |
 | Table study, 0.014 mm max displacement | In repo: [`fea-c-frame-displacement.jpg`](assets/projects/fea-c-frame-displacement.jpg) (legend max 1.406e-02 mm; the file name says C-frame but the plot is the table study) |
 | C-frame: 45,000 N, FoS 1.41, −15% volume | Off repo: course report. Only one source, so be ready to explain it. |
-| SYS-10 is the rover's allowed operating range | Adriel, Oct 26 2026 |
 | Unity: Socket_Impeller / Socket_Cover, layer mask, Android build, Jan 13 2026 | In repo: [`unity-xr-assembly-verification.jpg`](assets/projects/unity-xr-assembly-verification.jpg) (all visible in the editor screenshot) |
 | Six-part clamp in Siemens NX, two interferences fixed, printed water-pump parts | Off repo: earlier resume |
 
@@ -47,9 +46,8 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | Claim on site | Evidence |
 |---|---|
 | Team 6 (Artemis), thermal engineer, Aug 2026 to present | Resumes |
-| SYS-10: −133 °C to +121 °C | CXEnergy resume + engineering dossier |
-| MLI, coatings, thermal straps; TFAWS 2024 dust research | 4 resume versions |
-| Wrote Section 1.1 of the Mission Concept Review | 2 resume versions |
+| Wrote MCR Section 1.1 (Mission Statement), scored 24/25, no RFAs | L'SPACE MCR scoresheet (Google Drive), §1.1 criteria 5, 4, 5, 5, 5, "No RFAs or ADVs Needed" |
+| Team descope: radioisotope heater replaced by electric heaters, accepted | L'SPACE descope response email, Oct 2026 |
 | Selected for the academy | L'SPACE "Mission Concept Academy Acceptance Notice", Aug 28 2026 |
 | Requirements skill badge, Sep 2026 | L'SPACE "Requirements Skills Badge" email, Sep 27 2026 |
 
@@ -78,7 +76,7 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | SHPE's Got Talent winner, $300 | SHPE National email, Oct 20 2026 |
 | Up to $1,350 Hofstra travel funding (reimbursement) | Hofstra dean's office email, Oct 20 2026: "bringing your total award to up to $1350 for reimbursement of eligible expenses" |
 | Aviation Week 20 Twenties nominee, Class of 2027 | Email from Aviation Week program staff, Oct 15 2026, "Aviation Week's 20 Twenties – You've been Nominated!", sent to Adriel's personal Gmail with a Hofstra faculty advisor cc'd. Says nominees are "recognized by your university" and winners are announced early Jan 2027 |
-| ASME Co-President (with Dara Khaimov) since Apr 2026; steam-turbine and catapult builds; SLW Philadelphia, Oct 2026 | LinkedIn profile export (Oct 2026) + resumes; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
+| ASME Co-President (with Dara Khaimov) and Social Media Chair, 2026–27; steam-turbine and catapult builds; SLW Philadelphia, Oct 2026 | Executive-board email, Jul 13 2026; earliest Co-President email, Aug 24 2026 (title "Social Media Chair" in ASME mail); LinkedIn export + resumes for the builds; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
 | Night Shift Engineering Mixer with SWE and the Commuter Student Association, 30 attendees | ASME after-activity report confirmation, Oct 22 2026 (lists collaborators and 30 participants) |
 | AIAA Co-President and Reactivation Lead | LinkedIn profile export (Oct 2026) + resumes |
 | Drafted two AIAA Classroom Grant proposals for an Earth and Space Science teacher, who submitted both | Email thread with the teacher, Sep 21 to Oct 2 2026 (his signature: "Earth and Space Science Teacher"); his Oct 2 2026 email to K-12STEM@aiaa.org attaching both proposals |
@@ -112,6 +110,11 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 | Hofstra Spotlight card | Was removed while no link existed. The Hofstra News story is now published and is back under Press |
 | "Chapter inactive since 2007" | Only Adriel's own LinkedIn. The Dean's email calls SHPE an interest group on the new-org path, which is what the site now says |
 | ASME "Recruitment Chair" (May 2025 to Apr 2026); "two networking events connecting 20+ students with industry mentors" | No email or sign-in sheet found. Can return with a record |
+| L'SPACE requirement SYS-10, −133 °C to +121 °C; "compared MLI, coatings, and thermal straps" | Only in my own resumes and dossier, not in any academy document |
+| SHPE "held" the first Meet the Board event | Room booking is on record, attendance isn't. Now "organized" |
+| ASME "Apr 2026" start and "Social Media Manager" | Earliest Co-President email is Aug 24 2026; ASME mail says "Social Media Chair" |
+| CSTEP "5-person board serving 50+" | No roster or count found |
+| Chronicle "Contributing writer" | Bylines are on record, a staff title isn't |
 | ASME Great Neck facility tour | Not completed |
 | "Onsite AI Hackathon finals" | "Finals" overstates the live round. Site says "one of 27 participants advancing to the live round" |
 | Full-stack software development; hometown | Not shown by any project. Hometown differs between resume versions |
@@ -121,16 +124,37 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 
 ## Design references
 
-Portfolios and templates I looked at before the October 2026 redesign. No code was copied from any of them.
+Portfolios and templates I looked at during the October 2026 redesigns. No code was copied from any of them. The four references behind the current editorial design (pacocoursey/paco, TimWitzdam/astro-minimal-portfolio-template, moeyua/astro-theme-typography, lowinertia/free-to-engineer-portfolio-template), with licenses and what each contributed, are in [`DESIGN.md`](DESIGN.md#references). The table below is from the earlier round.
 
 | Reference | What I took from it |
 |---|---|
 | [bchiang7/v4](https://github.com/bchiang7/v4) (Brittany Chiang) | Two tiers of projects: a few featured with full detail, the rest as a compact list |
 | [smaranjitghose/awesome-portfolio-websites](https://github.com/smaranjitghose/awesome-portfolio-websites) (MIT) | Core sections only: experience, projects, education. Optional pages left out |
-| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | A portfolio for hardware engineers should show problem solving that a resume can't |
+| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | One page per project with a fixed section order; a portfolio should show problem solving that a resume can't |
 | MIT MechE Communication Lab portfolio guide | 3 to 4 main projects, 2 to 6 visuals each, say what I was responsible for, compare the result to the objective |
-| [nasa/openmct](https://github.com/nasa/openmct) (NASA Ames, Apache-2.0) | Dense, ruled data tables with mono values; no cards around numbers |
+| [nasa/openmct](https://github.com/nasa/openmct) (NASA Ames, Apache-2.0) | Dense, ruled data tables with mono values; no cards around numbers. Its mission-ops look was rejected for this site because I have no live telemetry to show |
 | [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) | Keeping the design rules in a `DESIGN.md` file so every change uses the same tokens |
-| [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) | Looked at for a part-tree / clipping viewer. Not used yet: my only model is a single STL |
+| [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) (MIT), README and Design.md | Drawn edges on the mesh, a section (clipping) plane, preset views, and rendering only when something changes. No code copied; it needs tessellated CAD input, not STL |
 | Boston University ENG, ["Key Factors of Engineering Portfolios"](https://www.bu.edu/eng/files/2022/07/Key-Factors-of-Engineering-Portfolios.pdf) | Most important project first, "I" over "we", show the full process and what's still uncertain |
-| My own earlier version of this site (`main` before Oct 2026) | The rotating STL heat sink in the hero, kept and restyled without the scanline and glow |
+| My own earlier version of this site (`main` before Oct 2026) | The rotatable STL heat sink, now loaded on request on the heat sink page instead of in a homepage hero |
+| [Claude frontend-aesthetics cookbook](https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics) | List of generic AI-design tells (Inter/Roboto, purple gradients, predictable layouts, scattered animation) to check this site against |
+
+## Heat sink design review page (`heat-sink.html`)
+
+Every number on that page comes from my ENGG 114 report, [`heat-sink-thermal-design-report.pdf`](assets/docs/heat-sink-thermal-design-report.pdf):
+
+| Claim on the page | Report location |
+|---|---|
+| Requirements, R_max 0.600 / 0.450 °C/W | §II, Table 1, Eqs. 1–3 |
+| Concepts A, B, C and decisions | §III, Table 3 |
+| Resistance path, T_chip = 69.85 °C, margins 15.15 / 0.15 °C | §IV.C, Eqs. 4–8 |
+| Fin geometry, m, η_f, η_o, R values, 54.6 g | §IV.B Table 4, §V Table 5 |
+| h = 65 W/m²K is assumed | §V, Eq. 9 |
+| Contact-resistance table | §V.B, Table 6 |
+| 15 vs 17 fins: gap, R, MATLAB and Fusion temps, mass | §V.C Table 7, §VI Table 8 |
+| 0.0031 °C/W is the high end of the PTM7950 ideal range | Legend of the TIM sensitivity plot, [`heat-sink-derated-sensitivity.png`](assets/projects/heat-sink-derated-sensitivity.png) |
+| ~46 W/m²K crossing of 85 °C | Read off [`heat-sink-contact-sensitivity.png`](assets/projects/heat-sink-contact-sensitivity.png), not stated in the report |
+| Assembly drawing, 38 mm plate | Report Fig. 8 (page 14), cropped to [`heat-sink-drawing-15fin.png`](assets/projects/heat-sink-drawing-15fin.png) |
+| 3D-printed demonstration models, not thermal validation | §I.D |
+| Test plan and $376.92 test equipment | §VIII.B Table 10, §IX |
+| Individual work | Declaration of Original Work, page 1 |
