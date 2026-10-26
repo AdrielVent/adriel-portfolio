@@ -50,6 +50,8 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | SYS-10: −133 °C to +121 °C | CXEnergy resume + engineering dossier |
 | MLI, coatings, thermal straps; TFAWS 2024 dust research | 4 resume versions |
 | Wrote Section 1.1 of the Mission Concept Review | 2 resume versions |
+| Selected for the academy | L'SPACE "Mission Concept Academy Acceptance Notice", Aug 28 2026 |
+| Requirements skill badge, Sep 2026 | L'SPACE "Requirements Skills Badge" email, Sep 27 2026 |
 
 ## Hackathon (off repo)
 
@@ -59,6 +61,15 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | CONFIRM: one hypothesis at a time; 90% / 60–90% / under 60% gates | Round 1 submission deck + architecture summary |
 | 24–30% repeat-contact rate | Same deck (problem statement, not a result) |
 
+## Press and writing
+
+| Claim on site | Evidence |
+|---|---|
+| Hofstra News, "Engineering His Path to the Future", Sep 18 2026 | Public: [news.hofstra.edu link](https://news.hofstra.edu/2026/09/18/engineering-his-path-to-the-future/). Email from Lindsey Angioletti (Director, Public Relations), Sep 18 2026, sending this link; Engineering dept. email the same day |
+| Interview and filming limited to lobby and conference room | Emails with Hofstra PR, Jul 20–27 2026 (supervisor approved those two areas) |
+| Instagram reel "From the classroom to the lab" | Public: [instagram.com/reel/DexRr5noZua](https://www.instagram.com/reel/DexRr5noZua/), posted by @hofstrau with @hofstraseas. PR email Jul 17 2026 says the story would run on Hofstra News, Facebook and Instagram |
+| Hofstra Chronicle: 3 news stories, "Special to the Chronicle" | Public: [staff page](https://thehofstrachronicle.com/staff_name/adriel-ventura/) lists all three with dates |
+
 ## Leadership and honors (off repo)
 
 | Claim on site | Evidence |
@@ -66,8 +77,9 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | SHPE President; chapter inactive since 2007; constitution; GetInvolvedHU; Meet the Board Oct 7 2026 | LinkedIn + resumes + Oct 13 2026 email listing the board |
 | SHPE's Got Talent winner, $300 | SHPE National email, Oct 20 2026 |
 | $1,350 Hofstra travel awards | Hofstra email, Oct 20 2026 |
-| ASME Co-President since Apr 2026, Recruitment Chair before; 20+ students at networking events; SLW Philadelphia | LinkedIn + resumes |
-| AIAA Co-President and Reactivation Lead; two Classroom Grant proposals | LinkedIn + resumes |
+| ASME Co-President since Apr 2026, Recruitment Chair before; 20+ students at networking events; SLW Philadelphia, Oct 2026 | LinkedIn profile export (Oct 2026) + resumes; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
+| AIAA Co-President and Reactivation Lead; two Classroom Grant proposals | LinkedIn profile export (Oct 2026) + resumes |
+| Aerospace Concentration | LinkedIn profile export, Education section |
 | CSTEP board: 5 people, 50+ students, about 40% attendance growth | LinkedIn + resumes |
 
 ## Certificates
@@ -94,7 +106,9 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 | Vibration analysis; heat pipes up to 270 °C (old resume PDF) | No project or log shows either |
 | "Founding President"; "6-person delegation"; SGA chartering; 70+ members; Brookhaven and Cradle of Aviation visits | Chapter existed before 2007. Delegation, funding, member count, and trips have no record (Brookhaven trip was planned, not done) |
 | L'SPACE: PDR complete, 14-day lunar night, MG-2, pyrolytic graphite straps | Only in one summary file. Resumes say MCR and "thermal straps" |
-| Hofstra Spotlight card | Interview happened, no published link yet |
+| Hofstra Spotlight card | Was removed while no link existed. The Hofstra News story is now published and is back under Press |
+| Aviation Week "20 Twenties" nomination | Only Aviation Week's "Nominate your rising star" marketing emails (Oct 7, Oct 13 2026). No nomination confirmation found |
+| Full-stack software development; hometown | Not shown by any project. Hometown differs between resume versions |
 | Siemens credential ID; "Connecticut" and "TDP reviews" on the Black Hawk card | Not printed on the certificate |
 | Simulink, NumPy/SciPy, C#, "Predictive Telemetry", "Systems Engineering / PDR" | No project uses them |
 | Heat sink inputs "V = 1.8 m/s", "laminar", "adiabatic fin tip", "identical boundary conditions" (PR #2 draft) | Not in the report |
@@ -109,4 +123,8 @@ Portfolios and templates I looked at before the October 2026 redesign. No code w
 | [smaranjitghose/awesome-portfolio-websites](https://github.com/smaranjitghose/awesome-portfolio-websites) (MIT) | Core sections only: experience, projects, education. Optional pages left out |
 | [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | A portfolio for hardware engineers should show problem solving that a resume can't |
 | MIT MechE Communication Lab portfolio guide | 3 to 4 main projects, 2 to 6 visuals each, say what I was responsible for, compare the result to the objective |
+| [nasa/openmct](https://github.com/nasa/openmct) (NASA Ames, Apache-2.0) | Dense, ruled data tables with mono values; no cards around numbers |
+| [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) | Keeping the design rules in a `DESIGN.md` file so every change uses the same tokens |
+| [bernhard-42/three-cad-viewer](https://github.com/bernhard-42/three-cad-viewer) | Looked at for a part-tree / clipping viewer. Not used yet: my only model is a single STL |
+| Boston University ENG, ["Key Factors of Engineering Portfolios"](https://www.bu.edu/eng/files/2022/07/Key-Factors-of-Engineering-Portfolios.pdf) | Most important project first, "I" over "we", show the full process and what's still uncertain |
 | My own earlier version of this site (`main` before Oct 2026) | The rotating STL heat sink in the hero, kept and restyled without the scanline and glow |
