@@ -1,13 +1,15 @@
-/* On-demand STL viewer for the heat sink design review.
-   Loads only when the visitor presses "Open 3D model". Shown on the same dark
-   plate as the CAD render, so the colors are fixed. Renders only when
-   something changes (drag, keys, view buttons), never in an idle loop.
+/* STL viewer for the heat sink.
+   Case study: loads when the visitor presses "Rotate in 3D" and renders only
+   when something changes (drag, keys, view buttons).
+   Homepage: opts.spin turns it into a slow turntable (one turn per 24 s) that
+   stops while off screen, while the tab is hidden, while being dragged, or when
+   paused. Shown on the same dark plate as the CAD render, so colors are fixed.
    Edges and a section plane after bernhard-42/three-cad-viewer (MIT). */
 
 import * as THREE from "three";
 import { STLLoader } from "../vendor/STLLoader.js";
 
-export function mountViewer(stage, controls, status) {
+export function mountViewer(stage, controls, status, opts = {}) {
   const src = stage.dataset.stl;
   const canvas = document.createElement("canvas");
   canvas.setAttribute("tabindex", "0");
@@ -24,6 +26,12 @@ export function mountViewer(stage, controls, status) {
   const key = new THREE.DirectionalLight(0xffffff, 1.4);
   key.position.set(1, 2, 1.5);
   scene.add(key);
+  // A soft light that travels with the camera keeps the far faces readable
+  // while the part turns.
+  const fill = new THREE.DirectionalLight(0xffffff, 0.9);
+  fill.position.set(0, 0, 1);
+  camera.add(fill);
+  scene.add(camera);
 
   const pivot = new THREE.Group();
   scene.add(pivot);
@@ -34,6 +42,7 @@ export function mountViewer(stage, controls, status) {
   const section = new THREE.Plane();
   const views = { iso: [0.5, -0.6], front: [0, 0], top: [Math.PI / 2 - 0.001, 0] };
   const state = { pitch: views.iso[0], yaw: views.iso[1], cut: false, radius: 1 };
+  const spin = { on: !!opts.spin, visible: true, last: 0, frame: 0 };
 
   let mesh, edges;
 
@@ -50,7 +59,7 @@ export function mountViewer(stage, controls, status) {
     pivot.rotation.set(state.pitch, state.yaw, 0, "XYZ");
     pivot.updateMatrixWorld(true);
     section.copy(localSection).applyMatrix4(pivot.matrixWorld);
-    const d = state.radius * 3.6;
+    const d = state.radius * (opts.zoom || 3.6);
     camera.position.set(0, 0, d);
     camera.lookAt(0, 0, 0);
     if (mesh) {
@@ -94,10 +103,10 @@ export function mountViewer(stage, controls, status) {
     render();
   });
 
-  controls.querySelectorAll("[data-view]").forEach((b) => {
+  if (controls) controls.querySelectorAll("[data-view]").forEach((b) => {
     b.addEventListener("click", () => setView(b.dataset.view));
   });
-  const cutBtn = controls.querySelector("[data-section]");
+  const cutBtn = controls && controls.querySelector("[data-section]");
   if (cutBtn) {
     cutBtn.addEventListener("click", () => {
       state.cut = !state.cut;
@@ -106,9 +115,36 @@ export function mountViewer(stage, controls, status) {
     });
   }
 
+  // Turntable: advance yaw by elapsed time so speed doesn't depend on frame rate.
+  function tick(t) {
+    spin.frame = 0;
+    if (!spin.on || !spin.visible || drag || document.hidden || !mesh) return;
+    if (spin.last) state.yaw += ((t - spin.last) / 1000) * ((2 * Math.PI) / 24);
+    spin.last = t;
+    render();
+    spin.frame = requestAnimationFrame(tick);
+  }
+  function startSpin() {
+    if (spin.frame) return;
+    spin.last = 0;
+    spin.frame = requestAnimationFrame(tick);
+  }
+  function setSpin(on) {
+    spin.on = on;
+    if (on) startSpin();
+  }
+  if (opts.spin !== undefined) {
+    new IntersectionObserver((entries) => {
+      spin.visible = entries[0].isIntersecting;
+      if (spin.visible) startSpin();
+    }).observe(stage);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) startSpin(); });
+    canvas.addEventListener("pointerup", () => startSpin());
+  }
+
   new ResizeObserver(resize).observe(stage);
 
-  status.textContent = "Loading model…";
+  if (opts.spin === undefined) status.textContent = "Loading model…";
   new STLLoader().load(
     src,
     (geometry) => {
@@ -131,17 +167,22 @@ export function mountViewer(stage, controls, status) {
 
       stage.appendChild(canvas);
       stage.classList.add("is-live");
-      controls.hidden = false;
-      status.textContent = "Drag, or focus the model and use the arrow keys. R resets the view.";
+      if (controls) controls.hidden = false;
+      status.textContent = opts.readyText ?? "Drag, or focus the model and use the arrow keys. R resets the view.";
       resize();
+      if (opts.spin !== undefined) startSpin();
       // The button that opened the viewer is now hidden; keep keyboard focus here.
-      canvas.focus({ preventScroll: true });
+      if (opts.focus !== false) canvas.focus({ preventScroll: true });
     },
     undefined,
     () => {
       status.textContent = "The 3D model didn't load. The render above shows the same part.";
-      status.tabIndex = -1;
-      status.focus();
+      if (opts.focus !== false) {
+        status.tabIndex = -1;
+        status.focus();
+      }
     }
   );
+
+  return { setSpin };
 }

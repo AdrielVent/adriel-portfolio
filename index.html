@@ -22,6 +22,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="importmap">
+      { "imports": { "three": "./assets/vendor/three.module.min.js" } }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -62,15 +65,24 @@
         </div>
 
         <article class="feature" aria-labelledby="hs-title">
-          <a class="feature-media plate" href="heat-sink.html" tabindex="-1" aria-hidden="true">
-            <img
-              src="assets/projects/heat-sink-render-top.png"
-              alt=""
-              width="948"
-              height="881"
-              fetchpriority="high"
-            />
-          </a>
+          <figure class="feature-media">
+            <div
+              class="viewer plate"
+              id="home-stage"
+              data-stl="assets/models/dfma-heatsink-body.stl"
+              data-label="3D model of the 15-fin heat sink, rotating slowly. Drag to turn it."
+            >
+              <img
+                src="assets/projects/heat-sink-render-top.png"
+                alt="CAD render of the 15-fin aluminum heat sink"
+                width="948"
+                height="881"
+                fetchpriority="high"
+              />
+            </div>
+            <button class="button spin-toggle" type="button" id="spin-toggle" hidden>Rotate</button>
+            <p class="visually-hidden" id="home-status" aria-live="polite"></p>
+          </figure>
           <div>
             <h3 id="hs-title"><a href="heat-sink.html">Heat sink for a 100&nbsp;W CPU</a></h3>
             <p class="meta">ENGG 114 Heat Transfer, Hofstra · individual project · Spring 2026</p>
@@ -362,7 +374,7 @@
           <li>Type: <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and <a href="https://github.com/adobe-fonts/source-sans">Source Sans 3</a> by Adobe, and <a href="https://fonts.google.com/specimen/Courier+Prime">Courier Prime</a> by Alan Dague-Greene, all under the SIL Open Font License, via Google Fonts.</li>
           <li>3D viewer on the heat sink page: <a href="https://github.com/mrdoob/three.js">three.js</a> r164 and its STLLoader (MIT).</li>
           <li>Resume layout: <a href="https://github.com/jakegut/resume">jakegut/resume</a>, based on <a href="https://github.com/sb2nov/resume">sb2nov/resume</a>.</li>
-          <li>Design references, no code copied: <a href="https://github.com/TimWitzdam/astro-minimal-portfolio-template">TimWitzdam/astro-minimal-portfolio-template</a>, <a href="https://github.com/moeyua/astro-theme-typography">moeyua/astro-theme-typography</a>, <a href="https://github.com/lowinertia/free-to-engineer-portfolio-template">lowinertia/free-to-engineer-portfolio-template</a>, <a href="https://github.com/pacocoursey/paco">pacocoursey/paco</a>. Details in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/DESIGN.md">DESIGN.md</a>.</li>
+          <li>Design references, no code copied: <a href="https://github.com/TimWitzdam/astro-minimal-portfolio-template">TimWitzdam/astro-minimal-portfolio-template</a>, <a href="https://github.com/moeyua/astro-theme-typography">moeyua/astro-theme-typography</a>, <a href="https://github.com/lowinertia/free-to-engineer-portfolio-template">lowinertia/free-to-engineer-portfolio-template</a>, <a href="https://github.com/pacocoursey/paco">pacocoursey/paco</a>, <a href="https://github.com/riggraz/no-style-please">riggraz/no-style-please</a>, <a href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>. Details in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/DESIGN.md">DESIGN.md</a>.</li>
           <li>Site code written with help from Claude (Anthropic). The engineering work and numbers are mine; each claim's source is in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/SOURCES.md">SOURCES.md</a>.</li>
         </ul>
       </div>
