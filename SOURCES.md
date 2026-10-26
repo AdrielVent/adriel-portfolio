@@ -34,7 +34,7 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 
 | Claim on site | Evidence |
 |---|---|
-| Co-op since May 2026, Melville, NY | Internship voice log, May 27 2026 |
+| Co-op since June 2026, Melville, NY | Adriel, Oct 26 2026: accepted/onboarded in May, started working in June. LinkedIn export says June 2026 |
 | ANSYS steady-state thermal: clean-up, meshing, boundary conditions | 4 resume versions + LinkedIn |
 | Revised thermal-pad contact conductance to remove an artificial gradient | 4 resume versions |
 | O-ring cutting fixture, 4 iterations, technician feedback, blade deflection | 4 resume versions; public description approved by manager (per Adriel, Oct 26 2026) |
@@ -57,7 +57,7 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 
 | Claim on site | Evidence |
 |---|---|
-| 1 of 27 participants advancing to the onsite finals | Rockwell email, Oct 1 2026 ("one of the 27 participants advancing"); SHPE email Oct 8 2026, subject "Your Career Fair Access as an AI Hackathon Finalist" |
+| One of 27 participants advancing to the live round | Rockwell email, Oct 1 2026 ("one of the 27 participants advancing"); SHPE email Oct 8 2026, subject "Your Career Fair Access as an AI Hackathon Finalist" |
 | CONFIRM: one hypothesis at a time; 90% / 60–90% / under 60% gates | Round 1 submission deck + architecture summary |
 | 24–30% repeat-contact rate | Same deck (problem statement, not a result) |
 
@@ -74,11 +74,14 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 
 | Claim on site | Evidence |
 |---|---|
-| SHPE President; chapter inactive since 2007; constitution; GetInvolvedHU; Meet the Board Oct 7 2026 | LinkedIn + resumes + Oct 13 2026 email listing the board |
+| SHPE President; rebuilding as a new student organization; constitution draft; GetInvolvedHU; Meet the Board Oct 7 2026 | LinkedIn + resumes + Oct 13 2026 email listing the board; Hofstra dean's office email, Sep 8 2026 ("currently an interest group", new-org path) |
 | SHPE's Got Talent winner, $300 | SHPE National email, Oct 20 2026 |
-| $1,350 Hofstra travel awards | Hofstra email, Oct 20 2026 |
-| ASME Co-President since Apr 2026, Recruitment Chair before; 20+ students at networking events; SLW Philadelphia, Oct 2026 | LinkedIn profile export (Oct 2026) + resumes; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
-| AIAA Co-President and Reactivation Lead; two Classroom Grant proposals | LinkedIn profile export (Oct 2026) + resumes |
+| Up to $1,350 Hofstra travel funding (reimbursement) | Hofstra dean's office email, Oct 20 2026: "bringing your total award to up to $1350 for reimbursement of eligible expenses" |
+| Aviation Week 20 Twenties nominee, Class of 2027 | Email from Aviation Week program staff, Oct 15 2026, "Aviation Week's 20 Twenties – You've been Nominated!", sent to Adriel's personal Gmail with a Hofstra faculty advisor cc'd. Says nominees are "recognized by your university" and winners are announced early Jan 2027 |
+| ASME Co-President (with Dara Khaimov) since Apr 2026; steam-turbine and catapult builds; SLW Philadelphia, Oct 2026 | LinkedIn profile export (Oct 2026) + resumes; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
+| Night Shift Engineering Mixer with SWE and the Commuter Student Association, 30 attendees | ASME after-activity report confirmation, Oct 22 2026 (lists collaborators and 30 participants) |
+| AIAA Co-President and Reactivation Lead | LinkedIn profile export (Oct 2026) + resumes |
+| Drafted two AIAA Classroom Grant proposals for an Earth and Space Science teacher, who submitted both | Email thread with the teacher, Sep 21 to Oct 2 2026 (his signature: "Earth and Space Science Teacher"); his Oct 2 2026 email to K-12STEM@aiaa.org attaching both proposals |
 | Aerospace Concentration | LinkedIn profile export, Education section |
 | CSTEP board: 5 people, 50+ students, about 40% attendance growth | LinkedIn + resumes |
 
@@ -107,7 +110,10 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 | "Founding President"; "6-person delegation"; SGA chartering; 70+ members; Brookhaven and Cradle of Aviation visits | Chapter existed before 2007. Delegation, funding, member count, and trips have no record (Brookhaven trip was planned, not done) |
 | L'SPACE: PDR complete, 14-day lunar night, MG-2, pyrolytic graphite straps | Only in one summary file. Resumes say MCR and "thermal straps" |
 | Hofstra Spotlight card | Was removed while no link existed. The Hofstra News story is now published and is back under Press |
-| Aviation Week "20 Twenties" nomination | Only Aviation Week's "Nominate your rising star" marketing emails (Oct 7, Oct 13 2026). No nomination confirmation found |
+| "Chapter inactive since 2007" | Only Adriel's own LinkedIn. The Dean's email calls SHPE an interest group on the new-org path, which is what the site now says |
+| ASME "Recruitment Chair" (May 2025 to Apr 2026); "two networking events connecting 20+ students with industry mentors" | No email or sign-in sheet found. Can return with a record |
+| ASME Great Neck facility tour | Not completed |
+| "Onsite AI Hackathon finals" | "Finals" overstates the live round. Site says "one of 27 participants advancing to the live round" |
 | Full-stack software development; hometown | Not shown by any project. Hometown differs between resume versions |
 | Siemens credential ID; "Connecticut" and "TDP reviews" on the Black Hawk card | Not printed on the certificate |
 | Simulink, NumPy/SciPy, C#, "Predictive Telemetry", "Systems Engineering / PDR" | No project uses them |
