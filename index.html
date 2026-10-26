@@ -31,8 +31,7 @@
         </a>
         <div class="nav-controls">
           <div class="nav-links" aria-label="Section links">
-            <a href="#about">About</a>
-            <a href="#featured">Featured</a>
+                        <a href="#featured">Featured</a>
             <a href="#archive">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#credentials">Credentials</a>
@@ -52,41 +51,21 @@
       <section class="hero section" id="hero" aria-labelledby="hero-title">
         <div class="shell hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Engineering Portfolio · Hofstra University</p>
+            <p class="eyebrow">Mechanical Engineering · Hofstra University · Dec 2027</p>
             <h1 id="hero-title">Adriel Ventura</h1>
             <p class="hero-headline">
-              Mechanical Engineering Student (Aerospace Concentration) · Engineering Co-op at Stellant Systems
+              Mechanical engineering student focused on thermal analysis, mechanical design, and manufacturing.
             </p>
             <p class="hero-summary">
-              Mechanical Engineering student combining thermal-fluid modeling, structural FEA, precision CAD tooling, and aerospace hardware execution. Experience includes mentor-guided steady-state thermal FEA correlated to physical thermocouple test data at Stellant Systems, lunar rover thermal subsystem architecture with the NASA L'SPACE Mission Concept Academy, and national finalist standing in the Rockwell Automation &times; SHPE AI Hackathon.
+              Mechanical Engineering Co-op at Stellant Systems since May 2026. I support steady-state thermal models in
+              ANSYS Mechanical and designed an O-ring cutting fixture for the assembly floor. My featured project is a
+              15-fin heat sink I designed on my own and checked with a MATLAB model and a Fusion 360 simulation.
             </p>
             <div class="button-row" aria-label="Primary portfolio actions">
-              <a class="button button-primary" href="#archive">View Projects</a>
-              <a class="button" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Download Resume (PDF)</a>
-              <a class="button" href="#contact">Contact</a>
+              <a class="button button-primary" href="#featured">See the heat sink project</a>
+              <a class="button" href="assets/resume/Adriel_Ventura_Resume.pdf" download>Resume (PDF)</a>
               <a class="button" href="https://www.linkedin.com/in/adrielvent/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT SECTION -->
-      <section class="section" id="about" aria-labelledby="about-title">
-        <div class="shell two-column">
-          <div>
-            <p class="eyebrow">Engineering Background</p>
-            <h2 id="about-title">CAD-to-hardware engineering with thermal simulation and manufacturing rigor.</h2>
-          </div>
-          <div class="body-copy">
-            <p>
-              I am a Mechanical Engineering student with an Aerospace Concentration at Hofstra University (Class of December 2027), Provost Scholar, Rabinowitz Honors College, and CSTEP Scholar. My work bridges thermal-fluid modeling, structural FEA, precision CAD design, ASME Y14.5 GD&amp;T, and shop-floor manufacturing execution.
-            </p>
-            <p>
-              At Stellant Systems (Melville, NY), I serve as a Mechanical Engineering Co-op supporting high-reliability defense electronic hardware and vacuum electron devices. My contributions include conducting mentor-guided steady-state thermal FEA in ANSYS Mechanical—calibrating contact conductance across thermal interface materials to eliminate non-physical gradients and match physical thermocouple test data. I also designed and 3D-printed a 4-iteration multi-diameter O-ring cutting fixture utilizing ASME Y14.5 GD&amp;T to replace freehand slicing on the assembly floor, developed an automated CAD-to-Excel BOM macro for rapid cost roll-ups, and authored multiple Engineering Change Notices (ECNs) that cleared SharePoint approvals on first submission.
-            </p>
-            <p>
-              In parallel, I participate in the NASA L'SPACE Mission Concept Academy as a Thermal Subsystem Engineer for Team 6 (Team Artemis, Fall 2026), defining lunar rover thermal requirements (SYS-10: -133&deg;C to +121&deg;C) and sizing passive thermal protection (MLI blankets, pyrolytic graphite/copper heat straps) with NASA TFAWS dust degradation safeguards. On campus, I serve as Founding President of Hofstra SHPE, Co-President of Hofstra ASME, and Co-President of Hofstra AIAA.
-            </p>
           </div>
         </div>
       </section>
@@ -95,136 +74,114 @@
       <section class="section featured" id="featured" aria-labelledby="featured-title">
         <div class="shell">
           <div class="section-heading">
-            <p class="eyebrow">Featured Engineering Project</p>
-            <h2 id="featured-title">CPU Heat Sink Thermal Design: 15-Fin Al-6061 Forced-Convection Heat Sink</h2>
-            <p>
-              ENGG 114 Heat Transfer Design Project · Analytical Heat Transfer + MATLAB + Fusion 360 FEA + DFMA
-            </p>
-            <div class="featured-status" aria-label="Project status badges">
-              <span>Public Engineering Project</span>
-              <span>Simulation-Supported</span>
-              <span>Prototype Validation Required</span>
+            <p class="eyebrow">Featured project · Solo · Spring 2026</p>
+            <h2 id="featured-title">A 15-fin heat sink for a 100 W CPU</h2>
+            <p>ENGG 114 Heat Transfer, Hofstra. Design, calculations, MATLAB model, CAD, and Fusion 360 study are my own work.</p>
+            <div class="featured-status" aria-label="Project status">
+              <span>Analysis + simulation</span>
+              <span>Not tested on hardware</span>
             </div>
           </div>
 
           <div class="featured-hero">
             <div class="featured-copy">
+              <h3>The problem</h3>
               <p>
-                This project developed a forced-convection heat sink for a desktop CPU chip with a 100 W steady-state heat load, 25&deg;C ambient air, an official chip temperature limit of &le;85&deg;C, and an internal derated target of &le;70&deg;C. The final selected design is a 15-fin Al-6061 plate-fin heat sink derived from a 17-fin thermal baseline.
+                Keep a 50.8 &times; 50.8 mm CPU at or below 85&deg;C while it dissipates 100 W in 25&deg;C air, using the
+                existing mounting hardware. I also set a stricter 70&deg;C target for myself to leave margin.
               </p>
+              <h3>What I compared</h3>
               <p>
-                MATLAB analytical modeling predicted a total thermal resistance of 0.4485 &deg;C/W and a chip temperature of 69.85&deg;C. Fusion 360 steady-state thermal FEA predicted a maximum temperature of 69.775&deg;C under identical boundary conditions (&lt;0.15% variance). The 15-fin design was selected over the 17-fin thermal optimum to maintain a 2.557 mm clear spacing, preventing hydrodynamic boundary layer merging while achieving a 27.5% mass reduction (54.6 g vs. 75.3 g).
+                Three concepts: a copper pin-fin heat sink with natural convection, an aluminum folded-fin heat-pipe
+                design, and an Al-6061 plate-fin heat sink with a fan. I picked the plate-fin, then ran a fin-count
+                trade study in MATLAB.
               </p>
               <div class="button-row">
-                <a class="button button-primary" href="assets/docs/heat-sink-thermal-design-report.pdf" target="_blank" rel="noopener noreferrer">View Report (PDF)</a>
-                <a class="button" href="assets/docs/heat-sink-project-deck.pptx" target="_blank" rel="noopener noreferrer">View Slide Deck (PPTX)</a>
-                <a class="button" href="assets/models/dfma-heatsink-3d-model.stl" download>Download STL (3D Model)</a>
-                <a class="button" href="#thermal-results">View Thermal Results</a>
+                <a class="button button-primary" href="assets/docs/heat-sink-thermal-design-report.pdf" target="_blank" rel="noopener noreferrer">Report (PDF)</a>
+                <a class="button" href="assets/docs/heat-sink-project-deck.pptx">Slides (PPTX)</a>
+                <a class="button" href="assets/models/dfma-heatsink-3d-model.stl" download>STL model</a>
               </div>
             </div>
 
-            <!-- Model Container with Static View & Opt-in 3D Loader -->
+            <!-- Static render first; the 3D viewer loads only on request -->
             <div class="model-container">
               <div class="model-stage" id="heat-sink-stage">
                 <img
                   id="heat-sink-static-img"
                   src="assets/projects/heat-sink-render-top.png"
-                  alt="CAD orthographic top render of the 15-fin Al-6061 heat sink geometry"
+                  alt="CAD render of the final 15-fin Al-6061 heat sink"
                   width="948"
                   height="881"
                   loading="eager"
                 />
-                <canvas id="stl-canvas" class="stl-canvas" style="display:none;" aria-label="Interactive 3D model of heat sink"></canvas>
+                <canvas id="stl-canvas" class="stl-canvas" style="display:none;" aria-label="Interactive 3D model of the heat sink. Move the pointer over it to tilt."></canvas>
               </div>
               <div class="model-overlay-controls">
-                <span class="model-caption">Al-6061 · 15-Fin DFMA · 50.8 mm Footprint</span>
-                <button
-                  class="button"
-                  id="btn-load-3d"
-                  type="button"
-                  style="min-height:36px; padding:0.25rem 0.75rem; font-size:0.8125rem;"
-                  aria-label="Load interactive 3D model"
-                >
-                  Load 3D Interactive Model
-                </button>
+                <span class="model-caption">15 fins · Al-6061 · 50.8 mm square base</span>
+                <button class="button" id="btn-load-3d" type="button">Rotate in 3D</button>
               </div>
             </div>
           </div>
 
-          <!-- Technical Metrics Grid -->
-          <div class="metric-grid" aria-label="Heat sink engineering metrics">
-            <div class="metric"><span>Heat Load</span><strong>100 W</strong></div>
-            <div class="metric"><span>Ambient Temp</span><strong>25&deg;C</strong></div>
-            <div class="metric metric-alert"><span>Max Limit</span><strong>&le;85&deg;C</strong></div>
-            <div class="metric"><span>Derated Target</span><strong>&le;70&deg;C</strong></div>
-            <div class="metric"><span>MATLAB Prediction</span><strong>69.85&deg;C</strong></div>
-            <div class="metric"><span>FEA Prediction</span><strong>69.775&deg;C</strong></div>
-            <div class="metric"><span>Thermal Resistance</span><strong>0.4485 &deg;C/W</strong></div>
-            <div class="metric"><span>Material</span><strong>Al-6061-T6</strong></div>
-            <div class="metric"><span>Final Fin Count</span><strong>15 Fins</strong></div>
-            <div class="metric"><span>Baseline Fin Count</span><strong>17 Fins</strong></div>
-            <div class="metric"><span>Fin Clear Spacing</span><strong>2.557 mm</strong></div>
-            <div class="metric"><span>Mass (DFMA)</span><strong>54.6 g</strong></div>
+          <div class="metric-grid" aria-label="Heat sink requirements and results">
+            <div class="metric"><span>Heat load</span><strong>100 W</strong></div>
+            <div class="metric"><span>Ambient air</span><strong>25&deg;C</strong></div>
+            <div class="metric metric-alert"><span>Requirement</span><strong>&le; 85&deg;C</strong></div>
+            <div class="metric"><span>My target</span><strong>&le; 70&deg;C</strong></div>
+            <div class="metric"><span>Assumed h</span><strong>65 W/m&sup2;K</strong></div>
+            <div class="metric"><span>R<sub>total</sub> (MATLAB)</span><strong>0.4485&deg;C/W</strong></div>
+            <div class="metric"><span>Chip temp (MATLAB)</span><strong>69.85&deg;C</strong></div>
+            <div class="metric"><span>Max temp (Fusion 360)</span><strong>69.775&deg;C</strong></div>
+            <div class="metric"><span>Fin gap</span><strong>2.557 mm</strong></div>
+            <div class="metric"><span>Mass (MATLAB est.)</span><strong>54.6 g</strong></div>
           </div>
 
-          <!-- Insight Cards -->
           <div class="insight-grid">
             <article class="insight-card">
-              <h3>Design Decision: Thermal vs. DFMA</h3>
+              <h3>Why 15 fins, not 17</h3>
               <p>
-                The 17-fin baseline achieved a lower theoretical temperature (61.5&deg;C), but the selected 15-fin design is the superior engineering choice. It maintains adequate airflow channel width (&gt;2.5 mm) to prevent boundary layer interference while reducing mass by 27.5% and ensuring tool clearance during milling.
+                The 17-fin version ran cooler in Fusion 360 (61.5&deg;C vs 69.8&deg;C). I chose 15 anyway: the wider
+                2.557 mm gap is easier to machine and leaves room for tools, and the mass drops 27.5% (75.3 g to 54.6 g).
               </p>
             </article>
             <article class="insight-card">
-              <h3>Boundary Conditions &amp; Assumptions</h3>
+              <h3>What the numbers mean</h3>
               <p>
-                Assumed uniform volumetric base heat generation, laminar forced convection with ambient air at V = 1.8 m/s, constant thermophysical fluid properties evaluated at film temperature, and adiabatic fin tip conditions.
+                69.85&deg;C is the MATLAB chip temperature with zero contact resistance. 69.775&deg;C is the hottest point
+                in the Fusion 360 model. They are different quantities, so I don't treat them as a match. The
+                convection coefficient (65 W/m&sup2;K) is assumed, not measured.
               </p>
             </article>
             <article class="insight-card">
-              <h3>Technical Honesty &amp; Verification</h3>
+              <h3>What's still uncertain</h3>
               <p>
-                MATLAB and Fusion 360 results are simulation-supported predictions. Physical validation requires mounting thermocouples to a copper heater block at 100 W dissipation in an environmental chamber before flight-critical deployment.
+                The margin to my 70&deg;C target is only 0.15&deg;C. Adding just 0.0031&deg;C/W of contact resistance
+                puts the chip at 70.16&deg;C, which is over my target but still well under the 85&deg;C requirement. Next step is the 100 W bench test in the report's test plan.
               </p>
             </article>
           </div>
 
-          <!-- Sensitivity Figures Grid -->
           <div class="thermal-results" id="thermal-results" aria-labelledby="thermal-results-title">
             <div class="section-heading compact">
-              <p class="eyebrow">Simulation Evidence</p>
-              <h3 id="thermal-results-title">Thermal Results and Sensitivity Evidence</h3>
+              <p class="eyebrow">Evidence</p>
+              <h3 id="thermal-results-title">Simulation plots and trade study</h3>
             </div>
             <div class="result-grid">
               <figure class="media-frame">
-                <img
-                  src="assets/projects/heat-sink-fusion-15-final.png"
-                  alt="Fusion 360 steady-state thermal FEA temperature contour plot for the final 15-fin heat sink"
-                  width="1920"
-                  height="1080"
-                  loading="lazy"
-                />
-                <figcaption>Selected 15-fin DFMA design: Fusion 360 FEA maximum temperature 69.775&deg;C.</figcaption>
+                <img src="assets/projects/heat-sink-fusion-15-final.png" alt="Fusion 360 temperature plot for the final 15-fin heat sink" width="1920" height="1080" loading="lazy" />
+                <figcaption>Final 15 fins: Fusion 360 max 69.775&deg;C.</figcaption>
               </figure>
               <figure class="media-frame">
-                <img
-                  src="assets/projects/heat-sink-fusion-17-baseline.png"
-                  alt="Fusion 360 thermal FEA temperature contour plot for the 17-fin baseline heat sink"
-                  width="1919"
-                  height="1079"
-                  loading="lazy"
-                />
-                <figcaption>17-fin ideal thermal baseline: Fusion 360 FEA maximum temperature 61.487&deg;C.</figcaption>
+                <img src="assets/projects/heat-sink-fusion-17-baseline.png" alt="Fusion 360 temperature plot for the 17-fin baseline" width="1919" height="1079" loading="lazy" />
+                <figcaption>17-fin baseline: Fusion 360 max 61.487&deg;C.</figcaption>
               </figure>
               <figure class="media-frame">
-                <img
-                  src="assets/projects/heat-sink-matlab-resistance-mass.png"
-                  alt="MATLAB trade study plot balancing thermal resistance, mass, and fin count"
-                  width="1399"
-                  height="843"
-                  loading="lazy"
-                />
-                <figcaption>MATLAB trade study: total thermal resistance and mass vs. fin count.</figcaption>
+                <img src="assets/projects/heat-sink-matlab-resistance-mass.png" alt="MATLAB plot of thermal resistance and mass against fin count" width="1399" height="843" loading="lazy" />
+                <figcaption>MATLAB: thermal resistance and mass vs fin count.</figcaption>
+              </figure>
+              <figure class="media-frame">
+                <img src="assets/projects/heat-sink-contact-sensitivity.png" alt="MATLAB plot of predicted chip temperature against assumed convection coefficient, with and without a 0.05 C/W contact penalty" width="1399" height="843" loading="lazy" />
+                <figcaption>Chip temperature vs assumed h. Below roughly 46 W/m&sup2;K (read off the plot) the design misses 85&deg;C, so h is the first thing a bench test should pin down.</figcaption>
               </figure>
             </div>
           </div>

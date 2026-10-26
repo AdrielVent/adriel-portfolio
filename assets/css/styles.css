@@ -994,9 +994,17 @@ input:focus-visible,
     padding-block: 0.5rem;
   }
   
-  .nav-links {
+  /* The links sit inside .nav-controls, so that wrapper has to take the
+     full row and be allowed to shrink, or the links push the page wider. */
+  .nav-controls {
     order: 3;
     width: 100%;
+    min-width: 0;
+  }
+
+  .nav-links {
+    flex: 1;
+    min-width: 0;
     padding-bottom: 0.5rem;
   }
 }

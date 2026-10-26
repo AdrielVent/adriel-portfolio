@@ -100,21 +100,26 @@
       btnLoad3D.disabled = true;
       btnLoad3D.textContent = "Loading WebGL 3D Model...";
 
+      // The bundle scans for [data-stl-viewer] when it runs, so the stage
+      // must be marked and the canvas visible before the script is added.
+      staticImg.style.display = "none";
+      canvasEl.style.display = "block";
+      if (stageEl) {
+        stageEl.setAttribute("data-stl-viewer", "");
+        stageEl.setAttribute("data-stl-view", "dossier");
+      }
+
       // Dynamically load main.bundle.js only upon user interaction
       var script = document.createElement("script");
       script.src = "assets/js/main.bundle.js";
       script.onload = function () {
-        staticImg.style.display = "none";
-        canvasEl.style.display = "block";
-        if (stageEl) {
-          stageEl.setAttribute("data-stl-viewer", "");
-          stageEl.setAttribute("data-stl-view", "dossier");
-        }
         btnLoad3D.textContent = "Interactive 3D Active";
         btnLoad3D.style.backgroundColor = "var(--bg-subtle)";
         btnLoad3D.style.color = "var(--text-muted)";
       };
       script.onerror = function () {
+        canvasEl.style.display = "none";
+        staticImg.style.display = "";
         btnLoad3D.disabled = false;
         btnLoad3D.textContent = "3D Preview Unavailable (Static View Active)";
       };
