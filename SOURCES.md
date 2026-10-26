@@ -26,7 +26,6 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | Drawings: shaft collar, L-bracket, C-frame | In repo: [`gdt-shaft-collar-drawing.jpg`](assets/projects/gdt-shaft-collar-drawing.jpg), [`gdt-l-bracket-drawing.jpg`](assets/projects/gdt-l-bracket-drawing.jpg), [`gdt-c-frame-drawing.jpg`](assets/projects/gdt-c-frame-drawing.jpg) |
 | Table study, 0.014 mm max displacement | In repo: [`fea-c-frame-displacement.jpg`](assets/projects/fea-c-frame-displacement.jpg) (legend max 1.406e-02 mm; the file name says C-frame but the plot is the table study) |
 | C-frame: 45,000 N, FoS 1.41, −15% volume | Off repo: course report. Only one source, so be ready to explain it. |
-| SYS-10 is the rover's allowed operating range | Adriel, Oct 26 2026 |
 | Unity: Socket_Impeller / Socket_Cover, layer mask, Android build, Jan 13 2026 | In repo: [`unity-xr-assembly-verification.jpg`](assets/projects/unity-xr-assembly-verification.jpg) (all visible in the editor screenshot) |
 | Six-part clamp in Siemens NX, two interferences fixed, printed water-pump parts | Off repo: earlier resume |
 
@@ -47,9 +46,8 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | Claim on site | Evidence |
 |---|---|
 | Team 6 (Artemis), thermal engineer, Aug 2026 to present | Resumes |
-| SYS-10: −133 °C to +121 °C | CXEnergy resume + engineering dossier |
-| MLI, coatings, thermal straps; TFAWS 2024 dust research | 4 resume versions |
-| Wrote Section 1.1 of the Mission Concept Review | 2 resume versions |
+| Wrote MCR Section 1.1 (Mission Statement), scored 24/25, no RFAs | L'SPACE MCR scoresheet (Google Drive), §1.1 criteria 5, 4, 5, 5, 5, "No RFAs or ADVs Needed" |
+| Team descope: radioisotope heater replaced by electric heaters, accepted | L'SPACE descope response email, Oct 2026 |
 | Selected for the academy | L'SPACE "Mission Concept Academy Acceptance Notice", Aug 28 2026 |
 | Requirements skill badge, Sep 2026 | L'SPACE "Requirements Skills Badge" email, Sep 27 2026 |
 
@@ -78,7 +76,7 @@ Every claim on the site, and where it comes from. If a claim isn't in this file,
 | SHPE's Got Talent winner, $300 | SHPE National email, Oct 20 2026 |
 | Up to $1,350 Hofstra travel funding (reimbursement) | Hofstra dean's office email, Oct 20 2026: "bringing your total award to up to $1350 for reimbursement of eligible expenses" |
 | Aviation Week 20 Twenties nominee, Class of 2027 | Email from Aviation Week program staff, Oct 15 2026, "Aviation Week's 20 Twenties – You've been Nominated!", sent to Adriel's personal Gmail with a Hofstra faculty advisor cc'd. Says nominees are "recognized by your university" and winners are announced early Jan 2027 |
-| ASME Co-President (with Dara Khaimov) since Apr 2026; steam-turbine and catapult builds; SLW Philadelphia, Oct 2026 | LinkedIn profile export (Oct 2026) + resumes; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
+| ASME Co-President (with Dara Khaimov) and Social Media Chair, 2026–27; steam-turbine and catapult builds; SLW Philadelphia, Oct 2026 | Executive-board email, Jul 13 2026; earliest Co-President email, Aug 24 2026 (title "Social Media Chair" in ASME mail); LinkedIn export + resumes for the builds; "SLW Update" email thread with faculty advisor, Oct 20 2026 |
 | Night Shift Engineering Mixer with SWE and the Commuter Student Association, 30 attendees | ASME after-activity report confirmation, Oct 22 2026 (lists collaborators and 30 participants) |
 | AIAA Co-President and Reactivation Lead | LinkedIn profile export (Oct 2026) + resumes |
 | Drafted two AIAA Classroom Grant proposals for an Earth and Space Science teacher, who submitted both | Email thread with the teacher, Sep 21 to Oct 2 2026 (his signature: "Earth and Space Science Teacher"); his Oct 2 2026 email to K-12STEM@aiaa.org attaching both proposals |
@@ -112,6 +110,11 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 | Hofstra Spotlight card | Was removed while no link existed. The Hofstra News story is now published and is back under Press |
 | "Chapter inactive since 2007" | Only Adriel's own LinkedIn. The Dean's email calls SHPE an interest group on the new-org path, which is what the site now says |
 | ASME "Recruitment Chair" (May 2025 to Apr 2026); "two networking events connecting 20+ students with industry mentors" | No email or sign-in sheet found. Can return with a record |
+| L'SPACE requirement SYS-10, −133 °C to +121 °C; "compared MLI, coatings, and thermal straps" | Only in my own resumes and dossier, not in any academy document |
+| SHPE "held" the first Meet the Board event | Room booking is on record, attendance isn't. Now "organized" |
+| ASME "Apr 2026" start and "Social Media Manager" | Earliest Co-President email is Aug 24 2026; ASME mail says "Social Media Chair" |
+| CSTEP "5-person board serving 50+" | No roster or count found |
+| Chronicle "Contributing writer" | Bylines are on record, a staff title isn't |
 | ASME Great Neck facility tour | Not completed |
 | "Onsite AI Hackathon finals" | "Finals" overstates the live round. Site says "one of 27 participants advancing to the live round" |
 | Full-stack software development; hometown | Not shown by any project. Hometown differs between resume versions |
