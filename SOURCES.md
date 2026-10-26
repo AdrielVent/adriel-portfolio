@@ -98,3 +98,15 @@ These were on the site or the old resume PDF. I couldn't find a record for any o
 | Siemens credential ID; "Connecticut" and "TDP reviews" on the Black Hawk card | Not printed on the certificate |
 | Simulink, NumPy/SciPy, C#, "Predictive Telemetry", "Systems Engineering / PDR" | No project uses them |
 | Heat sink inputs "V = 1.8 m/s", "laminar", "adiabatic fin tip", "identical boundary conditions" (PR #2 draft) | Not in the report |
+
+## Design references
+
+Portfolios and templates I looked at before the October 2026 redesign. No code was copied from any of them.
+
+| Reference | What I took from it |
+|---|---|
+| [bchiang7/v4](https://github.com/bchiang7/v4) (Brittany Chiang) | Two tiers of projects: a few featured with full detail, the rest as a compact list |
+| [smaranjitghose/awesome-portfolio-websites](https://github.com/smaranjitghose/awesome-portfolio-websites) (MIT) | Core sections only: experience, projects, education. Optional pages left out |
+| [lowinertia/free-to-engineer-portfolio-template](https://github.com/lowinertia/free-to-engineer-portfolio-template) (CC0) | A portfolio for hardware engineers should show problem solving that a resume can't |
+| MIT MechE Communication Lab portfolio guide | 3 to 4 main projects, 2 to 6 visuals each, say what I was responsible for, compare the result to the objective |
+| My own earlier version of this site (`main` before Oct 2026) | The rotating STL heat sink in the hero, kept and restyled without the scanline and glow |

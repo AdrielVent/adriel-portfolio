@@ -64,15 +64,22 @@
               <a class="button" href="https://www.linkedin.com/in/adrielvent/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
-          <figure class="hero-figure">
-            <img
-              src="assets/projects/heat-sink-fusion-15fin-result.png"
-              alt="Fusion 360 steady-state temperature plot of the final 15-fin heat sink, 54.8 to 69.8 degrees C"
-              width="1050"
-              height="530"
-              loading="eager"
-            />
-            <figcaption>Final 15-fin design in Fusion 360: max 69.775&deg;C. <a href="#featured">How I sized it</a></figcaption>
+          <figure class="hero-figure hero-model-figure">
+            <div class="stl-stage" id="hero-stage" aria-label="3D model of the 15-fin Al-6061 heat sink. Move the pointer over it to tilt.">
+              <canvas class="stl-canvas" aria-hidden="true"></canvas>
+              <img
+                class="stl-fallback"
+                src="assets/projects/heat-sink-render-top.png"
+                alt="CAD render of the 15-fin Al-6061 heat sink I designed"
+                width="948"
+                height="881"
+                loading="eager"
+              />
+            </div>
+            <figcaption>
+              <span>15-fin heat sink &middot; Al-6061 &middot; 50.8 mm base &middot; my STL, rendered live</span>
+              <a href="#featured">How I sized it</a>
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -110,24 +117,16 @@
               </div>
             </div>
 
-            <!-- Static render first; the 3D viewer loads only on request -->
-            <div class="model-container">
-              <div class="model-stage" id="heat-sink-stage">
-                <img
-                  id="heat-sink-static-img"
-                  src="assets/projects/heat-sink-render-top.png"
-                  alt="CAD render of the final 15-fin Al-6061 heat sink"
-                  width="948"
-                  height="881"
-                  loading="eager"
-                />
-                <canvas id="stl-canvas" class="stl-canvas" style="display:none;" aria-label="Interactive 3D model of the heat sink. Move the pointer over it to tilt."></canvas>
-              </div>
-              <div class="model-overlay-controls">
-                <span class="model-caption">15 fins · Al-6061 · 50.8 mm square base</span>
-                <button class="button" id="btn-load-3d" type="button">Rotate in 3D</button>
-              </div>
-            </div>
+            <figure class="hero-figure">
+              <img
+                src="assets/projects/heat-sink-fusion-15fin-result.png"
+                alt="Fusion 360 steady-state temperature plot of the final 15-fin heat sink, 54.8 to 69.8 degrees C"
+                width="1050"
+                height="530"
+                loading="lazy"
+              />
+              <figcaption>Final 15-fin design in Fusion 360: max 69.775&deg;C.</figcaption>
+            </figure>
           </div>
 
           <div class="metric-grid" aria-label="Heat sink requirements and results">
@@ -174,10 +173,6 @@
               <h3 id="thermal-results-title">Simulation plots and trade study</h3>
             </div>
             <div class="result-grid">
-              <figure class="media-frame">
-                <img src="assets/projects/heat-sink-fusion-15fin-result.png" alt="Fusion 360 temperature plot for the final 15-fin heat sink, max 69.775 degrees C" width="1050" height="530" loading="lazy" />
-                <figcaption>Final 15 fins: Fusion 360 max 69.775&deg;C.</figcaption>
-              </figure>
               <figure class="media-frame">
                 <img src="assets/projects/heat-sink-fusion-17fin-result.png" alt="Fusion 360 temperature plot for the 17-fin baseline, max 61.487 degrees C" width="742" height="350" loading="lazy" />
                 <figcaption>17-fin baseline: Fusion 360 max 61.487&deg;C.</figcaption>
@@ -421,6 +416,7 @@
           <li>Type: <a href="https://github.com/IBM/plex" target="_blank" rel="noopener noreferrer">IBM Plex</a> (SIL Open Font License)</li>
           <li>Resume layout: <a href="https://github.com/jakegut/resume" target="_blank" rel="noopener noreferrer">jakegut/resume</a>, based on <a href="https://github.com/sb2nov/resume" target="_blank" rel="noopener noreferrer">sb2nov/resume</a></li>
           <li>Page structure follows the <a href="https://mitcommlab.mit.edu/meche/commkit/portfolio/" target="_blank" rel="noopener noreferrer">MIT MechE Communication Lab portfolio guide</a></li>
+          <li>Featured-plus-list project layout after <a href="https://github.com/bchiang7/v4" target="_blank" rel="noopener noreferrer">bchiang7/v4</a>; full list of design references in SOURCES.md</li>
           <li>Site code written with help from Claude (Anthropic). The engineering work and numbers are mine; each claim's source is in <a href="https://github.com/adrielvent/adriel-portfolio/blob/main/SOURCES.md" target="_blank" rel="noopener noreferrer">SOURCES.md</a>.</li>
         </ul>
       </div>

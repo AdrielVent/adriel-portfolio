@@ -454,44 +454,50 @@ input:focus-visible,
   border-radius: var(--radius-sm);
 }
 
-/* Static Orthographic / 3D Viewer Container */
-.model-container {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
+/* Hero 3D viewer. The bundle adds .is-loaded once the STL renders. */
+.stl-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.82;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
   overflow: hidden;
 }
 
-.model-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  background: var(--bg-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.model-stage img {
+.stl-canvas,
+.stl-fallback {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.model-overlay-controls {
-  padding: 0.75rem 1rem;
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-subtle);
+.stl-canvas {
+  z-index: 2;
+  cursor: grab;
+}
+
+.stl-fallback {
+  z-index: 1;
+  object-fit: contain;
+  padding: 6%;
+  transition: opacity 260ms ease;
+}
+
+.stl-stage.is-loaded .stl-fallback {
+  opacity: 0;
+}
+
+.hero-model-figure figcaption {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-}
-
-.model-caption {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  gap: 0.25rem 1rem;
 }
 
 /* Metric Tables & Grids */
@@ -1074,10 +1080,9 @@ input:focus-visible,
   .nav-controls,
   .theme-toggle,
   .skip-link,
-  #btn-load-3d,
   .button-row,
   .site-footer,
-  .model-overlay-controls {
+  .stl-canvas {
     display: none !important;
   }
 
@@ -1107,7 +1112,6 @@ input:focus-visible,
   .timeline-item,
   .insight-card,
   .metric,
-  .model-container,
   .media-frame,
   .skill-cluster,
   .contact-card,
@@ -1240,15 +1244,12 @@ input:focus-visible,
    18. Dark mode frame corners and credits
    Corner ticks like a CAD viewport frame. Lines only, no glow.
    -------------------------------------------------------------------------- */
-.hero-figure,
-.model-container {
+.hero-figure {
   position: relative;
 }
 
 [data-theme="dark"] .hero-figure::before,
-[data-theme="dark"] .hero-figure::after,
-[data-theme="dark"] .model-container::before,
-[data-theme="dark"] .model-container::after {
+[data-theme="dark"] .hero-figure::after {
   content: "";
   position: absolute;
   width: 14px;
@@ -1259,15 +1260,13 @@ input:focus-visible,
   z-index: 1;
 }
 
-[data-theme="dark"] .hero-figure::before,
-[data-theme="dark"] .model-container::before {
+[data-theme="dark"] .hero-figure::before {
   top: -5px;
   left: -5px;
   border-width: 1px 0 0 1px;
 }
 
-[data-theme="dark"] .hero-figure::after,
-[data-theme="dark"] .model-container::after {
+[data-theme="dark"] .hero-figure::after {
   bottom: -5px;
   right: -5px;
   border-width: 0 1px 1px 0;
@@ -1295,6 +1294,3 @@ input:focus-visible,
   padding-left: 1.1rem;
 }
 
-/* .model-container clips overflow, so its corner ticks sit just inside */
-[data-theme="dark"] .model-container::before { top: 4px; left: 4px; }
-[data-theme="dark"] .model-container::after { bottom: 4px; right: 4px; }
