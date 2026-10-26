@@ -28,6 +28,8 @@
   --accent-hover: #154b8c;
   --accent-subtle: rgba(26, 95, 180, 0.08);
   --accent-surface: #eff6ff;
+  --on-accent: #ffffff;
+  --grid-line: transparent;
   
   --tag-bg: #e2e8f0;
   --tag-text: #1e293b;
@@ -58,10 +60,12 @@
   --border-strong: #3b4d66;
   --border-technical: #475569;
   
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-subtle: rgba(59, 130, 246, 0.14);
-  --accent-surface: #172554;
+  --accent: #4cc9f0;
+  --accent-hover: #8be0f7;
+  --accent-subtle: rgba(76, 201, 240, 0.12);
+  --accent-surface: #0e2a36;
+  --on-accent: #06121a;
+  --grid-line: rgba(76, 201, 240, 0.045);
   
   --tag-bg: #1e293b;
   --tag-text: #e2e8f0;
@@ -86,10 +90,12 @@
     --border-strong: #3b4d66;
     --border-technical: #475569;
     
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --accent-subtle: rgba(59, 130, 246, 0.14);
-    --accent-surface: #172554;
+    --accent: #4cc9f0;
+    --accent-hover: #8be0f7;
+    --accent-subtle: rgba(76, 201, 240, 0.12);
+    --accent-surface: #0e2a36;
+    --on-accent: #06121a;
+    --grid-line: rgba(76, 201, 240, 0.045);
     
     --tag-bg: #1e293b;
     --tag-text: #e2e8f0;
@@ -119,6 +125,11 @@ body {
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-canvas);
+  /* Faint drafting grid; transparent in light mode */
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -366,14 +377,14 @@ input:focus-visible,
 
 .button-primary {
   background-color: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
   border-color: var(--accent);
 }
 
 .button-primary:hover {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -1224,3 +1235,66 @@ input:focus-visible,
     gap: 1.5rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   18. Dark mode frame corners and credits
+   Corner ticks like a CAD viewport frame. Lines only, no glow.
+   -------------------------------------------------------------------------- */
+.hero-figure,
+.model-container {
+  position: relative;
+}
+
+[data-theme="dark"] .hero-figure::before,
+[data-theme="dark"] .hero-figure::after,
+[data-theme="dark"] .model-container::before,
+[data-theme="dark"] .model-container::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="dark"] .hero-figure::before,
+[data-theme="dark"] .model-container::before {
+  top: -5px;
+  left: -5px;
+  border-width: 1px 0 0 1px;
+}
+
+[data-theme="dark"] .hero-figure::after,
+[data-theme="dark"] .model-container::after {
+  bottom: -5px;
+  right: -5px;
+  border-width: 0 1px 1px 0;
+}
+
+.credits {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.credits h2 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--text-secondary);
+}
+
+.credits ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* .model-container clips overflow, so its corner ticks sit just inside */
+[data-theme="dark"] .model-container::before { top: 4px; left: 4px; }
+[data-theme="dark"] .model-container::after { bottom: 4px; right: 4px; }
