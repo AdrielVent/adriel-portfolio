@@ -1,7 +1,8 @@
 /* Adriel Ventura, engineering portfolio
    Editorial: warm paper, near-black ink, one muted ink-blue accent.
    Source Serif 4 for major headings, Source Sans 3 for everything else,
-   monospace only for notation. Rules in DESIGN.md. */
+   monospace for notation; Courier Prime for controls (typed labels).
+   Rules in DESIGN.md. */
 
 /* 1. Tokens -------------------------------------------------------------- */
 :root {
@@ -19,6 +20,7 @@
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Source Sans Pro", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --type: "Courier Prime", "Courier New", Courier, monospace;   /* buttons and action links */
 
   --text: 1.125rem;        /* 18 px body */
   --small: 1rem;           /* 16 px metadata, captions; never smaller */
@@ -146,7 +148,8 @@ strong { color: var(--ink); font-weight: 600; }
 .facts dt { font-size: var(--small); font-weight: 600; color: var(--ink); }
 .facts dd { margin: 0.15rem 0 0; }
 
-.more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.75rem; font-weight: 600; }
+.more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.75rem; font: 400 var(--small)/1.2 var(--type); }
+.more::after { content: "\00a0\2192"; content: "\00a0\2192" / ""; }
 
 .work-list { list-style: none; margin: clamp(2.5rem, 6vw, 4rem) 0 0; padding: 0; border-top: 1px solid var(--rule-strong); }
 .work-list > li {
@@ -275,23 +278,31 @@ td.assumed { color: var(--accent); font-weight: 600; }
 .viewer.is-live > img { visibility: hidden; }
 .viewer canvas:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 
+/* Controls read like typed labels: [Angled]  [x] Section cut.
+   The brackets are drawn with CSS and hidden from screen readers. */
 .button {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--ink);
-  background: transparent;
+  padding: 0 0.35rem;
+  border: 0;
+  background: none;
   color: var(--ink);
-  font: 600 var(--small)/1.2 var(--sans);
+  font: 400 var(--small)/1.2 var(--type);
+  letter-spacing: 0.01em;
   cursor: pointer;
 }
-.button:hover { background: var(--ink); color: var(--paper); }
-.button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.button::before { content: "["; content: "[" / ""; color: var(--muted); }
+.button::after { content: "]"; content: "]" / ""; color: var(--muted); }
+.button:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.button:active { color: var(--accent); }
+.button[aria-pressed]::before { content: "[ ]\00a0"; content: "[ ]\00a0" / ""; }
+.button[aria-pressed]::after { content: none; }
+.button[aria-pressed="true"]::before { content: "[x]\00a0"; content: "[x]\00a0" / ""; color: var(--ink); }
 
-.viewer-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.viewer-controls { display: flex; flex-wrap: wrap; gap: 0 0.75rem; margin: 0.5rem 0 0 -0.35rem; }
 .viewer-status { margin: 0.5rem 0 0; color: var(--muted); font-size: var(--small); }
-.open-3d { margin-top: 0.75rem; }
+.open-3d { width: fit-content; margin: 0.5rem 0 0 -0.35rem; text-align: left; }
 
 /* 13. Responsive --------------------------------------------------------- */
 @media (max-width: 860px) {

@@ -34,11 +34,12 @@ All text pairs pass WCAG AA (4.5:1) on `--paper`; checked with an automated cont
 | Major headings (h1, h2, feature title) | Source Serif 4, 600 | `--serif` |
 | Body and interface | Source Sans 3, 400 / 600, italic 400 | `--sans` |
 | Notation only (equations) | system monospace stack | `--mono` |
+| Buttons and action links | Courier Prime 400 | `--type`. Typed-label look: `[Angled]`, `[x] Section cut`, `Read the case study →`. Brackets and arrow are CSS, hidden from screen readers |
 
 - Body `--text`: 1.125rem (18px); 1.0625rem (17px) under 600px.
 - Small text `--small`: 1rem (16px). Nothing on the site is set smaller than 16px.
 - Prose measure `--measure`: 40rem. Page width `--wide`: 70rem.
-- Fonts load from Google Fonts with `display=swap`; both families are SIL Open Font License.
+- Fonts load from Google Fonts with `display=swap`; all three families are SIL Open Font License.
 
 ## Layout patterns
 
@@ -68,7 +69,7 @@ Breakpoints: 860px (two columns collapse to one; the render is capped at 26rem t
 
 ## Not used
 
-Blueprint grids, crosshairs, HUD graphics, neon, gradients, glows, glassmorphism, giant hero sections, skill percentages, counters, badge walls, typewriter text, scroll hijacking, custom cursors, decorative animation, stock or AI imagery, a dark-mode toggle.
+Boxed or filled buttons, blueprint grids, crosshairs, HUD graphics, neon, gradients, glows, glassmorphism, giant hero sections, skill percentages, counters, badge walls, typewriter text, scroll hijacking, custom cursors, decorative animation (including typewriter typing effects; the typewriter feel is type only), stock or AI imagery, a dark-mode toggle.
 
 ## References
 
