@@ -29,26 +29,60 @@
   markScrollers();
   window.addEventListener("resize", markScrollers);
 
-  // 2. 3D model, on request only. three.js (about 670 KB) and the STL load
-  // only after a click; the static render stays if WebGL fails.
+  // 2. 3D model on heat sink case study. Auto-loads and rotates like the homepage,
+  // with interactive drag, keyboard controls, view presets, and pause/rotate toggle.
+  var stage = document.getElementById("model-stage");
   var openBtn = document.getElementById("open-3d");
-  if (openBtn) {
-    openBtn.hidden = false;
-    openBtn.addEventListener("click", function () {
-      var stage = document.getElementById("model-stage");
-      var controls = document.getElementById("viewer-controls");
-      var status = document.getElementById("viewer-status");
-      openBtn.disabled = true;
-      openBtn.hidden = true;
+  if (stage) {
+    var controls = document.getElementById("viewer-controls");
+    var status = document.getElementById("viewer-status");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    var spinning = !reduce && !saveData;
+    var viewerInstance = null;
+
+    if (openBtn) {
+      openBtn.hidden = false;
+      function updateOpenBtn() {
+        openBtn.textContent = spinning ? "Pause rotation" : "Rotate in 3D";
+      }
+      updateOpenBtn();
+      openBtn.addEventListener("click", function () {
+        spinning = !spinning;
+        updateOpenBtn();
+        if (viewerInstance) {
+          viewerInstance.setSpin(spinning);
+        } else {
+          loadCaseViewer(spinning);
+        }
+      });
+    }
+
+    function loadCaseViewer(spinNow) {
+      if (viewerInstance) return;
       import("./viewer.js")
         .then(function (m) {
-          m.mountViewer(stage, controls, status);
+          viewerInstance = m.mountViewer(stage, controls, status, {
+            spin: spinNow,
+            focus: false,
+            readyText: "Drag to rotate. Arrow keys turn, R resets view."
+          });
         })
         .catch(function () {
-          status.textContent = "The 3D model didn't load. The render above shows the same part.";
-          status.tabIndex = -1;
-          status.focus();
+          if (status) {
+            status.textContent = "The 3D model didn't load. The render above shows the same part.";
+          }
         });
+    }
+
+    window.addEventListener("load", function () {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          io.disconnect();
+          loadCaseViewer(spinning);
+        }
+      }, { rootMargin: "250px" });
+      io.observe(stage);
     });
   }
 
