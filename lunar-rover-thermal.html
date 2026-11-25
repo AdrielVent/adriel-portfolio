@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lunar rover thermal control (NASA L'SPACE, Team 6) — Adriel Ventura</title>
+    <meta
+      name="description"
+      content="Thermal requirements, risk R7 energy bounding (480-hour lunar-night survival vs 7,124 Wh battery), procurement lead times, and Mission Operations ConOps for NASA L'SPACE Mission Concept Academy Team 6."
+    />
+    <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/lunar-rover-thermal.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-name" href="./">Adriel Ventura</a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            <li><a href="./#work">Work</a></li>
+            <li><a href="./#experience">Experience</a></li>
+            <li><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume</a></li>
+            <li><a href="./#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="case-head wrap">
+        <p class="crumb"><a href="./#work">Selected work</a></p>
+        <h1>Lunar rover thermal control (NASA L'SPACE Mission Concept Academy, Team 6)</h1>
+        <p class="lede">
+          Thermal subsystem member. Training program, not an internship.
+        </p>
+
+        <dl class="facts-box">
+          <div><dt>Program</dt><dd>NASA L'SPACE Mission Concept Academy, Team 6 (Sep 2026 &ndash; Dec 2026)</dd></div>
+          <div><dt>Role</dt><dd>Thermal subsystem member</dd></div>
+          <div><dt>Scope</dt><dd>Thermal requirements, risk R7 energy bounding, procurement &amp; budget, ConOps, MCR mission statement</dd></div>
+        </dl>
+
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#requirements">Requirements I wrote</a></li>
+            <li><a href="#risk-r7">Risk I owned (R7)</a></li>
+            <li><a href="#procurement">Procurement &amp; budget</a></li>
+            <li><a href="#conops">Mission statement &amp; ConOps</a></li>
+          </ol>
+        </nav>
+      </header>
+
+      <section class="chapter" id="requirements" aria-labelledby="requirements-title">
+        <div class="wrap">
+          <h2 id="requirements-title">Requirements I wrote</h2>
+          <div class="prose">
+            <p>
+              I wrote 10 thermal control requirements (THM IDs) for the System Requirements Review, including a 480-hour
+              lunar-night survival case, battery temperature limits of 0 to +15&nbsp;&deg;C operating and &minus;10 to
+              +25&nbsp;&deg;C survival, and avionics limits of &minus;20 to +60&nbsp;&deg;C.
+            </p>
+            <p>
+              Following System Requirements Review feedback (RFA-04), I revised the 10 requirements to be
+              solution-neutral and verifiable.
+            </p>
+          </div>
+          <!-- TODO: Add assets/projects/lspace-thermal-zoning.png (SRR thermal zoning schematic, Figure 13) only if L'SPACE allows public posting of team-review figures. -->
+        </div>
+      </section>
+
+      <section class="chapter" id="risk-r7" aria-labelledby="risk-r7-title">
+        <div class="wrap">
+          <h2 id="risk-r7-title">Risk I owned (R7)</h2>
+          <div class="prose">
+            <p>
+              Heater power was still TBR, so I bounded it and logged the worst case as a risk (one of 4 mission risks I
+              owned out of 16 total) and set mitigation plans with the power team.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Lunar-night survival heater energy cases vs. 7,124&nbsp;Wh battery capacity</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Heater power</th>
+                  <th scope="col">&times; 480&nbsp;h (or noted)</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">vs 7,124&nbsp;Wh battery</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num">~10.38&nbsp;W (heaters + comms)</td>
+                  <td class="num">~4,987&nbsp;Wh</td>
+                  <td>my ConOps</td>
+                  <td>fits</td>
+                </tr>
+                <tr>
+                  <td class="num">12.649&nbsp;W (power team's value)</td>
+                  <td class="num">6,072&nbsp;Wh</td>
+                  <td>PDR</td>
+                  <td>fits</td>
+                </tr>
+                <tr class="chosen">
+                  <td class="num">16.8&nbsp;W worst case</td>
+                  <td class="num">8,064&nbsp;Wh</td>
+                  <td>my risk R7</td>
+                  <td>short ~940&nbsp;Wh</td>
+                </tr>
+                <tr>
+                  <td class="num">12.649&nbsp;W &times; 565&nbsp;h (23-day darkness, power team's value)</td>
+                  <td class="num">~7,147&nbsp;Wh</td>
+                  <td>PDR open item</td>
+                  <td>~23&nbsp;Wh over</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="procurement" aria-labelledby="procurement-title">
+        <div class="wrap">
+          <h2 id="procurement-title">Procurement &amp; budget</h2>
+          <div class="prose">
+            <p>
+              I planned thermal procurement and lead times from public NASA contract data (multilayer insulation
+              ~15&nbsp;weeks, heaters ~9&nbsp;weeks) and co-built the $97K thermal budget.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="conops" aria-labelledby="conops-title">
+        <div class="wrap">
+          <h2 id="conops-title">Mission statement &amp; ConOps</h2>
+          <div class="prose">
+            <p>
+              I wrote the Mission Concept Review mission statement, which NASA L'SPACE reviewers scored 24/25 with no
+              RFAs. I also wrote the Mission Operations concept of operations (ConOps): landing checkout, sunlit-to-PSR
+              radiation-mapping loop, and 480-hour lunar-night hibernation on battery-powered heaters.
+            </p>
+          </div>
+          <div class="note">
+            <p>Team project; numbers credited to others are labeled.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p><a href="./#work">&larr; All work</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
