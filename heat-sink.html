@@ -80,6 +80,13 @@
           </dl>
         </div>
 
+        <div class="note">
+          <p>
+            <strong>Design decision: 15 fins over 17.</strong> Predicted 69.85&nbsp;&deg;C (target &le;&nbsp;70&nbsp;&deg;C),
+            27.5% lighter. The interface contact resistance decides pass/fail, so the bench test reads the interface first.
+          </p>
+        </div>
+
         <nav class="toc" aria-label="On this page">
           <ol>
             <li><a href="#problem">Problem and constraints</a></li>
@@ -254,10 +261,60 @@
           <div class="note">
             <p>
               <strong>Not tested yet.</strong> I wrote a bench-test plan but have not run it: a 100&nbsp;W cartridge heater in
-              a 50.8&nbsp;mm block standing in for the CPU, the fan at rated voltage, and Type-K thermocouples at the
-              interface, base, fin, inlet and outlet, logged until steady state. The test equipment is budgeted at
-              $376.92 if bought new.
+              a 50.8&nbsp;mm block standing in for the CPU, the fan at rated voltage, and Type-K thermocouples logged until
+              steady state. The test equipment is budgeted at $376.92 if bought new.
             </p>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <caption>Bench-test instrumentation plan (Status: planned, not run)</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Measurement point</th>
+                  <th scope="col">Sensor</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">Prediction (from this page)</th>
+                  <th scope="col">Pass/fail criterion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="chosen">
+                  <th scope="row">Interface</th>
+                  <td>Type-K thermocouple</td>
+                  <td>Measure simulated CPU junction / interface temperature</td>
+                  <td class="num">69.85&nbsp;&deg;C (MATLAB), 69.775&nbsp;&deg;C (Fusion max)</td>
+                  <td>&le;&nbsp;70&nbsp;&deg;C target, &le;&nbsp;85&nbsp;&deg;C limit</td>
+                </tr>
+                <tr>
+                  <th scope="row">Base</th>
+                  <td>Type-K thermocouple</td>
+                  <td>Separate contact resistance from base spreading</td>
+                  <td>not predicted</td>
+                  <td>Diagnostic (no pass/fail limit)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fin</th>
+                  <td>Type-K thermocouple</td>
+                  <td>Check fin-to-air temperature drop and fin efficiency</td>
+                  <td>not predicted</td>
+                  <td>Diagnostic (no pass/fail limit)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Inlet air</th>
+                  <td>Type-K thermocouple</td>
+                  <td>Verify ambient boundary temperature</td>
+                  <td>not predicted</td>
+                  <td>Reference (nominal 25&nbsp;&deg;C air)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Outlet air</th>
+                  <td>Type-K thermocouple</td>
+                  <td>Check air temperature rise across the fin array</td>
+                  <td>not predicted</td>
+                  <td>Diagnostic (no pass/fail limit)</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
