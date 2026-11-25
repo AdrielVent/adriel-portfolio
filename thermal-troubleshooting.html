@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thermal model troubleshooting (co-op, Stellant Systems) — Adriel Ventura</title>
+    <meta
+      name="description"
+      content="Steady-state ANSYS Mechanical thermal troubleshooting at Stellant Systems: root-causing a 600 C hot spot to a missing TIM layer, bringing predictions within 2-3 C of test thermocouples, and gap-pad trade study."
+    />
+    <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/thermal-troubleshooting.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-name" href="./">Adriel Ventura</a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            <li><a href="./#work">Work</a></li>
+            <li><a href="./#experience">Experience</a></li>
+            <li><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume</a></li>
+            <li><a href="./#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="case-head wrap">
+        <p class="crumb"><a href="./#work">Selected work</a></p>
+        <h1>Thermal model troubleshooting (co-op, Stellant Systems)</h1>
+        <p class="lede">
+          Tracing a non-physical 600&nbsp;&deg;C hot spot in ANSYS Mechanical to a missing thermal interface material
+          (TIM) layer, bringing the prediction within 2&ndash;3&nbsp;&deg;C of test thermocouple readings, and reducing
+          junction temperature on a power-supply module by 57.6&nbsp;&deg;C.
+        </p>
+
+        <dl class="facts-box">
+          <div><dt>Role</dt><dd>Mechanical Engineering Co-op, Stellant Systems (May 2026 &ndash; present)</dd></div>
+          <div><dt>Tools</dt><dd>ANSYS Mechanical (steady-state thermal FEA), IronPython</dd></div>
+          <div><dt>Status</dt><dd>Industry co-op work. Described in words only; drawings, models, and data are proprietary.</dd></div>
+        </dl>
+
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#problem">Problem and checks</a></li>
+            <li><a href="#fix">Root cause, fix, and result</a></li>
+            <li><a href="#second-study">Second study: gap pad &amp; spreader trade</a></li>
+            <li><a href="#learned">What I learned</a></li>
+          </ol>
+        </nav>
+      </header>
+
+      <section class="chapter" id="problem" aria-labelledby="problem-title">
+        <div class="wrap">
+          <h2 id="problem-title">Problem and checks</h2>
+          <div class="prose">
+            <p>
+              <strong>Problem.</strong> A steady-state ANSYS Mechanical thermal model of an RF and defense electronic
+              assembly showed a 600&nbsp;&deg;C hot spot that could not be physical.
+            </p>
+            <p>
+              <strong>What I checked.</strong> I systematically audited the CAD geometry, the mesh quality on thin PCB
+              and copper layers, and the contact definitions across the thermal path.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="fix" aria-labelledby="fix-title">
+        <div class="wrap">
+          <h2 id="fix-title">Root cause, fix, and result</h2>
+          <div class="prose">
+            <p>
+              <strong>Root cause.</strong> A missing thermal interface material (TIM) layer created an unrealistic
+              thermal bottleneck at the contact interface.
+            </p>
+            <p>
+              <strong>Fix.</strong> I revised the contact conductance using vendor TIM datasheet values and re-meshed
+              the thin PCB and copper layers using body sizing, sweep, and MultiZone controls to balance accuracy against
+              solve time.
+            </p>
+            <p>
+              <strong>Result.</strong> The updated steady-state prediction landed within 2&ndash;3&nbsp;&deg;C of test
+              thermocouple readings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="second-study" aria-labelledby="second-study-title">
+        <div class="wrap">
+          <h2 id="second-study-title">Second study: gap pad &amp; spreader trade</h2>
+          <div class="prose">
+            <p>
+              On a power-supply module, adding a thermal gap pad in ANSYS Mechanical steady-state thermal FEA cut the
+              predicted junction temperature by 57.6&nbsp;&deg;C (from 122.5&nbsp;&deg;C to 64.9&nbsp;&deg;C). I also
+              compared aluminum versus copper heat spreaders, recommended aluminum for mass and cost, and presented the
+              trade-study results to my engineering mentor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="learned" aria-labelledby="learned-title">
+        <div class="wrap">
+          <h2 id="learned-title">What I learned</h2>
+          <!-- TODO: Adriel — rewrite this paragraph in your own words -->
+          <div class="note">
+            <p>
+              <strong>[TODO: rewrite in my own words]</strong> When a finite element model produces an extreme
+              temperature, the boundary conditions, contact definitions, and thin-layer meshing are usually the first
+              places to look before trusting the solver output. Comparing model predictions directly against
+              thermocouple test data taught me how sensitive steady-state junction temperatures are to interface
+              conductance and why modeling assumptions need hardware checks.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p><a href="./#work">&larr; All work</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
