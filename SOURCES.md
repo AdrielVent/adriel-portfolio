@@ -153,7 +153,7 @@ Every number on that page comes from my ENGG 114 report, [`heat-sink-thermal-des
 | Contact-resistance table | §V.B, Table 6 |
 | 15 vs 17 fins: gap, R, MATLAB and Fusion temps, mass | §V.C Table 7, §VI Table 8 |
 | 0.0031 °C/W is the high end of the PTM7950 ideal range | Legend of the TIM sensitivity plot, [`heat-sink-derated-sensitivity.png`](assets/projects/heat-sink-derated-sensitivity.png) |
-| ~46 W/m²K crossing of 85 °C | Read off [`heat-sink-contact-sensitivity.png`](assets/projects/heat-sink-contact-sensitivity.png), not stated in the report |
+| ~46 W/m²K crossing of 85 °C | Read off [`heat-sink-convection-sensitivity.png`](assets/projects/heat-sink-convection-sensitivity.png), not stated in the report |
 | Assembly drawing, 38 mm plate | Report Fig. 8 (page 14), cropped to [`heat-sink-drawing-15fin.png`](assets/projects/heat-sink-drawing-15fin.png) |
 | 3D-printed demonstration models, not thermal validation | §I.D |
 | Test plan and $376.92 test equipment | §VIII.B Table 10, §IX |
