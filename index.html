@@ -6,7 +6,7 @@
     <title>Adriel Ventura, mechanical engineering</title>
     <meta
       name="description"
-      content="Adriel Ventura: mechanical engineering student at Hofstra University (Dec 2027) and mechanical engineering co-op at Stellant Systems. Heat sink design study with report, plots and CAD."
+      content="Adriel Ventura: mechanical engineering student (aerospace) at Hofstra (Dec 2027) and co-op at Stellant Systems. Thermal analysis, ANSYS FEA, test fixture design, silicone seal engineering, and CAD — with reports, plots, and interactive 3D models."
     />
     <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/" />
     <meta property="og:type" content="website" />
@@ -35,6 +35,7 @@
         <nav aria-label="Primary">
           <ul class="site-nav">
             <li><a href="#work">Work</a></li>
+            <li><a href="models.html">Models</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -223,22 +224,22 @@
               <h3>Mechanical Engineering Co-op</h3>
               <p class="org">Stellant Systems</p>
               <ul>
-                <li>Mentor-guided steady-state thermal analysis in ANSYS Mechanical on RF and defense electronic assemblies: geometry clean-up, meshing, boundary conditions.</li>
-                <li>Revised thermal-pad contact conductance in one model to remove an artificial temperature gradient.</li>
-                <li>Create and audit BOMs and write ECNs routed through SharePoint; built an Inventor-to-Excel macro for BOM and cost checks.</li>
-                <li>Designed the multi-diameter O-ring cutting fixture described above.</li>
+                <li>Steady-state thermal analysis in ANSYS Mechanical on RF and power-supply assemblies: geometry clean-up, meshing thin PCB layers, and boundary conditions; revised contact conductance to bring predictions within 2&ndash;3&nbsp;&deg;C of test thermocouple readings.</li>
+                <li>Designed shop-floor tooling in Autodesk Inventor: multi-diameter O-ring cutting fixture over 4 FDM iterations using GD&amp;T (ASME Y14.5) and tolerance stack-up (RSS); took mounting-plate fixture to manufacturing in 3 weeks.</li>
+                <li>Redesigned silicone seal for altitude-chamber vacuum leak tests: groove-matched profile, 3D-printed mold, and degassed liquid silicone injection.</li>
+                <li>Automated engineering data: built an Inventor-to-Excel macro for BOM checks and cost roll-ups, authored an IronPython material-mapping script for a 327-body ANSYS model, and authored ECNs routed through configuration control.</li>
               </ul>
             </div>
           </li>
           <li>
             <p class="role-when"><span>May 2026 &ndash; present</span><span>Hempstead, NY</span></p>
             <div>
-              <h3>President &amp; Chapter Revamp Lead</h3>
+              <h3>President &amp; Chapter Revival Lead</h3>
               <p class="org">Society of Hispanic Professional Engineers (SHPE), Hofstra</p>
               <ul>
-                <li>Rebuilding the chapter as a new student organization: recruited an executive board, drafted the constitution, filed for recognition.</li>
-                <li>Organized the first Meet the Board event (Oct 7, 2026).</li>
-                <li>The chapter won SHPE National's <em>SHPE's Got Talent</em> (Oct 2026).</li>
+                <li>Restarted chapter dormant for 18+ years: recruited the executive board, drafted the constitution, filed for university recognition, and grew to 47 members.</li>
+                <li>Sole Hofstra delegate to SHPE National Convention 2026; co-hosted four-club engineering mixer with ASME, CSA, and SWE.</li>
+                <li>Chapter Winner ($300), SHPE National's <em>SHPE's Got Talent</em> (Oct 2026).</li>
               </ul>
             </div>
           </li>
@@ -250,18 +251,19 @@
               <ul>
                 <li>Ran steam-turbine and catapult builds.</li>
                 <li>Co-hosted the Night Shift Engineering Mixer with SHPE, SWE and the Commuter Student Association (Oct 2026).</li>
-                <li>Represented Hofstra at ASME Student Leader Weekend in Philadelphia (Oct 2026).</li>
+                <li>Represented Hofstra as sole delegate at ASME Student Leader Weekend in Philadelphia (Oct 2026).</li>
               </ul>
             </div>
           </li>
           <li>
-            <p class="role-when"><span>Sep 2026 &ndash; present</span><span>Hempstead, NY</span></p>
+            <p class="role-when"><span>Aug 2026 &ndash; present</span><span>Hempstead, NY</span></p>
             <div>
               <h3>Co-President &amp; Reactivation Lead</h3>
-              <p class="org">AIAA, Hofstra</p>
+              <p class="org">AIAA, Hofstra Student Branch</p>
               <ul>
-                <li>Co-leading the restart of a dormant student branch with faculty advisors and AIAA regional coordinators.</li>
-                <li>Drafted two AIAA Classroom Grant proposals (Earth observation from space, and a Radio JOVE radio telescope) for a Long Island high school Earth and Space Science teacher, who submitted both.</li>
+                <li>Reversed a provisional decharter by satisfying membership, faculty-advisor, and annual reporting requirements; branch officially chartered in Nov 2026, growing to 38 students.</li>
+                <li>Raised $5,000 from two industry sponsors (Academy of Aviation, East/West Industries) to send 5 members to AIAA SciTech 2027.</li>
+                <li>Student contact for Hofstra's AIAA Design/Build/Fly entry; drafted two AIAA Classroom Grant proposals submitted by a Long Island high school teacher.</li>
               </ul>
             </div>
           </li>
@@ -306,8 +308,10 @@
             <h3 id="honors-title">Honors</h3>
             <ul aria-labelledby="honors-title">
               <li>Nominee, Aviation Week <a href="https://aviation.informaexhibitions.com/20-20/">20 Twenties</a>, Class of 2027 (university nomination, Oct 2026; winners announced Jan 2027)</li>
+              <li>3rd Place ($150), Hofstra Lion's Den Pitch Competition (Nov 2026)</li>
+              <li>Siemens Student Ambassador (Nov 2026)</li>
               <li>One of 27 participants advancing to the live Rockwell Automation &times; SHPE AI Hackathon (Oct 2026)</li>
-              <li>Hofstra SHPE: winner, SHPE National's <em>SHPE's Got Talent</em> (Oct 2026)</li>
+              <li>Hofstra SHPE: Chapter Winner ($300), SHPE National's <em>SHPE's Got Talent</em> (Oct 2026)</li>
             </ul>
           </div>
           <div>
@@ -383,7 +387,6 @@
           <li>3D viewer on the heat sink page: <a href="https://github.com/mrdoob/three.js">three.js</a> r164 and its STLLoader (MIT).</li>
           <li>Resume layout: <a href="https://github.com/jakegut/resume">jakegut/resume</a>, based on <a href="https://github.com/sb2nov/resume">sb2nov/resume</a>.</li>
           <li>Design references, no code copied: <a href="https://github.com/TimWitzdam/astro-minimal-portfolio-template">TimWitzdam/astro-minimal-portfolio-template</a>, <a href="https://github.com/moeyua/astro-theme-typography">moeyua/astro-theme-typography</a>, <a href="https://github.com/lowinertia/free-to-engineer-portfolio-template">lowinertia/free-to-engineer-portfolio-template</a>, <a href="https://github.com/pacocoursey/paco">pacocoursey/paco</a>, <a href="https://github.com/riggraz/no-style-please">riggraz/no-style-please</a>, <a href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>. Details in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/DESIGN.md">DESIGN.md</a>.</li>
-          <li>Site code written with help from Claude (Anthropic). The engineering work and numbers are mine; each claim's source is in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/SOURCES.md">SOURCES.md</a>.</li>
         </ul>
       </div>
     </footer>

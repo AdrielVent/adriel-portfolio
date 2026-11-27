@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "id": "hofstra-news-coop",
+      "order": 1,
+      "kind": "press",
+      "date": "Sep. 18, 2026",
+      "title": "Engineering His Path to the Future",
+      "org": "Hofstra News",
+      "summary": "Hofstra's Marketing and Communications team interviewed and filmed me about my mechanical engineering co-op at Stellant Systems (filming limited to lobby and conference room).",
+      "href": "https://news.hofstra.edu/2026/09/18/engineering-his-path-to-the-future/"
+    },
+    {
+      "id": "hofstra-seas-reel",
+      "order": 2,
+      "kind": "press",
+      "date": "Oct. 2026",
+      "title": "From the classroom to the lab",
+      "org": "@hofstrau with Hofstra SEAS (Instagram)",
+      "summary": "Video reel from the Hofstra co-op feature shoot.",
+      "href": "https://www.instagram.com/reel/DexRr5noZua/"
+    },
+    {
+      "id": "hofstra-chronicle",
+      "order": 3,
+      "kind": "writing",
+      "date": "2025 – Present",
+      "title": "Stories for The Hofstra Chronicle",
+      "org": "The Hofstra Chronicle",
+      "summary": "Published three news articles ('Special to the Chronicle'): Taste of the Neighborhood (Sep. 2026), Hofstra's five-year partnership with the Islanders and UBS Arena (Feb. 2026), and spring blood drive (Mar. 2025).",
+      "href": "https://thehofstrachronicle.com/staff_name/adriel-ventura/"
+    },
+    {
+      "id": "lions-den-3rd",
+      "order": 4,
+      "kind": "honor",
+      "date": "Nov. 2026",
+      "title": "3rd Place ($150), Hofstra Lion's Den Pitch Competition",
+      "org": "Hofstra IdeaHub",
+      "summary": "Awarded third place for Vnua-Connect ('Giving clubs a chance'), a free student-run platform for emerging Hofstra organizations.",
+      "href": "https://github.com/AdrielVent/Vnua-Connect"
+    },
+    {
+      "id": "siemens-ambassador",
+      "order": 5,
+      "kind": "honor",
+      "date": "Nov. 2026",
+      "title": "Siemens Student Ambassador",
+      "org": "Siemens",
+      "summary": "Accepted into the Siemens Student Ambassador Program (Nov. 2026).",
+      "href": "index.html#honors-title"
+    },
+    {
+      "id": "aviation-week-20-twenties",
+      "order": 6,
+      "kind": "honor",
+      "date": "Oct. 2026",
+      "title": "Nominee, Aviation Week Network 20 Twenties (Class of 2027)",
+      "org": "Aviation Week Network",
+      "summary": "University-nominated aerospace/engineering student candidate; winners announced early Jan. 2027.",
+      "href": "https://aviation.informaexhibitions.com/20-20/"
+    },
+    {
+      "id": "shpe-rockwell-hackathon",
+      "order": 7,
+      "kind": "honor",
+      "date": "Oct. 2026",
+      "title": "Live-Round Semifinalist (1 of 27), SHPE × Rockwell Automation AI Hackathon",
+      "org": "SHPE × Rockwell Automation",
+      "summary": "Selected as 1 of 27 students advancing to the live hackathon round in Indianapolis for CONFIRM (with Miguel Gutierrez).",
+      "href": "index.html#honors-title"
+    },
+    {
+      "id": "shpes-got-talent",
+      "order": 8,
+      "kind": "honor",
+      "date": "Oct. 2026",
+      "title": "Chapter Winner ($300), SHPE's Got Talent",
+      "org": "SHPE National",
+      "summary": "Won $300 chapter prize for the revived Hofstra SHPE chapter.",
+      "href": "index.html#honors-title"
+    },
+    {
+      "id": "cert-lean-six-sigma",
+      "order": 9,
+      "kind": "certificate",
+      "date": "Nov. 16, 2025",
+      "title": "Lean Six Sigma White Belt",
+      "org": "Certificate",
+      "summary": "Verified certificate file in repository (kept per owner confirmation).",
+      "href": "assets/certificates/lean-six-sigma-white-belt.jpeg"
+    },
+    {
+      "id": "cert-asme-ethics",
+      "order": 10,
+      "kind": "certificate",
+      "date": "Jan. 8, 2026",
+      "title": "ASME Ethics for Engineers (3.0 PDH)",
+      "org": "ASME",
+      "summary": "3.0 PDH engineering ethics certificate.",
+      "href": "assets/certificates/asme-ethics-for-engineers.jpeg"
+    },
+    {
+      "id": "cert-black-hawk",
+      "order": 11,
+      "kind": "certificate",
+      "date": "Jan. 26, 2026",
+      "title": "1109th TASMG Black Hawk Maintenance Job Simulation",
+      "org": "Forage",
+      "summary": "Completed Forage job simulation (enrolment verification code n8CFCcjuh9rKpfiHr).",
+      "href": "assets/certificates/1109th-tasmg-black-hawk-certificate.pdf"
+    }
+  ]
+}

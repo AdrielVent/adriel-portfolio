@@ -1,0 +1,211 @@
+{
+  "models": [
+    {
+      "id": "dfma-heatsink",
+      "order": 1,
+      "title": "DFMA 15-Fin Aluminum Heat Sink",
+      "category": "Thermal Design",
+      "file": "assets/models/dfma-heatsink-viewer.stl",
+      "format": "stl",
+      "date": "Spring 2026",
+      "summary": "Forced-convection 15-fin Al 6061-T6 heat sink sized for a 50.8 x 50.8 mm, 100 W CPU in 25 °C ambient air (85 °C limit, 70 °C target). MATLAB resistance model predicts 69.85 °C (0.4485 °C/W) and Fusion 360 steady-state FEA predicts 69.775 °C max; cut mass 27.5% vs. 17-fin baseline (75.3 g to 54.6 g). Bench test pending.",
+      "specs": [
+        { "label": "Material", "value": "Al 6061-T6" },
+        { "label": "Fins & spacing", "value": "15 fins · 2.557 mm gap" },
+        { "label": "Predicted temp", "value": "69.85 °C (MATLAB) / 69.775 °C max (Fusion 360)" },
+        { "label": "Mass", "value": "54.6 g (−27.5% vs. 75.3 g baseline)" },
+        { "label": "Viewer mesh", "value": "844 triangles (STL)" }
+      ],
+      "caseStudyHref": "heat-sink.html",
+      "sourceNote": "Course project (ENGG 114, Hofstra University). Analysis and simulation only; not built or bench-tested."
+    },
+    {
+      "id": "gasket-cutter-assembly",
+      "order": 2,
+      "title": "Multi-Diameter O-Ring Cutting Fixture Assembly",
+      "category": "Fixture & Cutter Tooling",
+      "file": "assets/models/gasket-cutter-assembly.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Multi-diameter O-ring cutting fixture designed in Autodesk Inventor over four FDM prototyping iterations with direct technician feedback, ASME Y14.5 GD&T, and tolerance stack-up analysis. Documented in a first Engineering Change Notice (ECN); fixture is now in shop-floor use.",
+      "specs": [
+        { "label": "CAD & standards", "value": "Autodesk Inventor · ASME Y14.5 GD&T" },
+        { "label": "Prototyping", "value": "4 FDM iterations · tolerance stack-up" },
+        { "label": "Status", "value": "In shop-floor use (ECN documented)" },
+        { "label": "Mesh stats", "value": "8 meshes · 19 nodes · 3,310 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "gasket-compression-fixture",
+      "order": 3,
+      "title": "Gasket Compression Fixture Assembly",
+      "category": "Fixture & Cutter Tooling",
+      "file": "assets/models/gasket-compression-fixture.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Multi-part gasket compression and alignment fixture assembly modeled in Autodesk Inventor to support repeatable seal positioning and tooling fit checks during co-op fixture development.",
+      "specs": [
+        { "label": "CAD tool", "value": "Autodesk Inventor" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "11 meshes · 40 nodes · 30,074 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "gasket-cutter-fixture",
+      "order": 4,
+      "title": "Gasket Cutter Review Fixture",
+      "category": "Fixture & Cutter Tooling",
+      "file": "assets/models/gasket-cutter-fixture.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Design-review configuration of the multi-diameter gasket cutting fixture modeled in Autodesk Inventor with ASME Y14.5 GD&T and tolerance stack-up checks prior to shop-floor release.",
+      "specs": [
+        { "label": "CAD & standards", "value": "Autodesk Inventor · ASME Y14.5 GD&T" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "6 meshes · 13 nodes · 2,746 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "cutter-lock-insert",
+      "order": 5,
+      "title": "O-Ring Cutter Lock Insert",
+      "category": "Fixture & Cutter Tooling",
+      "file": "assets/models/cutter-lock-insert.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Locking insert component for the multi-diameter O-ring cutting fixture, retaining the cutter holder in position across diameter settings.",
+      "specs": [
+        { "label": "CAD tool", "value": "Autodesk Inventor" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "1 mesh · 2 nodes · 580 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "leak-test-fixture-printed",
+      "order": 6,
+      "title": "Altitude-Chamber Leak-Test Fixture (Printed Assembly)",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/leak-test-fixture-printed.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "3D-printed fixture assembly designed in Autodesk Inventor with ASME Y14.5 GD&T drawings to seat a groove-matched silicone gasket for altitude-chamber vacuum leak testing of a hermetic unit (leak test pending).",
+      "specs": [
+        { "label": "CAD & standards", "value": "Autodesk Inventor · ASME Y14.5 GD&T" },
+        { "label": "Status", "value": "Printed assembly; leak test pending" },
+        { "label": "Mesh stats", "value": "5 meshes · 130 nodes · 8,058 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "leak-test-fixture-cover",
+      "order": 7,
+      "title": "Altitude-Chamber Leak-Test Fixture Cover",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/leak-test-fixture-cover.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Updated cover subassembly for the altitude-chamber vacuum leak-test fixture incorporating revised groove geometry and tighter fit tolerances (leak test pending).",
+      "specs": [
+        { "label": "CAD tool", "value": "Autodesk Inventor" },
+        { "label": "Status", "value": "Revised iteration; leak test pending" },
+        { "label": "Mesh stats", "value": "3 meshes · 10 nodes · 1,492 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "leak-test-gasket-mold",
+      "order": 8,
+      "title": "Silicone Gasket Injection Mold",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/leak-test-gasket-mold.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "3D-printed two-part mold designed in Autodesk Inventor with GD&T drawings to cast a groove-matched gasket from degassed, injection-molded liquid silicone for the altitude-chamber leak test (leak test pending).",
+      "specs": [
+        { "label": "Process", "value": "3D-printed mold · degassed liquid silicone" },
+        { "label": "Status", "value": "Mold printed & injected; leak test pending" },
+        { "label": "Mesh stats", "value": "2 meshes · 4 nodes · 2,268 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "syringe-pouring-fixture",
+      "order": 9,
+      "title": "Silicone Syringe-Pouring Fixture",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/syringe-pouring-fixture.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "3D-printed fixture holding silicone for controlled syringe pouring, iterated through three FDM versions during gasket-molding process development.",
+      "specs": [
+        { "label": "Process", "value": "FDM 3D printed (3 versions)" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "5 meshes · 12 nodes · 4,327 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "fixture-holder-assembly",
+      "order": 10,
+      "title": "Silicone Pouring Fixture Holder Assembly",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/fixture-holder-assembly.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Support holder assembly stabilizing the silicone pouring fixture during controlled mold-filling operations.",
+      "specs": [
+        { "label": "Process", "value": "FDM 3D printed tooling" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "3 meshes · 8 nodes · 18,432 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "test-holder-fixture",
+      "order": 11,
+      "title": "Silicone Pour Test-Holder Fixture",
+      "category": "Leak-Test & Molding Tooling",
+      "file": "assets/models/test-holder-fixture.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Compact 3D-printed test-holder fixture used to verify silicone mixing and pouring workflow behavior prior to full mold injection.",
+      "specs": [
+        { "label": "Process", "value": "FDM 3D printed tooling" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "3 meshes · 6 nodes · 1,379 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Stellant Systems co-op (2026). Published with written supervisor clearance; metadata scrubbed, no company drawings or part numbers shown."
+    },
+    {
+      "id": "asme-shpe",
+      "order": 12,
+      "title": "Hofstra ASME & SHPE Chapter Logo Plaque",
+      "category": "Student Chapter Outreach",
+      "file": "assets/models/asme-shpe.glb",
+      "format": "glb",
+      "date": "2026",
+      "summary": "Combined Hofstra University ASME and SHPE student chapter logo assembly modeled for 3D printing and campus outreach events.",
+      "specs": [
+        { "label": "Organizations", "value": "ASME & SHPE, Hofstra University" },
+        { "label": "Format", "value": "glTF 2.0 (.glb)" },
+        { "label": "Mesh stats", "value": "2 meshes · 4 nodes · 1,580 triangles" }
+      ],
+      "caseStudyHref": null,
+      "sourceNote": "Hofstra ASME & SHPE student leadership outreach model (2026)."
+    }
+  ]
+}

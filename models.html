@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3D Models Library — Adriel Ventura</title>
+    <meta
+      name="description"
+      content="Interactive 3D Models Library: 11 engineering CAD assemblies from Adriel Ventura's co-op at Stellant Systems and coursework at Hofstra. Rotate and inspect every model in the browser."
+    />
+    <link rel="canonical" href="https://adrielvent.github.io/adriel-portfolio/models.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="3D Models Library — Adriel Ventura" />
+    <meta property="og:description" content="11 engineering CAD assemblies, rotatable in-browser." />
+    <meta property="og:url" content="https://adrielvent.github.io/adriel-portfolio/models.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/models.css" />
+    <script type="importmap">
+      { "imports": { "three": "./assets/vendor/three.module.min.js" } }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-name" href="./">Adriel Ventura</a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="models.html" aria-current="page">Models</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="assets/resume/Adriel_Ventura_Resume.pdf">Resume</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section wrap models-head" aria-labelledby="models-title">
+        <div class="section-head">
+          <h2 id="models-title">3D Models Library</h2>
+          <p>11 assemblies · rotate in-browser</p>
+        </div>
+        <p class="narrow">
+          Supervisor-cleared CAD assemblies from my co-op at Stellant Systems and
+          coursework at Hofstra. All co-op models are described in words only —
+          no company drawings or proprietary data are shown. Metadata has been
+          sanitized; source files are on request.
+        </p>
+      </section>
+
+      <!-- No-JS fallback: shown when JS is off; hidden when JS loads -->
+      <noscript>
+        <section class="section wrap" aria-labelledby="noscript-title">
+          <h2 id="noscript-title" class="visually-hidden">Model list (no JavaScript)</h2>
+          <ul class="work-list models-noscript-list">
+            <li>
+              <div><h3>15-Fin Aluminum Heat Sink</h3><p class="meta">ENGG 114 Heat Transfer, Hofstra · Spring 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Keep a 100 W CPU at or below 85 °C on existing mounts. <strong>Contribution.</strong> All of it: concept screening, MATLAB resistance model, CAD, Fusion 360 thermal study. <strong>Status.</strong> Modeled and analyzed. Not built or bench-tested.</p></div>
+            </li>
+            <li>
+              <div><h3>Gasket Cutting Fixture Assembly</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Cutting O-rings to multiple diameters with repeatable blade alignment. <strong>Contribution.</strong> Designed fixture over four FDM iterations; applied GD&amp;T and tolerance stack-up; now in shop-floor use. <strong>Status.</strong> Built and in shop-floor use.</p></div>
+            </li>
+            <li>
+              <div><h3>Multi-Diameter Gasket Cutter v5</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Single cutter body for multiple gasket diameters. <strong>Status.</strong> In use.</p></div>
+            </li>
+            <li>
+              <div><h3>Altitude-Chamber Leak-Test Fixture</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Hold a hermetic unit under altitude-chamber vacuum to verify seal integrity. <strong>Status.</strong> Design complete; leak test pending.</p></div>
+            </li>
+            <li>
+              <div><h3>Silicone Gasket Injection Mold</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Mold to cast a custom silicone gasket profile. <strong>Status.</strong> Mold printed; leak test pending.</p></div>
+            </li>
+            <li>
+              <div><h3>Leak-Test Fixture v2</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Revised fixture after first leak-test iteration. <strong>Status.</strong> Iterated from v1.</p></div>
+            </li>
+            <li>
+              <div><h3>O-Ring Cutter Locking Mechanism</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Lock the blade holder at the correct cut height. <strong>Status.</strong> In use.</p></div>
+            </li>
+            <li>
+              <div><h3>Syringe and Fluid Rig Assembly</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Hold a syringe at a fixed angle for controlled silicone pouring. <strong>Status.</strong> In use.</p></div>
+            </li>
+            <li>
+              <div><h3>Syringe Pouring Tool</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Custom syringe tip for precise silicone delivery. <strong>Status.</strong> In use.</p></div>
+            </li>
+            <li>
+              <div><h3>Cup Silicone Pour Test Fixture</h3><p class="meta">Stellant Systems co-op · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> Test cup to verify silicone mix ratio before production. <strong>Status.</strong> Used for process validation.</p></div>
+            </li>
+            <li>
+              <div><h3>ASME-SHPE Chapter Logo Assembly</h3><p class="meta">ASME and SHPE, Hofstra · 2026</p></div>
+              <div class="body"><p><strong>Problem.</strong> 3D-printable combined logo for chapter events. <strong>Status.</strong> Printed and displayed at chapter events.</p></div>
+            </li>
+          </ul>
+        </section>
+      </noscript>
+
+      <!-- JS-driven carousel: hidden until JS initializes it -->
+      <section class="section wrap models-viewer-section" id="models-app" aria-labelledby="viewer-heading" hidden>
+        <h2 id="viewer-heading" class="visually-hidden">3D model viewer</h2>
+
+        <!-- Two-column layout: 7fr viewport / 5fr info panel -->
+        <div class="models-layout">
+
+          <!-- LEFT: 3D Viewport -->
+          <div class="models-stage-col">
+            <div
+              class="viewer plate models-stage"
+              id="model-stage"
+              role="img"
+              aria-label="3D model viewport"
+              aria-describedby="model-title-display"
+            >
+              <!-- Canvas injected by JS -->
+            </div>
+
+            <!-- Viewport controls -->
+            <div class="viewer-controls models-controls" id="viewer-controls">
+              <button class="button" type="button" id="btn-prev" aria-label="Previous model">← Prev</button>
+              <button class="button" type="button" id="btn-next" aria-label="Next model">Next →</button>
+              <button class="button" type="button" id="btn-pause" aria-pressed="false">Pause rotation</button>
+              <button class="button" type="button" id="btn-reset" aria-label="Reset view">Reset view</button>
+            </div>
+            <p class="viewer-status" id="viewer-status" aria-live="polite"></p>
+          </div>
+
+          <!-- RIGHT: Info panel -->
+          <div class="models-info-col" id="model-info">
+            <p class="meta models-counter" id="model-counter" aria-live="polite"></p>
+            <h3 class="models-title" id="model-title-display"></h3>
+            <p class="meta models-context" id="model-context"></p>
+
+            <dl class="facts models-facts">
+              <div>
+                <dt>Problem</dt>
+                <dd id="model-problem"></dd>
+              </div>
+              <div>
+                <dt>My contribution</dt>
+                <dd id="model-contribution"></dd>
+              </div>
+            </dl>
+
+            <div id="model-specs-wrap" class="models-specs-wrap">
+              <table class="models-specs" id="model-specs" aria-label="Model specifications">
+                <thead><tr><th scope="col">Spec</th><th scope="col">Value</th></tr></thead>
+                <tbody id="model-specs-body"></tbody>
+              </table>
+            </div>
+
+            <p class="models-status" id="model-status"></p>
+            <p class="meta models-privacy">
+              Co-op models: described with manager approval. No company drawings or proprietary data shown.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dial / Circular Index Strip -->
+        <nav class="models-dial-wrap" aria-label="Model index">
+          <ol class="models-dial" id="models-dial" role="list">
+            <!-- Populated by JS -->
+          </ol>
+        </nav>
+
+        <!-- aria-live region for title changes (screen readers) -->
+        <p class="visually-hidden" id="models-live" aria-live="polite" aria-atomic="true"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <h2>Credits</h2>
+        <ul>
+          <li>Type: <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and <a href="https://github.com/adobe-fonts/source-sans">Source Sans 3</a> by Adobe, and <a href="https://fonts.google.com/specimen/Courier+Prime">Courier Prime</a> by Alan Dague-Greene, all under the SIL Open Font License, via Google Fonts.</li>
+          <li>3D viewer: <a href="https://github.com/mrdoob/three.js">three.js</a> r164, STLLoader and GLTFLoader (MIT).</li>
+          <li>Resume layout: <a href="https://github.com/jakegut/resume">jakegut/resume</a>, based on <a href="https://github.com/sb2nov/resume">sb2nov/resume</a>.</li>
+          <li>Design references, no code copied: <a href="https://github.com/TimWitzdam/astro-minimal-portfolio-template">TimWitzdam/astro-minimal-portfolio-template</a>, <a href="https://github.com/moeyua/astro-theme-typography">moeyua/astro-theme-typography</a>, <a href="https://github.com/lowinertia/free-to-engineer-portfolio-template">lowinertia/free-to-engineer-portfolio-template</a>, <a href="https://github.com/pacocoursey/paco">pacocoursey/paco</a>, <a href="https://github.com/riggraz/no-style-please">riggraz/no-style-please</a>, <a href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>. Details in <a href="https://github.com/AdrielVent/adriel-portfolio/blob/main/DESIGN.md">DESIGN.md</a>.</li>
+        </ul>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/models.js"></script>
+  </body>
+</html>

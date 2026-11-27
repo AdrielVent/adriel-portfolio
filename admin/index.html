@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Portfolio Admin | Adriel Ventura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-name" href="../index.html">Adriel Ventura</a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../models.html">Models</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap admin-main">
+      <section class="admin-head" aria-labelledby="admin-title">
+        <h1 id="admin-title">Portfolio Admin</h1>
+        <p class="lede">
+          Owner-only editor for structured portfolio data and sanitized 3D models. Every change is validated against
+          schema and data-boundary rules before serial commits to GitHub.
+        </p>
+      </section>
+
+      <section class="note admin-auth-panel" id="auth-panel" aria-labelledby="auth-heading">
+        <div class="admin-auth-row">
+          <div>
+            <h2 id="auth-heading" class="admin-panel-title">Authorization</h2>
+            <p id="auth-status" class="admin-status" aria-live="polite">Loading portfolio configuration...</p>
+            <p id="auth-detail" class="meta"></p>
+          </div>
+          <div class="admin-auth-actions">
+            <button class="button" type="button" id="btn-signin" disabled>Sign in with GitHub</button>
+            <button class="button" type="button" id="btn-signout" hidden>Sign out</button>
+            <button class="button" type="button" id="btn-mock-reset" hidden>Reset mock session</button>
+          </div>
+        </div>
+        <p id="tbc-notice" class="admin-notice" hidden></p>
+        <p id="lock-notice" class="admin-notice" hidden></p>
+      </section>
+
+      <section id="lint-summary" class="admin-lint-summary" aria-live="polite" hidden></section>
+
+      <nav class="admin-tabs-wrap" aria-label="Editor sections">
+        <div class="admin-tabs" role="tablist" id="admin-tablist">
+          <button class="button admin-tab" type="button" role="tab" id="tab-projects" aria-selected="true" aria-controls="editor-mount" data-tab="projects">Projects</button>
+          <button class="button admin-tab" type="button" role="tab" id="tab-models" aria-selected="false" aria-controls="editor-mount" data-tab="models">3D Models</button>
+          <button class="button admin-tab" type="button" role="tab" id="tab-experience" aria-selected="false" aria-controls="editor-mount" data-tab="experience">Experience</button>
+          <button class="button admin-tab" type="button" role="tab" id="tab-press" aria-selected="false" aria-controls="editor-mount" data-tab="press">Press</button>
+          <button class="button admin-tab" type="button" role="tab" id="tab-site" aria-selected="false" aria-controls="editor-mount" data-tab="site">Site &amp; Links</button>
+          <button class="button admin-tab" type="button" role="tab" id="tab-commit" aria-selected="false" aria-controls="editor-mount" data-tab="commit">Review Queue (0)</button>
+        </div>
+        <div class="admin-bar-actions">
+          <span id="quick-commit-status" class="meta" aria-live="polite"></span>
+          <button class="button" type="button" id="btn-quick-commit" disabled>Save &amp; Commit</button>
+        </div>
+      </nav>
+
+      <section id="editor-mount" class="admin-editor" role="tabpanel" aria-labelledby="tab-projects" tabindex="0"></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p><a href="../index.html">&larr; Back to portfolio</a></p>
+      </div>
+    </footer>
+
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "adriel-portfolio-oauth-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stateless Cloudflare Worker OAuth token exchange proxy for adriel-portfolio /admin/.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/index.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

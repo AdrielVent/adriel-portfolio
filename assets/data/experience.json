@@ -1,0 +1,128 @@
+{
+  "experience": [
+    {
+      "id": "stellant",
+      "order": 1,
+      "org": "Stellant Systems, Inc. (RF and microwave amplifier hardware)",
+      "role": "Mechanical Engineering Co-op (Full-Time)",
+      "location": "Melville, NY",
+      "dates": "May 2026 – Present",
+      "bullets": [
+        "Cut predicted junction temperature of a power-supply module 57.6 °C (122.5 to 64.9 °C) in ANSYS Mechanical steady-state thermal FEA by adding a gap pad; traded aluminum vs. copper heat spreaders and recommended aluminum for mass and cost.",
+        "Root-caused a non-physical 600 °C hot spot to a missing thermal interface material (TIM) layer; revised contact conductance from vendor data and re-meshed thin PCB layers, bringing the prediction within 2–3 °C of test thermocouple readings.",
+        "Designed a multi-diameter O-ring cutting fixture in Autodesk Inventor over four FDM iterations using Geometric Dimensioning and Tolerancing (GD&T, ASME Y14.5) and tolerance stack-up, documented in my first Engineering Change Notice (ECN) and now in shop-floor use; took a second mounting-plate fixture to manufacturing in 3 weeks.",
+        "Redesigning a silicone gasket for an altitude-chamber vacuum leak test of a hermetic unit (groove-matched profile, GD&T drawings, 3D-printed mold, degassed injection-molded liquid silicone; leak test pending); iterated a 3D-printed silicone syringe-pouring fixture through three versions and updated compressor re-machining drawings.",
+        "Automated CAD/FEA data: built an Inventor-to-Excel macro for Bill of Materials (BOM) checks and cost roll-ups, wrote an IronPython material-mapping script for a 327-body ANSYS model, and converted a legacy AutoCAD drawing set to Inventor in 1 day vs. a 3-day estimate (8 clamp sizes).",
+        "Create and audit BOMs under configuration control, author Engineering Change Notices (ECNs) routed through formal engineering review, and review thermal-interface drawings for plating compatibility and galvanic-corrosion risk."
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "id": "aiaa",
+      "order": 1,
+      "org": "American Institute of Aeronautics and Astronautics (AIAA), Hofstra Student Branch",
+      "role": "Co-President & Reactivation Lead",
+      "location": "Hempstead, NY",
+      "dates": "Aug. 2026 – Present",
+      "bullets": [
+        "Reversed a provisional decharter by meeting AIAA's membership, faculty-advisor, and annual-report requirements; AIAA confirmed the branch officially chartered (Nov. 2026).",
+        "Grew the branch from a 16-student interest list to 38 students in under three months.",
+        "Raised $5,000 from two industry sponsors (Academy of Aviation, East/West Industries) to send 5 members to AIAA SciTech 2027.",
+        "Student contact for Hofstra's AIAA Design/Build/Fly 2026–27 entry (submitted team roster and proposal); co-hosted an AIAA Long Island Section campus lecture and drafted two AIAA Classroom Grant proposals submitted by a Long Island Earth and Space Science teacher."
+      ]
+    },
+    {
+      "id": "shpe",
+      "order": 2,
+      "org": "Society of Hispanic Professional Engineers (SHPE), Hofstra Chapter",
+      "role": "President & Chapter Revival Lead",
+      "location": "Hempstead, NY",
+      "dates": "May 2026 – Present",
+      "bullets": [
+        "Restarted a chapter dormant for 18+ years: recruited the executive board, wrote the constitution, filed for university recognition, organized the first Meet the Board event (Oct. 7, 2026), and grew to 47 members.",
+        "Represented Hofstra as its only attendee at SHPE National Convention 2026; co-hosted a four-club engineering mixer with ASME, CSA, and SWE and set up a resume workshop.",
+        "Chapter Winner ($300), SHPE National's SHPE's Got Talent (Oct. 2026)."
+      ]
+    },
+    {
+      "id": "asme",
+      "order": 3,
+      "org": "American Society of Mechanical Engineers (ASME), Hofstra Section",
+      "role": "Co-President (prev. Recruitment Chair)",
+      "location": "Hempstead, NY",
+      "dates": "May 2025 – Present",
+      "bullets": [
+        "Sole Hofstra delegate to ASME Student Leadership Weekend (Philadelphia, Oct. 2026); presented ideas for rebuilding the section.",
+        "Secured donated outreach materials from Mouser Electronics and PCB samples from LPKF.",
+        "Recruited an interim faculty advisor, ran steam-turbine and catapult builds, and co-planned the Night Shift Engineering Mixer with SHPE, SWE, and CSA within a $160 SGA catering budget."
+      ]
+    },
+    {
+      "id": "cstep",
+      "order": 4,
+      "org": "CSTEP Community Board, Hofstra University",
+      "role": "Co-President",
+      "location": "Hempstead, NY",
+      "dates": "Sep. 2025 – Jun. 2026",
+      "bullets": [
+        "Co-directed the CSTEP student community board at Hofstra University (CSTEP Scholar)."
+      ]
+    }
+  ],
+  "education": {
+    "school": "Hofstra University",
+    "location": "Hempstead, NY",
+    "degree": "B.S. Mechanical Engineering, Aerospace Concentration",
+    "expected": "Dec. 2027",
+    "coursework": [
+      "Heat Transfer",
+      "Thermodynamics",
+      "Fluid Mechanics",
+      "Computer-Aided Design",
+      "Engineering Materials"
+    ],
+    "honors": [
+      "Rabinowitz Honors College",
+      "Provost Scholar",
+      "CSTEP Scholar",
+      "Nominee, Aviation Week Network 20 Twenties, Class of 2027 (university nomination, Oct. 2026)",
+      "3rd Place ($150), Hofstra Lion's Den Pitch Competition (Nov. 2026)",
+      "Siemens Student Ambassador (Nov. 2026)",
+      "Selected 1 of 27 students for the live SHPE × Rockwell Automation AI Hackathon (Oct. 2026)",
+      "Chapter Winner ($300), SHPE National's SHPE's Got Talent (Oct. 2026)"
+    ]
+  },
+  "certificates": [
+    {
+      "id": "lean-six-sigma",
+      "title": "Lean Six Sigma White Belt",
+      "date": "Nov. 16, 2025",
+      "href": "assets/certificates/lean-six-sigma-white-belt.jpeg"
+    },
+    {
+      "id": "asme-ethics",
+      "title": "ASME Ethics for Engineers (3.0 PDH)",
+      "date": "Jan. 8, 2026",
+      "href": "assets/certificates/asme-ethics-for-engineers.jpeg"
+    },
+    {
+      "id": "black-hawk",
+      "title": "Forage job simulation: 1109th TASMG Black Hawk Maintenance",
+      "date": "Jan. 26, 2026",
+      "href": "assets/certificates/1109th-tasmg-black-hawk-certificate.pdf"
+    },
+    {
+      "id": "siemens-mobility",
+      "title": "Forage job simulation: Siemens Mobility Industrial Engineer",
+      "date": "2026",
+      "href": ""
+    },
+    {
+      "id": "pmi-kickoff",
+      "title": "PMI Kickoff: Predictive Project Management",
+      "date": "2026",
+      "href": ""
+    }
+  ]
+}

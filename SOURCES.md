@@ -158,3 +158,28 @@ Every number on that page comes from my ENGG 114 report, [`heat-sink-thermal-des
 | 3D-printed demonstration models, not thermal validation | §I.D |
 | Test plan and $376.92 test equipment | §VIII.B Table 10, §IX |
 | Individual work | Declaration of Original Work, page 1 |
+
+## Intern portfolio deep-dive research (off-repo reference files)
+
+These files informed the portfolio's framing decisions and the Muon Space application materials.
+They are stored locally and are **not** published on GitHub Pages.
+
+| File | Purpose |
+|---|---|
+| `/Users/vnua/Desktop/DATA/_Archive/Code & Text/internship_report_2027.md` | Deep-dive profile of Muon Space thermal engineering interns; LinkedIn-sourced data, evidence tiers A/B/C |
+| `/Users/vnua/Desktop/DATA/_Archive/Code & Text/Cite the perfect aerospace_mechanical engineering s.md` | Reference portfolio structures for aerospace/mechanical engineering students |
+| `Portfolio_Deep_Research_Master.xlsx` (Desktop) | Full master BOM of portfolio references; sheets: Executive\_Summary, Full\_Master\_BOM, Params\_And\_Drawings |
+
+Evidence tiers used in those files:
+- **A** = exact match (Thermal Engineering Intern at Muon Space, LinkedIn profile seen)
+- **B** = Muon thermal team, non-intern (engineer/manager)
+- **C** = Muon intern, other team
+
+Key findings used in resume/cover-letter framing:
+- Jonathan Krueger (A): Three prior internships before Muon; LN₂ cryogenic valve qualification pre-Muon (FIRSTHAND)
+- Will A. (B, manager): "Thermal Desktop, ANSYS, Python, MATLAB"; "system & component test planning and execution" (FIRSTHAND)
+- Sumukh Bharadwaj (B): "Thermal Desktop (SINDA/FLUINT), ANSYS"; "TVAC Test Planning/Execution" (FIRSTHAND)
+- Alexander Chipps (B): "Thermal Desktop modeling and analysis" (FIRSTHAND)
+
+No private contact details, guessed emails, or non-public data were collected.
+Outreach drafts are drafts only — not sent.

@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "adriel-portfolio-oauth-proxy",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-25",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://adrielvent.github.io,http://127.0.0.1:4173,http://localhost:4173,http://127.0.0.1:8080,http://localhost:8080,http://127.0.0.1:8000,http://localhost:8000",
+    "ALLOWED_REDIRECT_PREFIXES": "https://adrielvent.github.io/adriel-portfolio/admin/,http://127.0.0.1:4173/admin/,http://localhost:4173/admin/,http://127.0.0.1:8080/admin/,http://localhost:8080/admin/,http://127.0.0.1:8000/admin/,http://localhost:8000/admin/"
+  },
+  "secrets": {
+    "required": [
+      "GITHUB_CLIENT_ID",
+      "GITHUB_CLIENT_SECRET"
+    ]
+  }
+}

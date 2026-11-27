@@ -1,0 +1,95 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+local_backend: true
+
+collections:
+  - name: models
+    label: 3D Models
+    label_singular: Model
+    folder: ""
+    format: json
+    description: "Edit the 3D model library entries (assets/data/models.json)."
+    files:
+      - name: models_data
+        label: Models Library
+        file: assets/data/models.json
+        fields:
+          - label: Models
+            name: models
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Filename (GLB), name: file, widget: string }
+              - { label: Context / dates, name: context, widget: string }
+              - { label: Problem statement, name: problem, widget: text }
+              - { label: Contribution, name: contribution, widget: text }
+              - { label: Status, name: status, widget: string }
+              - label: Specs
+                name: specs
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+
+  - name: projects
+    label: Projects (Work section)
+    label_singular: Project
+    description: "Edit the work-section project cards (assets/data/projects.json)."
+    files:
+      - name: projects_data
+        label: Projects
+        file: assets/data/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Featured, name: featured, widget: boolean, default: false }
+              - { label: Slug / URL, name: slug, widget: string }
+              - { label: Short description, name: description, widget: text }
+              - label: Tags
+                name: tags
+                widget: list
+                field: { label: Tag, name: tag, widget: string }
+
+  - name: press
+    label: Press & News
+    label_singular: Press entry
+    description: "Edit press/news mentions (assets/data/press.json)."
+    files:
+      - name: press_data
+        label: Press
+        file: assets/data/press.json
+        fields:
+          - label: Press items
+            name: press
+            widget: list
+            fields:
+              - { label: Date (ISO), name: date, widget: string }
+              - { label: Outlet, name: outlet, widget: string }
+              - { label: Headline, name: headline, widget: string }
+              - { label: URL, name: url, widget: string }
+
+  - name: site
+    label: Site settings
+    description: "Edit the lede, about text, and contact links (assets/data/site.json)."
+    files:
+      - name: site_data
+        label: Site
+        file: assets/data/site.json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Lede (one-sentence pitch), name: lede, widget: text }
+          - { label: About paragraph, name: about, widget: text }
+          - { label: Email, name: email, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string }
+          - { label: GitHub URL, name: github, widget: string }
+          - { label: Resume PDF path, name: resume_pdf, widget: string }

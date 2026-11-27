@@ -1,0 +1,36 @@
+{
+  "owner": {
+    "name": "Adriel Ventura",
+    "location": "Long Island, NY",
+    "citizenship": "U.S. Citizen",
+    "availability": "Seeking Summer 2027 internships in thermal analysis, mechanical design, manufacturing, and test.",
+    "headline": "Mechanical engineering student (aerospace) focused on thermal analysis, fixtures, and CAD.",
+    "bio": "Mechanical engineering student (aerospace concentration, Dec. 2027) on a full-time co-op at Stellant Systems since May 2026 (ANSYS thermal FEA, Inventor fixture and seal design, GD&T, BOMs, ECNs). Outside work: Co-President of AIAA and ASME and President of SHPE at Hofstra University, plus news stories for The Hofstra Chronicle."
+  },
+  "nav": [
+    { "label": "Work", "href": "index.html#work" },
+    { "label": "Models", "href": "models.html" },
+    { "label": "Experience", "href": "index.html#experience" },
+    { "label": "Resume", "href": "assets/resume/Adriel_Ventura_Resume.pdf" },
+    { "label": "Contact", "href": "index.html#contact" }
+  ],
+  "resume": {
+    "pdf": "assets/resume/Adriel_Ventura_Resume.pdf",
+    "updated": "Nov. 2026",
+    "pages": 1
+  },
+  "contacts": [
+    { "label": "Email", "value": "adrielvent5@gmail.com", "href": "mailto:adrielvent5@gmail.com" },
+    { "label": "Resume", "value": "One page, PDF, updated Nov. 2026", "href": "assets/resume/Adriel_Ventura_Resume.pdf" },
+    { "label": "LinkedIn", "value": "linkedin.com/in/adrielvent", "href": "https://www.linkedin.com/in/adrielvent/" },
+    { "label": "GitHub", "value": "github.com/AdrielVent", "href": "https://github.com/AdrielVent" }
+  ],
+  "oauth": {
+    "githubOwner": "AdrielVent",
+    "githubRepo": "adriel-portfolio",
+    "branch": "main",
+    "clientId": "",
+    "proxyUrl": "",
+    "allowedLogin": "AdrielVent"
+  }
+}

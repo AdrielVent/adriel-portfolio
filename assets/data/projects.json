@@ -1,0 +1,169 @@
+{
+  "featured": {
+    "id": "dfma-heatsink",
+    "title": "Heat sink for a 100 W CPU",
+    "eyebrow": "ENGG 114 Heat Transfer, Hofstra · Individual project · Spring 2026",
+    "summary": "Keep a 50.8 mm CPU at or below 85 °C while dissipating 100 W in 25 °C air on existing mounts. Sized a 15-fin Al 6061-T6 heat sink predicted at 69.85 °C (0.4485 °C/W) in MATLAB and 69.775 °C max in Fusion 360; cut mass 27.5% vs. 17-fin baseline (75.3 to 54.6 g). Bench test pending.",
+    "metrics": [
+      { "label": "Objective", "value": "≤ 85 °C limit (≤ 70 °C target) at 100 W, 25 °C air" },
+      { "label": "My contribution", "value": "Concept trade, MATLAB model, CAD, Fusion 360 study, drawings, 26-page report" },
+      { "label": "Result", "value": "69.85 °C (MATLAB) / 69.775 °C (Fusion 360); 27.5% mass cut; not bench tested" }
+    ],
+    "href": "heat-sink.html",
+    "modelId": "dfma-heatsink"
+  },
+  "projects": [
+    {
+      "id": "thermal-troubleshooting",
+      "order": 1,
+      "group": "thermal",
+      "title": "Thermal model troubleshooting",
+      "dates": "May 2026 – Present",
+      "context": "Stellant Systems co-op · ANSYS Mechanical · IronPython",
+      "summary": "Root-caused a non-physical 600 °C hot spot in an ANSYS Mechanical steady-state thermal model to a missing thermal interface material (TIM) layer; revised contact conductance from vendor data and re-meshed thin PCB/copper layers (body sizing, sweep, MultiZone), bringing predictions within 2–3 °C of test thermocouple readings. On a power-supply module, cut predicted junction temperature 57.6 °C (122.5 to 64.9 °C) with a gap pad, traded Al vs. Cu heat spreaders (recommending Al for mass and cost), and wrote an IronPython material-mapping script for a 327-body model. Described in words only; company drawings and data are proprietary.",
+      "image": "",
+      "imageAlt": "No public CAD image; proprietary co-op thermal model described in words only",
+      "href": "thermal-troubleshooting.html",
+      "tags": ["ANSYS Mechanical", "TIM / Contact Conductance", "IronPython", "Trade Study"]
+    },
+    {
+      "id": "dfma-heatsink",
+      "order": 2,
+      "group": "thermal",
+      "title": "Heat sink for a 100 W CPU",
+      "dates": "Spring 2026",
+      "context": "ENGG 114 Heat Transfer, Hofstra · Individual project",
+      "summary": "Designed a forced-convection 15-fin Al 6061-T6 heat sink for a 50.8 × 50.8 mm 100 W CPU (85 °C limit, 70 °C target, 25 °C ambient). MATLAB Nusselt resistance model predicted 69.85 °C (0.4485 °C/W), cross-checked against Fusion 360 steady-state FEA (69.775 °C max). Selected 15 fins over 17 to open fin spacing from 2.1125 mm to 2.557 mm and cut mass 27.5% (75.3 g to 54.6 g); authored a $376.92 Type-K thermocouple bench-test plan (experimental testing pending).",
+      "image": "assets/projects/heat-sink-render-top.png",
+      "imageAlt": "CAD render of the 15-fin aluminum heat sink",
+      "href": "heat-sink.html",
+      "tags": ["MATLAB", "Fusion 360", "SOLIDWORKS", "DFMA"]
+    },
+    {
+      "id": "lunar-rover-thermal",
+      "order": 3,
+      "group": "thermal",
+      "title": "Lunar rover thermal control",
+      "dates": "Sep. 2026 – Present",
+      "context": "NASA L'SPACE Mission Concept Academy · Thermal Subsystem, Team 6 (training program)",
+      "summary": "Wrote the Mission Concept Review mission statement (scored 24/25, zero RFAs), Mission Operations ConOps, and 10 thermal control requirements (including a 480-hour lunar-night survival case), revised to be solution-neutral and verifiable after SRR-RFA-04. Owned 4 of 16 mission risks and flagged a heater energy shortfall (8,064 Wh worst case vs. 7,124 Wh battery; bounded across 4,987 / 6,072 / 8,064 / ~7,147 Wh cases). Planned MLI (~15 weeks) and heater (~9 weeks) lead times from public NASA contract data, co-built the $97K thermal budget, and drew the SRR thermal zoning schematic.",
+      "image": "",
+      "imageAlt": "No public schematic image; NASA L'SPACE Team 6 thermal requirements and energy-bounding case study",
+      "href": "lunar-rover-thermal.html",
+      "tags": ["Thermal Requirements", "Risk R7 Bounding", "ConOps", "Procurement"]
+    },
+    {
+      "id": "o-ring-cutting-fixture",
+      "order": 4,
+      "group": "mechanical",
+      "title": "Multi-diameter O-ring cutting fixture & silicone seal tooling",
+      "dates": "2026",
+      "context": "Stellant Systems co-op · Autodesk Inventor · GD&T · FDM",
+      "summary": "Designed a multi-diameter O-ring cutting fixture in Autodesk Inventor across four FDM iterations with direct technician feedback, ASME Y14.5 GD&T, and tolerance stack-up analysis; documented the design in a first ECN (fixture now in shop-floor use). Also took a second mounting-plate fixture to manufacturing in 3 weeks, iterated a 3D-printed silicone syringe-pouring fixture through three versions, and designed a groove-matched silicone gasket and 3D-printed mold for an altitude-chamber vacuum leak test (leak test pending). Sanitized CAD models are viewable in the 3D Models Library.",
+      "image": "",
+      "imageAlt": "Sanitized 3D CAD assemblies for the O-ring cutting fixture and silicone seal tooling are viewable in the Models Library",
+      "href": "models.html",
+      "tags": ["Autodesk Inventor", "GD&T (ASME Y14.5)", "Tolerance Stack-Up", "FDM Prototyping", "Silicone Molding"]
+    },
+    {
+      "id": "models-library",
+      "order": 5,
+      "group": "mechanical",
+      "title": "Interactive 3D Models Library",
+      "dates": "2026",
+      "context": "Three.js r164 · STL & glTF/GLB showcase",
+      "summary": "Rotating circular and swipeable 3D showcase presenting 12 engineering CAD models: the DFMA 15-fin CPU heat sink (.stl), 10 supervisor-cleared and metadata-sanitized co-op tooling, molding, and leak-test models (.glb), and the Hofstra ASME/SHPE outreach plaque (.glb).",
+      "image": "",
+      "imageAlt": "Interactive Three.js r164 circular showcase for 12 sanitized STL and GLB CAD models",
+      "href": "models.html",
+      "tags": ["Three.js", "glTF / GLB", "STL", "CAD Showcase"]
+    },
+    {
+      "id": "drawings-nx-assembly",
+      "order": 6,
+      "group": "mechanical",
+      "title": "GD&T drawings and Siemens NX clamp assembly",
+      "dates": "Jan. – May 2024",
+      "context": "Coursework · ASME Y14.5 · Siemens NX",
+      "summary": "Produced ASME Y14.5 GD&T engineering drawings of a shaft collar and an L-bracket. Led a six-part clamp assembly in Siemens NX, resolved two part interferences, and 3D-printed components for a water-pump prototype.",
+      "image": "assets/projects/gdt-shaft-collar-drawing.jpg",
+      "imageAlt": "ASME Y14.5 GD&T engineering drawing of a shaft collar",
+      "href": "assets/projects/gdt-shaft-collar-drawing.jpg",
+      "links": [
+        { "label": "Shaft collar drawing", "href": "assets/projects/gdt-shaft-collar-drawing.jpg" },
+        { "label": "L-bracket drawing", "href": "assets/projects/gdt-l-bracket-drawing.jpg" }
+      ],
+      "tags": ["Siemens NX", "ASME Y14.5 GD&T", "Assembly Interference"]
+    },
+    {
+      "id": "structural-fea",
+      "order": 7,
+      "group": "mechanical",
+      "title": "Structural static FEA",
+      "dates": "Coursework",
+      "context": "SOLIDWORKS Simulation · Linear static FEA",
+      "summary": "Conducted linear static finite element analysis on a four-leg table (0.014 mm maximum displacement under distributed top load), an L-bracket, and a shaft collar, evaluating stress concentrations, displacement distributions, and factor of safety.",
+      "image": "assets/projects/fea-table-displacement.jpg",
+      "imageAlt": "SOLIDWORKS displacement plot of a four-leg table under a distributed load; legend maximum 0.014 mm",
+      "href": "assets/projects/fea-table-displacement.jpg",
+      "links": [
+        { "label": "Table displacement (0.014 mm max)", "href": "assets/projects/fea-table-displacement.jpg" },
+        { "label": "L-bracket static stress", "href": "assets/projects/fea-l-bracket-static-stress.jpg" },
+        { "label": "Shaft collar stress", "href": "assets/projects/fea-shaft-collar-stress.jpg" }
+      ],
+      "tags": ["SOLIDWORKS FEA", "Static Stress", "Displacement"]
+    },
+    {
+      "id": "confirm-ai-triage",
+      "order": 8,
+      "group": "software",
+      "title": "CONFIRM: evidence-gated troubleshooting",
+      "dates": "Oct. 2026",
+      "context": "Rockwell Automation × SHPE AI Hackathon · with Miguel Gutierrez",
+      "summary": "Voice-driven support-triage concept (edge SLM + cloud LLM) targeting 24–30% repeat-contact reduction by testing one hypothesis at a time: ≥90% evidence match proceeds, 60–90% warns the technician, and under 60% hands off to a specialist. Selected 1 of 27 students for the live round in Indianapolis; semifinalist.",
+      "image": "",
+      "imageAlt": "No image; CONFIRM evidence-gated support-triage architecture summary",
+      "href": "",
+      "tags": ["Triage Architecture", "Confidence Gating", "Hackathon Semifinalist"]
+    },
+    {
+      "id": "vnua-connect",
+      "order": 9,
+      "group": "software",
+      "title": "Vnua-Connect: student club operations platform",
+      "dates": "2026 – Spring 2027 Build",
+      "context": "Founder · 3rd Place ($150), Hofstra Lion's Den Pitch Competition (Nov. 2026)",
+      "summary": "Free, student-run app ('Giving clubs a chance') helping emerging Hofstra clubs move from interest group to university recognition (4 officers + 15 confirmed members tracker) and operate weekly without Excel, Google Forms, or GroupMe. Spring 2027 launch build adds an e-board hub ('My week', role-assigned recurring duties, Co-Presidents, role handoff binders, event volunteer slots with waitlist, short forms, agenda/minutes-to-tasks, Money ledger with CSV export, recognition roster CSV), non-AI behavioral features highlighted by Lion's Den judges (First-timer kit, greeter on duty, opt-in come-with-me buddy, arrival reminders, consented shout-outs, printable involvement record), Web Push queue with quiet hours, zero-build native ES modules, strict CSP, and Supabase Postgres RLS with SECURITY DEFINER RPCs.",
+      "image": "",
+      "imageAlt": "No image; Vnua-Connect Spring 2027 launch build software overview",
+      "href": "https://github.com/AdrielVent/Vnua-Connect",
+      "tags": ["ES Modules", "Supabase RLS", "Web Push", "Lion's Den 3rd Place"]
+    },
+    {
+      "id": "vnua-lock",
+      "order": 10,
+      "group": "software",
+      "title": "VNUA-Lock: engineering voice-to-work-log iOS app",
+      "dates": "Nov. 2026",
+      "context": "Founder · Pitched at NGEN SpaceTech Conference (Nov. 2026)",
+      "summary": "iPhone application converting engineers' daily voice notes into structured, timestamped technical work logs to preserve design rationale, test observations, and iteration history.",
+      "image": "",
+      "imageAlt": "No image; VNUA-Lock iOS voice-to-work-log application overview",
+      "href": "",
+      "tags": ["iOS", "Voice Work Logs", "NGEN SpaceTech"]
+    },
+    {
+      "id": "vr-pump-assembly",
+      "order": 11,
+      "group": "mechanical",
+      "title": "VR pump assembly check",
+      "dates": "Jan. 2026",
+      "context": "Unity 2022.3 · XR Interaction Toolkit · Android build",
+      "summary": "Configured XR socket interactors (Socket_Impeller, Socket_Cover) with layer masks so each pump component seats only in its matching assembly socket.",
+      "image": "assets/projects/unity-xr-assembly-verification.jpg",
+      "imageAlt": "Unity 2022.3 editor screenshot showing XR socket interactors for pump assembly verification",
+      "href": "assets/projects/unity-xr-assembly-verification.jpg",
+      "tags": ["Unity 2022.3", "XR Interaction Toolkit", "Assembly Verification"]
+    }
+  ]
+}
