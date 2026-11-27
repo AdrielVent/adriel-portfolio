@@ -93,9 +93,11 @@
 
 /* ── Dial / Circular Index Strip ────────────────────────────────────────── */
 .models-dial-wrap {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   border-top: 1px solid var(--rule-strong);
-  padding-top: 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0;
   overflow-x: auto;
 }
 

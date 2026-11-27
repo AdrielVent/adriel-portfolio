@@ -114,6 +114,13 @@
       <section class="section wrap models-viewer-section" id="models-app" aria-labelledby="viewer-heading" hidden>
         <h2 id="viewer-heading" class="visually-hidden">3D model viewer</h2>
 
+        <!-- Dial / Circular Index Strip placed at the top for immediate access -->
+        <nav class="models-dial-wrap" aria-label="Model index">
+          <ol class="models-dial" id="models-dial" role="list">
+            <!-- Populated by JS -->
+          </ol>
+        </nav>
+
         <!-- Two-column layout: 7fr viewport / 5fr info panel -->
         <div class="models-layout">
 
@@ -170,13 +177,6 @@
           </div>
         </div>
 
-        <!-- Dial / Circular Index Strip -->
-        <nav class="models-dial-wrap" aria-label="Model index">
-          <ol class="models-dial" id="models-dial" role="list">
-            <!-- Populated by JS -->
-          </ol>
-        </nav>
-
         <!-- aria-live region for title changes (screen readers) -->
         <p class="visually-hidden" id="models-live" aria-live="polite" aria-atomic="true"></p>
       </section>
@@ -194,6 +194,6 @@
       </div>
     </footer>
 
-    <script type="module" src="assets/js/models.js"></script>
+    <script type="module" src="assets/js/models.js?v=20261127d"></script>
   </body>
 </html>

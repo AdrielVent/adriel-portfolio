@@ -56,7 +56,7 @@ init();
 
 async function init() {
   try {
-    const res = await fetch("assets/data/models.json");
+    const res = await fetch("assets/data/models.json?v=20261127d");
     if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
     models = Array.isArray(data) ? data : (data.models || []);
