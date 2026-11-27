@@ -58,7 +58,8 @@ async function init() {
   try {
     const res = await fetch("assets/data/models.json");
     if (!res.ok) throw new Error("HTTP " + res.status);
-    models = await res.json();
+    const data = await res.json();
+    models = Array.isArray(data) ? data : (data.models || []);
   } catch (e) {
     if (statusEl) statusEl.textContent = "Could not load model list.";
     return;
@@ -243,7 +244,8 @@ async function loadModel(idx) {
   stopSpin();
 
   try {
-    const group = await loadFile(m.file, m.type);
+    const fileType = m.format || m.type || (m.file && m.file.endsWith(".stl") ? "stl" : "glb");
+    const group = await loadFile(m.file, fileType);
     meshGroup = group;
 
     // Centre and normalise
@@ -295,11 +297,11 @@ function loadFile(src, type) {
 // ── Info panel ────────────────────────────────────────────────────────────
 function updateInfo(m, idx) {
   if (counter)   counter.textContent   = (idx + 1) + " / " + models.length;
-  if (titleEl)   titleEl.textContent   = m.title;
-  if (ctxEl)     ctxEl.textContent     = m.context;
-  if (probEl)    probEl.textContent    = m.problem;
-  if (contEl)    contEl.textContent    = m.contribution;
-  if (statusTxt) statusTxt.textContent = m.status;
+  if (titleEl)   titleEl.textContent   = m.title || "";
+  if (ctxEl)     ctxEl.textContent     = m.context || (m.category ? (m.category + (m.date ? " · " + m.date : "")) : (m.date || ""));
+  if (probEl)    probEl.textContent    = m.problem || m.summary || "";
+  if (contEl)    contEl.textContent    = m.contribution || m.sourceNote || "";
+  if (statusTxt) statusTxt.textContent = m.status || (Array.isArray(m.specs) ? (m.specs.find(function(s) { return s.label === "Status" || s.key === "Status"; })?.value || "") : "");
 
   if (specsBody) {
     specsBody.innerHTML = "";
@@ -308,9 +310,9 @@ function updateInfo(m, idx) {
         const tr = document.createElement("tr");
         const th = document.createElement("th");
         th.scope = "row";
-        th.textContent = s.key;
+        th.textContent = s.label || s.key || "";
         const td = document.createElement("td");
-        td.textContent = s.value;
+        td.textContent = s.value || "";
         tr.append(th, td);
         specsBody.appendChild(tr);
       });
